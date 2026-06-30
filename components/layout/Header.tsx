@@ -11,30 +11,45 @@ import { navItems, siteConfig } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return isDesktop;
+}
+
 export function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useIsDesktop();
 
   const { scrollY } = useScroll();
 
-  // Imagen nativa 260px → al 100% tamaño grande inicial, al 0.55 se ve ~143px (header)
-  const rawScale = useTransform(scrollY, [0, 160], isHome ? [1, 0.55] : [0.55, 0.55]);
-  const rawY     = useTransform(scrollY, [0, 160], isHome ? [36, 10]  : [10, 10]);
-  const rawX     = useTransform(scrollY, [0, 160], isHome ? [-68, 0]  : [0, 0]);
+  // Large logo animation only on desktop (lg+) to avoid mobile overflow
+  const animEnabled = isHome && isDesktop;
+
+  const rawScale = useTransform(scrollY, [0, 160], animEnabled ? [1, 0.55] : [0.55, 0.55]);
+  const rawY     = useTransform(scrollY, [0, 160], animEnabled ? [36, 10]  : [10, 10]);
+  const rawX     = useTransform(scrollY, [0, 160], animEnabled ? [-68, 0]  : [0, 0]);
 
   const logoScale = useSpring(rawScale, { stiffness: 150, damping: 25 });
   const logoY     = useSpring(rawY,     { stiffness: 150, damping: 25 });
   const logoX     = useSpring(rawX,     { stiffness: 150, damping: 25 });
 
   // Texto: escala contraria al ícono → visualmente siempre igual, pero pequeño cuando ícono es grande
-  const rawTextScale = useTransform(scrollY, [0, 160], isHome ? [0.55, 1.0] : [1.0, 1.0]);
+  const rawTextScale = useTransform(scrollY, [0, 160], animEnabled ? [0.55, 1.0] : [1.0, 1.0]);
   const textScale    = useSpring(rawTextScale, { stiffness: 150, damping: 25 });
 
   // Nav y botón se desplazan a la derecha cuando el logo está grande
-  const rawNavX = useTransform(scrollY, [0, 160], isHome ? [32, 0] : [0, 0]);
+  const rawNavX = useTransform(scrollY, [0, 160], animEnabled ? [32, 0] : [0, 0]);
   const navX    = useSpring(rawNavX, { stiffness: 150, damping: 25 });
 
   useEffect(() => {
@@ -174,7 +189,7 @@ export function Header() {
             aria-expanded={mobileOpen}
             style={transparent ? { color: "white", borderColor: "rgba(255,255,255,0.3)" } : undefined}
             className={cn(
-              "focus-ring flex h-11 w-11 items-center justify-center rounded-md border transition-colors duration-300 lg:hidden",
+              "focus-ring relative z-50 flex h-11 w-11 items-center justify-center rounded-md border transition-colors duration-300 lg:hidden",
               !transparent && "border-[#c8ddf0] text-[#1b6cb6]",
             )}
           >
