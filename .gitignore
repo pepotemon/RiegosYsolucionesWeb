@@ -14,3 +14,8 @@ out/
 .DS_Store
 *.pem
 Thumbs.db
+
+# archivos internos
+AGENTS.md
+docs-obsidian/
+public/logo\ solo.png
