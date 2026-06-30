@@ -82,7 +82,7 @@ export function Header() {
               style={{ overflow: "visible" }}
             >
               {/* Móvil: logo compacto sin transforms — tamaño real, sin overflow */}
-              <div className="mt-2 flex items-center gap-0 lg:hidden">
+              <div className="mt-5 flex items-center gap-0 lg:hidden">
                 <Image
                   src="/logo-icon.png"
                   alt="Riegos y Soluciones Agrícolas del Norte"
