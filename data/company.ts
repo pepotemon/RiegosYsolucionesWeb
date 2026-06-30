@@ -8,7 +8,7 @@ Este liderazgo técnico se complementa con nuestra área de ejecución en campo,
 Así, fusionamos el dinamismo y la formalidad de una empresa joven con la madurez de un equipo que suma más de cuarenta años de experiencia combinada, ofreciendo al sector soluciones de ingeniería con la máxima garantía de calidad, eficiencia y confianza.`,
 
   experience:
-    "Más de 40 años de experiencia técnica combinada: ingeniería con 8 años en diseño y supervisión de proyectos, y operación en campo con 35 años de especialización práctica ininterrumpida.",
+    "Nuestro equipo suma más de 40 años de experiencia técnica combinada. El área de ingeniería acumula 8 años en diseño, supervisión y optimización de proyectos; el área de campo, 35 años de operación especializada ininterrumpida.",
 
   coverage: "Nacional e internacional.",
 
