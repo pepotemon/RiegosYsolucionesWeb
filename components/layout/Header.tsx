@@ -7,21 +7,9 @@ import Image from "next/image";
 import { X, Menu, PhoneCall } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { navItems, siteConfig } from "@/lib/site";
+import { navItems } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-
-function useIsDesktop() {
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
-    setIsDesktop(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-  return isDesktop;
-}
 
 export function Header() {
   const pathname = usePathname();
@@ -29,27 +17,22 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const isDesktop = useIsDesktop();
 
   const { scrollY } = useScroll();
 
-  // Large logo animation only on desktop (lg+) to avoid mobile overflow
-  const animEnabled = isHome && isDesktop;
-
-  const rawScale = useTransform(scrollY, [0, 160], animEnabled ? [1, 0.55] : [1.0, 1.0]);
-  const rawY     = useTransform(scrollY, [0, 160], animEnabled ? [36, 10]  : [0, 0]);
-  const rawX     = useTransform(scrollY, [0, 160], animEnabled ? [-68, 0]  : [0, 0]);
+  // Desktop animated logo — transforms based on scroll position
+  const rawScale = useTransform(scrollY, [0, 160], isHome ? [1, 0.55] : [0.55, 0.55]);
+  const rawY     = useTransform(scrollY, [0, 160], isHome ? [36, 10]  : [10, 10]);
+  const rawX     = useTransform(scrollY, [0, 160], isHome ? [-68, 0]  : [0, 0]);
 
   const logoScale = useSpring(rawScale, { stiffness: 150, damping: 25 });
   const logoY     = useSpring(rawY,     { stiffness: 150, damping: 25 });
   const logoX     = useSpring(rawX,     { stiffness: 150, damping: 25 });
 
-  // Texto: escala contraria al ícono → visualmente siempre igual, pero pequeño cuando ícono es grande
-  const rawTextScale = useTransform(scrollY, [0, 160], animEnabled ? [0.55, 1.0] : [1.0, 1.0]);
+  const rawTextScale = useTransform(scrollY, [0, 160], isHome ? [0.55, 1.0] : [1.0, 1.0]);
   const textScale    = useSpring(rawTextScale, { stiffness: 150, damping: 25 });
 
-  // Nav y botón se desplazan a la derecha cuando el logo está grande
-  const rawNavX = useTransform(scrollY, [0, 160], animEnabled ? [32, 0] : [0, 0]);
+  const rawNavX = useTransform(scrollY, [0, 160], isHome ? [32, 0] : [0, 0]);
   const navX    = useSpring(rawNavX, { stiffness: 150, damping: 25 });
 
   useEffect(() => {
@@ -92,15 +75,45 @@ export function Header() {
         >
 
           {/* ── Logo ─────────────────────────────────────────────────────── */}
-          {/* Contenedor con ancho fijo para que el nav nunca colisione */}
-          <div className="w-14 shrink-0 lg:w-60" style={isDesktop ? { overflow: "visible" } : undefined}>
+          <div className="w-48 shrink-0 lg:w-60" style={{ overflow: "visible" }}>
             <Link
               href="/"
-              className="focus-ring inline-flex items-center gap-3 rounded-md"
-              style={isDesktop ? { overflow: "visible" } : undefined}
+              className="focus-ring inline-flex items-center rounded-md"
+              style={{ overflow: "visible" }}
             >
+              {/* Móvil: logo compacto sin transforms — tamaño real, sin overflow */}
+              <div className="flex items-center gap-2 lg:hidden">
+                <Image
+                  src="/logo-icon.png"
+                  alt="Riegos y Soluciones Agrícolas del Norte"
+                  width={52}
+                  height={52}
+                  className="h-[42px] w-[42px] shrink-0 object-contain drop-shadow-sm"
+                  priority
+                />
+                <div className="flex flex-col leading-none">
+                  <span
+                    className={cn(
+                      "whitespace-nowrap text-[12px] font-black uppercase tracking-[0.04em] transition-colors duration-300",
+                      transparent ? "text-white" : "text-[#1b6cb6]",
+                    )}
+                  >
+                    Riegos y Soluciones
+                  </span>
+                  <span
+                    className={cn(
+                      "mt-0.5 whitespace-nowrap text-[8.5px] font-bold uppercase tracking-[0.1em] transition-colors duration-300",
+                      transparent ? "text-white/80" : "text-[#3baa6e]",
+                    )}
+                  >
+                    Agrícolas del Norte S.A.S
+                  </span>
+                </div>
+              </div>
+
+              {/* Desktop: logo grande animado */}
               <motion.div
-                className="flex items-center gap-0"
+                className="hidden items-center gap-0 lg:flex"
                 style={{
                   scale: logoScale,
                   y: logoY,
@@ -109,20 +122,17 @@ export function Header() {
                   originY: 0.5,
                 }}
               >
-                {/* Imagen renderizada grande → siempre nítida */}
                 <Image
                   src="/logo-icon.png"
-                  alt="Riegos y Soluciones Agrícolas del Norte"
+                  alt=""
                   width={260}
                   height={260}
-                  className="h-12 w-12 shrink-0 object-contain drop-shadow-sm lg:h-[260px] lg:w-[260px]"
-                  priority
+                  className="shrink-0 object-contain drop-shadow-sm"
+                  aria-hidden="true"
                 />
-
-                {/* Texto: oculto en móvil, visible en desktop con contra-escala */}
                 <motion.div
                   style={{ scale: textScale, originX: 0, originY: 0.5 }}
-                  className="-ml-16 -mt-3 hidden flex-col leading-none lg:flex"
+                  className="-ml-16 -mt-3 flex flex-col leading-none"
                 >
                   <span
                     className={cn(
