@@ -36,8 +36,8 @@ export function Header() {
   // Large logo animation only on desktop (lg+) to avoid mobile overflow
   const animEnabled = isHome && isDesktop;
 
-  const rawScale = useTransform(scrollY, [0, 160], animEnabled ? [1, 0.55] : [0.55, 0.55]);
-  const rawY     = useTransform(scrollY, [0, 160], animEnabled ? [36, 10]  : [10, 10]);
+  const rawScale = useTransform(scrollY, [0, 160], animEnabled ? [1, 0.55] : [1.0, 1.0]);
+  const rawY     = useTransform(scrollY, [0, 160], animEnabled ? [36, 10]  : [0, 0]);
   const rawX     = useTransform(scrollY, [0, 160], animEnabled ? [-68, 0]  : [0, 0]);
 
   const logoScale = useSpring(rawScale, { stiffness: 150, damping: 25 });
@@ -93,11 +93,11 @@ export function Header() {
 
           {/* ── Logo ─────────────────────────────────────────────────────── */}
           {/* Contenedor con ancho fijo para que el nav nunca colisione */}
-          <div className="w-48 shrink-0 lg:w-60" style={{ overflow: "visible" }}>
+          <div className="w-14 shrink-0 lg:w-60" style={isDesktop ? { overflow: "visible" } : undefined}>
             <Link
               href="/"
               className="focus-ring inline-flex items-center gap-3 rounded-md"
-              style={{ overflow: "visible" }}
+              style={isDesktop ? { overflow: "visible" } : undefined}
             >
               <motion.div
                 className="flex items-center gap-0"
@@ -115,14 +115,14 @@ export function Header() {
                   alt="Riegos y Soluciones Agrícolas del Norte"
                   width={260}
                   height={260}
-                  className="shrink-0 object-contain drop-shadow-sm"
+                  className="h-12 w-12 shrink-0 object-contain drop-shadow-sm lg:h-[260px] lg:w-[260px]"
                   priority
                 />
 
-                {/* Texto: contra-escala para que se vea pequeño cuando el ícono es grande */}
+                {/* Texto: oculto en móvil, visible en desktop con contra-escala */}
                 <motion.div
                   style={{ scale: textScale, originX: 0, originY: 0.5 }}
-                  className="-ml-16 -mt-3 flex flex-col leading-none"
+                  className="-ml-16 -mt-3 hidden flex-col leading-none lg:flex"
                 >
                   <span
                     className={cn(
