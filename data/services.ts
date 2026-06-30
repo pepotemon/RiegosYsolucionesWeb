@@ -182,8 +182,8 @@ export const workProcess = [
 ];
 
 export const trustStats = [
-  { value: "+XX", label: "proyectos realizados" },
-  { value: "Colombia", label: "cobertura nacional" },
-  { value: "Equipo", label: "personal especializado" },
-  { value: "100%", label: "soluciones personalizadas" },
+  { value: "40+", label: "Años de experiencia técnica combinada" },
+  { value: "35", label: "Años de especialización en campo" },
+  { value: "8", label: "Años liderando proyectos de ingeniería" },
+  { value: "100%", label: "Soluciones diseñadas a medida" },
 ];
