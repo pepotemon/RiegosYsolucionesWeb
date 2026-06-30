@@ -81,7 +81,7 @@ export function Header() {
       <header
         className={cn(
           "sticky top-0 z-50 border-b transition-all duration-300",
-          headerHidden ? "-translate-y-full" : "translate-y-0",
+          headerHidden ? "-translate-y-full lg:translate-y-0" : "translate-y-0",
           transparent
             ? "border-transparent bg-transparent"
             : "border-[#c8ddf0] bg-white/95 shadow-sm backdrop-blur",
