@@ -16,7 +16,9 @@ export function Header() {
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
 
   const { scrollY } = useScroll();
 
@@ -43,6 +45,22 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isHome]);
 
+  // Oculta el header al bajar, lo muestra al subir — todas las páginas
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY.current && currentY > 80) {
+        setHeaderHidden(true);
+        setMobileOpen(false);
+      } else {
+        setHeaderHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => { setMobileOpen(false); }, [pathname]);
 
   useEffect(() => {
@@ -63,6 +81,7 @@ export function Header() {
       <header
         className={cn(
           "sticky top-0 z-50 border-b transition-all duration-300",
+          headerHidden ? "-translate-y-full" : "translate-y-0",
           transparent
             ? "border-transparent bg-transparent"
             : "border-[#c8ddf0] bg-white/95 shadow-sm backdrop-blur",
