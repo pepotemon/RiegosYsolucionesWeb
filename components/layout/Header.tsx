@@ -82,7 +82,7 @@ export function Header() {
               style={{ overflow: "visible" }}
             >
               {/* Móvil: logo compacto sin transforms — tamaño real, sin overflow */}
-              <div className="flex items-center gap-0 lg:hidden">
+              <div className="mt-2 flex items-center gap-0 lg:hidden">
                 <Image
                   src="/logo-icon.png"
                   alt="Riegos y Soluciones Agrícolas del Norte"
@@ -91,7 +91,7 @@ export function Header() {
                   className="h-[104px] w-[104px] shrink-0 object-contain drop-shadow-sm"
                   priority
                 />
-                <div className="flex flex-col leading-none">
+                <div className="-ml-4 flex flex-col leading-none">
                   <span
                     className={cn(
                       "whitespace-nowrap text-[17px] font-black uppercase tracking-[0.04em] transition-colors duration-300",
