@@ -47,7 +47,7 @@ const textVariants = {
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay, ease: "easeOut" },
+    transition: { duration: 0.55, delay, ease: "easeOut" as const },
   }),
   exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
 };
