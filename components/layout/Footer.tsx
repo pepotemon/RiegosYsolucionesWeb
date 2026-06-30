@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Droplets } from "lucide-react";
+import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Droplets } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { services } from "@/data/services";
 
@@ -105,34 +105,46 @@ export function Footer() {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#60b5e8]">Contacto directo</p>
           <ul className="mt-5 grid gap-4">
-            <li>
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="group flex items-start gap-3 text-sm text-[#7a9ab8] transition hover:text-white"
-              >
-                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-[#60b5e8] transition group-hover:bg-[#1b6cb6] group-hover:text-white">
-                  <Phone size={15} />
-                </span>
-                {siteConfig.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="group flex items-start gap-3 text-sm text-[#7a9ab8] transition hover:text-white"
-              >
-                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-[#60b5e8] transition group-hover:bg-[#1b6cb6] group-hover:text-white">
-                  <Mail size={15} />
-                </span>
-                {siteConfig.email}
-              </a>
-            </li>
+            {siteConfig.phones.map((phone) => (
+              <li key={phone}>
+                <a
+                  href={`tel:${phone.replace(/\s/g, "")}`}
+                  className="group flex items-start gap-3 text-sm text-[#7a9ab8] transition hover:text-white"
+                >
+                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-[#60b5e8] transition group-hover:bg-[#1b6cb6] group-hover:text-white">
+                    <Phone size={15} />
+                  </span>
+                  {phone}
+                </a>
+              </li>
+            ))}
+            {siteConfig.emails.map((email) => (
+              <li key={email}>
+                <a
+                  href={`mailto:${email}`}
+                  className="group flex items-start gap-3 text-sm text-[#7a9ab8] transition hover:text-white"
+                >
+                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-[#60b5e8] transition group-hover:bg-[#1b6cb6] group-hover:text-white">
+                    <Mail size={15} />
+                  </span>
+                  {email}
+                </a>
+              </li>
+            ))}
             <li>
               <span className="flex items-start gap-3 text-sm text-[#7a9ab8]">
                 <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-[#60b5e8]">
                   <MapPin size={15} />
                 </span>
                 {siteConfig.address}
+              </span>
+            </li>
+            <li>
+              <span className="flex items-start gap-3 text-sm text-[#7a9ab8]">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-[#60b5e8]">
+                  <Clock size={15} />
+                </span>
+                {siteConfig.hours}
               </span>
             </li>
           </ul>
