@@ -100,10 +100,22 @@ export default function AboutPage() {
               </p>
             </blockquote>
 
-            <div className="mt-10 grid gap-x-10 gap-y-6 text-base leading-8 text-[#566a7a] lg:grid-cols-2">
-              <p className="lg:col-span-2">{paragraphs[0]}</p>
-              {paragraphs.slice(1).map((p, i) => (
-                <p key={i}>{p}</p>
+            <div className="mt-10 divide-y divide-[#c8ddf0]">
+              {paragraphs.map((p, i) => (
+                <div key={i} className="grid grid-cols-[32px_1fr] gap-6 py-7">
+                  <span className="pt-1 text-sm font-black text-[#1b6cb6]/40 select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p
+                    className={
+                      i === 0
+                        ? "text-base font-semibold leading-8 text-[#1a2b3c]"
+                        : "text-base leading-8 text-[#566a7a]"
+                    }
+                  >
+                    {p}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
