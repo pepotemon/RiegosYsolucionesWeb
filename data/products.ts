@@ -1,0 +1,58 @@
+import type { Product } from "@/types/product";
+
+export const products: Product[] = [
+  {
+    slug: "bomba-centrifuga-agricola",
+    category: "Bombas",
+    name: "Bomba centrifuga agricola",
+    brand: "Linea profesional",
+    description: "Equipo para conduccion de agua en sistemas de riego y abastecimiento rural.",
+    image: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1000&q=80",
+    features: ["Alto desempeno", "Seleccion segun caudal", "Compatible con tableros de proteccion"],
+  },
+  {
+    slug: "aspersor-sectorial",
+    category: "Aspersores",
+    name: "Aspersor sectorial",
+    brand: "AgroRain",
+    description: "Aspersor para cobertura uniforme en cultivos y praderas.",
+    image: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=1000&q=80",
+    features: ["Cobertura ajustable", "Uso agricola", "Facil mantenimiento"],
+  },
+  {
+    slug: "tuberia-polietileno",
+    category: "Tuberias",
+    name: "Tuberia de polietileno",
+    brand: "HidroCampo",
+    description: "Tuberia para conduccion principal y secundaria en proyectos de campo.",
+    image: "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&w=1000&q=80",
+    features: ["Alta resistencia", "Diferentes diametros", "Instalacion eficiente"],
+  },
+  {
+    slug: "filtro-de-anillos",
+    category: "Filtros",
+    name: "Filtro de anillos",
+    brand: "AquaFilter",
+    description: "Filtracion para proteger emisores, valvulas y equipos de riego.",
+    image: "https://images.unsplash.com/photo-1625722662233-297060231b0f?auto=format&fit=crop&w=1000&q=80",
+    features: ["Proteccion del sistema", "Mantenimiento simple", "Disponible por caudal"],
+  },
+  {
+    slug: "panel-solar-rural",
+    category: "Paneles solares",
+    name: "Panel solar para bombeo",
+    brand: "SolarFarm",
+    description: "Modulo solar para soluciones de bombeo y energia aplicada al campo.",
+    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=80",
+    features: ["Uso rural", "Solucion escalable", "Integracion con bombeo"],
+  },
+  {
+    slug: "valvula-control-riego",
+    category: "Accesorios",
+    name: "Valvula de control",
+    brand: "HidroControl",
+    description: "Accesorio para sectorizacion, control y automatizacion de redes hidraulicas.",
+    image: "https://images.unsplash.com/photo-1581092335878-2d9ff86ca2bf?auto=format&fit=crop&w=1000&q=80",
+    features: ["Sectorizacion", "Compatible con automatizacion", "Uso agricola"],
+  },
+];
