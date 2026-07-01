@@ -8,8 +8,7 @@ import { X, Menu, PhoneCall } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { navItems } from "@/lib/site";
-import { Button } from "@/components/ui/Button";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { QuoteModal } from "@/components/contact/QuoteModal";
 
 export function Header() {
   const pathname = usePathname();
@@ -17,6 +16,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
@@ -201,13 +201,14 @@ export function Header() {
             style={{ x: navX }}
             className="hidden shrink-0 items-center gap-3 lg:flex"
           >
-            <Button
-              href={getWhatsAppUrl("Hola, quiero solicitar una cotizacion para un proyecto agricola.")}
-              style={{ color: "white" }}
+            <button
+              type="button"
+              onClick={() => setQuoteOpen(true)}
+              className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#1b6cb6] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#134f88]"
             >
               <PhoneCall size={18} />
               Cotizar
-            </Button>
+            </button>
           </motion.div>
 
           {/* ── Hamburger mobile ────────────────────────────────────────── */}
@@ -251,18 +252,20 @@ export function Header() {
               ))}
             </nav>
             <div className="mt-5 border-t border-[#c8ddf0] pt-5">
-              <Button
-                href={getWhatsAppUrl("Hola, quiero solicitar una cotizacion para un proyecto agricola.")}
-                className="w-full justify-center"
-                style={{ color: "white" }}
+              <button
+                type="button"
+                onClick={() => { setMobileOpen(false); setQuoteOpen(true); }}
+                className="focus-ring inline-flex w-full min-h-11 items-center justify-center gap-2 rounded-md bg-[#1b6cb6] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#134f88]"
               >
                 <PhoneCall size={18} />
                 Solicitar cotización
-              </Button>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <QuoteModal open={quoteOpen} onClose={() => setQuoteOpen(false)} />
     </>
   );
 }
