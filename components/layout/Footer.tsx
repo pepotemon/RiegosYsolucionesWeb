@@ -27,21 +27,21 @@ export function Footer() {
 
         {/* Columna 1 — Marca */}
         <div>
-          <Link href="/" className="inline-flex items-center gap-3">
-            <div className="relative h-12 w-12 shrink-0">
+          <Link href="/" className="inline-flex items-center gap-0">
+            <div className="relative h-24 w-24 shrink-0">
               <Image
                 src="/logo-icon.png"
-                alt=""
+                alt="Riegos y Soluciones Agrícolas del Norte"
                 fill
-                sizes="48px"
+                sizes="96px"
                 className="object-contain brightness-0 invert"
               />
             </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-[15px] font-black uppercase tracking-[0.06em] text-white">
+            <div className="flex flex-col leading-tight -ml-5">
+              <span className="text-base font-black uppercase tracking-[0.05em] text-white">
                 Riegos y Soluciones
               </span>
-              <span className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#3baa6e]">
+              <span className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.1em] text-[#3baa6e]">
                 Agrícolas del Norte S.A.S
               </span>
             </div>

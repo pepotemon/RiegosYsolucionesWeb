@@ -1,23 +1,58 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ── Colores de marca extraídos del logo ── */
+  /* ── Colores de marca Riegos del Norte ── */
   --background: #f5f9ff;
   --foreground: #1a2b3c;
-  --primary: #1b6cb6;       /* azul gota de agua */
-  --primary-dark: #134f88;  /* azul oscuro */
-  --green: #3baa6e;         /* verde hojas */
-  --green-dark: #2d8757;    /* verde oscuro */
-  --muted: #566a7a;
+  --card: #ffffff;
+  --card-foreground: #1a2b3c;
+  --popover: #ffffff;
+  --popover-foreground: #1a2b3c;
+
+  --primary: #1b6cb6;
+  --primary-dark: #134f88;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e8f2fc;
+  --secondary-foreground: #1a2b3c;
+
+  --muted: #e8f2fc;
+  --muted-foreground: #566a7a;
+
+  --accent: #e8f2fc;
+  --accent-foreground: #1a2b3c;
+
+  --green: #3baa6e;
+  --green-dark: #2d8757;
+
+  --destructive: oklch(0.577 0.245 27.325);
   --border: #c8ddf0;
+  --input: #c8ddf0;
+  --ring: #1b6cb6;
+  --radius: 0.625rem;
+
+  --sidebar: #f5f9ff;
+  --sidebar-foreground: #1a2b3c;
+  --sidebar-primary: #1b6cb6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8f2fc;
+  --sidebar-accent-foreground: #1a2b3c;
+  --sidebar-border: #c8ddf0;
+  --sidebar-ring: #1b6cb6;
+
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
 }
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -50,4 +85,143 @@ img {
 
 .focus-ring:focus-visible {
   outline-color: var(--primary);
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-gradient: gradient 8s linear infinite;
+  @keyframes gradient {
+  to {
+    background-position: var(--bg-size, 300%) 0;
+    }
+  }
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear
+;
+  @keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+    }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+    }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+    }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+    }
+  }
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
+  @keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;
+    }
+  50%, 100% {
+    opacity: 0;
+    }
+  }
+  --animate-shiny-text: shiny-text 8s infinite;
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
+  --animate-meteor: meteor 5s linear infinite;
+  @keyframes meteor {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+    }
+  70% {
+    opacity: 1;
+    }
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;
+    }
+  }
+  --animate-falling-leaf: falling-leaf var(--leaf-duration, 12s) ease-in-out infinite;
+  @keyframes falling-leaf {
+    0%   { transform: translateY(-60px)  translateX(0px)   rotate(0deg);   opacity: 0; }
+    8%   { opacity: 0.75; }
+    25%  { transform: translateY(220px)  translateX(var(--sway, 35px))  rotate(95deg); }
+    50%  { transform: translateY(480px)  translateX(calc(var(--sway, 35px) * -0.6)) rotate(210deg); }
+    75%  { transform: translateY(740px)  translateX(var(--sway, 35px))  rotate(310deg); }
+    92%  { opacity: 0.5; }
+    100% { transform: translateY(1050px) translateX(0px)   rotate(420deg); opacity: 0; }
+  }
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
