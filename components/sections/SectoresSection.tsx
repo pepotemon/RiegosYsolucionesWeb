@@ -369,10 +369,10 @@ export function SectoresSection() {
                 />
               ))}
 
-            {/* Central logo with animations */}
+            {/* Central planet Earth */}
             {size > 0 && (
               <div className="absolute inset-0 flex items-center justify-center">
-                {/* Outer rotating dashed ring */}
+                {/* Outer rotating dashed orbit ring */}
                 <motion.div
                   className="pointer-events-none absolute rounded-full"
                   style={{
@@ -384,44 +384,59 @@ export function SectoresSection() {
                   transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
                 />
 
-                {/* Pulsing blue glow */}
+                {/* Atmospheric glow — green + blue pulse */}
                 <motion.div
                   className="pointer-events-none absolute rounded-full"
                   style={{
-                    width: logoSize + 10,
-                    height: logoSize + 10,
-                    boxShadow: "0 0 45px 16px rgba(0,119,200,0.22)",
+                    width: logoSize + 14,
+                    height: logoSize + 14,
+                    boxShadow:
+                      "0 0 50px 22px rgba(45,186,69,0.20), 0 0 90px 36px rgba(0,119,200,0.12)",
                   }}
-                  animate={{ opacity: [0.35, 1, 0.35] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.3, 1, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
 
-                {/* Logo circle */}
+                {/* Planet Earth sphere */}
                 <div
-                  className="relative flex items-center justify-center rounded-full"
+                  className="relative overflow-hidden rounded-full"
                   style={{
                     width: logoSize,
                     height: logoSize,
-                    background: "linear-gradient(135deg, #EEF7FF 0%, #FFFFFF 100%)",
                     boxShadow:
-                      "0 0 0 1px rgba(0,119,200,0.12), 0 16px 48px rgba(0,0,0,0.10)",
+                      "0 0 0 2px rgba(45,186,69,0.18), 0 24px 64px rgba(0,0,0,0.40), inset 0 0 50px rgba(0,15,50,0.45)",
                   }}
                 >
-                  {/* Breathing logo */}
+                  {/* Earth image — slow axial rotation */}
                   <motion.div
-                    className="flex items-center justify-center"
-                    style={{ width: "76%", height: "76%" }}
-                    animate={{ scale: [1, 1.06, 1] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-0 scale-[1.18]"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
                   >
                     <Image
-                      src="/logo-icon.png"
-                      alt="Riegos y Soluciones Agrícolas del Norte"
-                      width={512}
-                      height={512}
-                      className="h-full w-full object-contain"
+                      src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=600&q=80"
+                      alt="Planeta Tierra"
+                      fill
+                      className="object-cover"
                     />
                   </motion.div>
+
+                  {/* Specular highlight — top-left light source */}
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-full"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 34% 30%, rgba(255,255,255,0.13) 0%, transparent 52%)",
+                    }}
+                  />
+
+                  {/* Limb darkening — deep space edge */}
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-full"
+                    style={{
+                      boxShadow: "inset 0 0 55px rgba(0,10,40,0.55), inset -12px -12px 35px rgba(0,5,25,0.35)",
+                    }}
+                  />
                 </div>
               </div>
             )}
