@@ -460,7 +460,7 @@ export function SectoresSection() {
                         height: "68%",
                         objectFit: "contain",
                         filter:
-                          "drop-shadow(0 0 18px rgba(255,255,255,0.55)) drop-shadow(0 4px 24px rgba(0,0,0,0.60))",
+                          "brightness(0) invert(1) drop-shadow(0 0 22px rgba(255,255,255,0.90)) drop-shadow(0 0 8px rgba(255,255,255,0.60))",
                       }}
                     />
                   </div>
