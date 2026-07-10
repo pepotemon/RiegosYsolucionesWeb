@@ -456,8 +456,8 @@ export function SectoresSection() {
                       width={512}
                       height={512}
                       style={{
-                        width: "68%",
-                        height: "68%",
+                        width: "85%",
+                        height: "85%",
                         objectFit: "contain",
                         filter:
                           "brightness(0) invert(1) drop-shadow(0 0 22px rgba(255,255,255,0.90)) drop-shadow(0 0 8px rgba(255,255,255,0.60))",
