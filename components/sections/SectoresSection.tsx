@@ -211,9 +211,9 @@ export function SectoresSection() {
             <Image
               src="/logo-icon.png"
               alt="Riegos y Soluciones Agrícolas del Norte"
-              width={96}
-              height={96}
-              className="h-44 w-44 object-contain sm:h-52 sm:w-52"
+              width={512}
+              height={512}
+              className="h-56 w-56 object-contain sm:h-64 sm:w-64"
             />
           </div>
         </div>
