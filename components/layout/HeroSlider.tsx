@@ -157,7 +157,7 @@ export function HeroSlider() {
 
               <Link
                 href="/servicios"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3.5 text-sm font-semibold text-white/75 backdrop-blur-sm transition-all duration-200 hover:border-white/40 hover:bg-white/8 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/50 hover:bg-white/10"
               >
                 Ver servicios
               </Link>
