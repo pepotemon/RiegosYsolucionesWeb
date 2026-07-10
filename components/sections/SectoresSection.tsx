@@ -444,6 +444,26 @@ export function SectoresSection() {
                         "inset 0 0 60px rgba(0,15,0,0.65), inset -14px -14px 40px rgba(0,8,0,0.45)",
                     }}
                   />
+
+                  {/* Logo centered on planet */}
+                  <div
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{ zIndex: 10 }}
+                  >
+                    <Image
+                      src="/logo-icon.png"
+                      alt="Riegos y Soluciones Agrícolas del Norte"
+                      width={512}
+                      height={512}
+                      style={{
+                        width: "68%",
+                        height: "68%",
+                        objectFit: "contain",
+                        filter:
+                          "drop-shadow(0 0 18px rgba(255,255,255,0.55)) drop-shadow(0 4px 24px rgba(0,0,0,0.60))",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             )}
