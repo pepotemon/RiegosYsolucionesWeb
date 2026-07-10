@@ -213,7 +213,7 @@ export function SectoresSection() {
               alt="Riegos y Soluciones Agrícolas del Norte"
               width={96}
               height={96}
-              className="h-20 w-20 object-contain sm:h-24 sm:w-24"
+              className="h-44 w-44 object-contain sm:h-52 sm:w-52"
             />
           </div>
         </div>
