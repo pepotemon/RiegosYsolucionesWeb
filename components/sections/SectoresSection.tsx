@@ -314,6 +314,55 @@ export function SectoresSection() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
+            {/* Satellite map background */}
+            {size > 0 && (
+              <div
+                className="pointer-events-none absolute overflow-hidden rounded-full"
+                style={{
+                  width: radius * 2,
+                  height: radius * 2,
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                {/* Aerial farmland image */}
+                <Image
+                  src="https://images.unsplash.com/photo-1508175800969-525c72a047dd?auto=format&fit=crop&w=800&q=60"
+                  alt=""
+                  fill
+                  sizes="600px"
+                  className="object-cover"
+                  style={{ opacity: 0.55 }}
+                />
+                {/* Blue satellite analysis tint */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(0,35,90,0.58) 0%, rgba(0,60,120,0.50) 100%)",
+                  }}
+                />
+                {/* GIS analysis grid */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(rgba(45,186,69,0.20) 1px, transparent 1px), linear-gradient(90deg, rgba(45,186,69,0.20) 1px, transparent 1px)",
+                    backgroundSize: "36px 36px",
+                  }}
+                />
+                {/* Radial edge fade — blends into section bg */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(circle at center, transparent 38%, rgba(243,249,255,0.45) 62%, rgba(245,249,255,0.90) 80%, #F3F9FF 100%)",
+                  }}
+                />
+              </div>
+            )}
+
             {/* Green dashed orbit ring */}
             {size > 0 && (
               <div
@@ -324,7 +373,7 @@ export function SectoresSection() {
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  border: "2px dashed rgba(45,186,69,0.45)",
+                  border: "2px dashed rgba(45,186,69,0.65)",
                 }}
               />
             )}
