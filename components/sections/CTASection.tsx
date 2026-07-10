@@ -2,6 +2,7 @@ import Link from "next/link"
 import { MessageCircle, Phone } from "lucide-react"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { Container } from "@/components/ui/Container"
+import { FallingLeaves } from "@/components/ui/falling-leaves"
 import { getWhatsAppUrl } from "@/lib/whatsapp"
 
 export function CTASection() {
@@ -21,6 +22,11 @@ export function CTASection() {
 
       {/* Glow accent */}
       <div className="absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#1b6cb6]/20 blur-[120px]" />
+
+      {/* Hojas cayendo */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <FallingLeaves number={18} />
+      </div>
 
       <Container className="relative">
         <BlurFade inView inViewMargin="-60px">
