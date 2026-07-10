@@ -262,12 +262,21 @@ export function SectoresSection() {
         background: "linear-gradient(180deg, #F3F9FF 0%, #FFFFFF 100%)",
       }}
     >
-      {/* Radial glow bg */}
+      {/* Dot grid pattern — premium SaaS feel */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(0,119,200,0.13) 1.5px, transparent 1.5px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      {/* Soft color radial glow top-center */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% 20%, rgba(0,119,200,0.06) 0%, transparent 65%)",
+            "radial-gradient(ellipse 70% 55% at 50% 18%, rgba(0,119,200,0.07) 0%, transparent 70%)",
         }}
       />
 
@@ -314,53 +323,20 @@ export function SectoresSection() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            {/* Satellite map background */}
+            {/* Soft color glow behind orbit area */}
             {size > 0 && (
               <div
-                className="pointer-events-none absolute overflow-hidden rounded-full"
+                className="pointer-events-none absolute rounded-full"
                 style={{
                   width: radius * 2,
                   height: radius * 2,
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
+                  background:
+                    "radial-gradient(circle at 42% 38%, rgba(45,186,69,0.07) 0%, rgba(0,119,200,0.09) 50%, transparent 75%)",
                 }}
-              >
-                {/* Aerial farmland image */}
-                <Image
-                  src="https://images.unsplash.com/photo-1508175800969-525c72a047dd?auto=format&fit=crop&w=800&q=60"
-                  alt=""
-                  fill
-                  sizes="600px"
-                  className="object-cover"
-                  style={{ opacity: 0.55 }}
-                />
-                {/* Blue satellite analysis tint */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(0,35,90,0.58) 0%, rgba(0,60,120,0.50) 100%)",
-                  }}
-                />
-                {/* GIS analysis grid */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(45,186,69,0.20) 1px, transparent 1px), linear-gradient(90deg, rgba(45,186,69,0.20) 1px, transparent 1px)",
-                    backgroundSize: "36px 36px",
-                  }}
-                />
-                {/* Radial edge fade — blends into section bg */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at center, transparent 38%, rgba(243,249,255,0.45) 62%, rgba(245,249,255,0.90) 80%, #F3F9FF 100%)",
-                  }}
-                />
-              </div>
+              />
             )}
 
             {/* Green dashed orbit ring */}
@@ -373,7 +349,7 @@ export function SectoresSection() {
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  border: "2px dashed rgba(45,186,69,0.65)",
+                  border: "2px dashed rgba(45,186,69,0.45)",
                 }}
               />
             )}
