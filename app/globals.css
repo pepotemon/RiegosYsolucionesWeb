@@ -67,11 +67,6 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 img {
   max-width: 100%;
   display: block;
@@ -238,5 +233,9 @@ img {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
