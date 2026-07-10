@@ -142,7 +142,7 @@ export function HeroSlider() {
 
           {/* CTAs */}
           <BlurFade delay={0.5} duration={0.5}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <ShimmerButton
                   shimmerColor="#93c5fd"
@@ -200,21 +200,19 @@ export function HeroSlider() {
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4">
             {stats.map((stat, i) => (
-              <BlurFade key={stat.label} delay={0.65 + i * 0.08} duration={0.5}>
-                <div className="flex flex-col items-center py-6 px-4 text-center">
-                  <p className="flex items-baseline gap-0.5 text-3xl font-black">
-                    <NumberTicker
-                      value={stat.value}
-                      delay={0.7 + i * 0.1}
-                      className="text-[#60b5e8]"
-                    />
-                    <span className="text-[#60b5e8] text-2xl">{stat.suffix}</span>
-                  </p>
-                  <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#3d5f78]">
-                    {stat.label}
-                  </p>
-                </div>
-              </BlurFade>
+              <div key={stat.label} className="flex flex-col items-center py-6 px-4 text-center">
+                <p className="flex items-baseline gap-0.5 text-3xl font-black">
+                  <NumberTicker
+                    value={stat.value}
+                    delay={0.7 + i * 0.1}
+                    className="text-[#60b5e8]"
+                  />
+                  <span className="text-[#60b5e8] text-2xl">{stat.suffix}</span>
+                </p>
+                <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#3d5f78]">
+                  {stat.label}
+                </p>
+              </div>
             ))}
           </div>
         </Container>
