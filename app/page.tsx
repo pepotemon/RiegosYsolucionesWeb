@@ -1,16 +1,14 @@
-import { Button } from "@/components/ui/Button"
-import { Container } from "@/components/ui/Container"
-import { BlurFade } from "@/components/ui/blur-fade"
 import { HeroSlider } from "@/components/layout/HeroSlider"
 import { ConfianzaSection } from "@/components/sections/ConfianzaSection"
 import { ServicesSection } from "@/components/sections/ServicesSection"
 import { BannerSection } from "@/components/sections/BannerSection"
 import { WorkProcess } from "@/components/sections/WorkProcess"
+import { ProyectosSection } from "@/components/sections/ProyectosSection"
 import { SectoresSection } from "@/components/sections/SectoresSection"
 import { TestimonialsCarousel } from "@/components/sections/TestimonialsCarousel"
 import { CTASection } from "@/components/sections/CTASection"
-import { ProjectCard } from "@/components/projects/ProjectCard"
-import { projects } from "@/data/projects"
+import { BlurFade } from "@/components/ui/blur-fade"
+import { Container } from "@/components/ui/Container"
 
 
 export default function HomePage() {
@@ -33,36 +31,7 @@ export default function HomePage() {
       <WorkProcess />
 
       {/* 6. Proyectos destacados */}
-      <section className="bg-[#f5f9ff] py-24">
-        <Container>
-          <BlurFade inView inViewMargin="-60px">
-            <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div className="max-w-xl">
-                <p className="mb-3 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#1b6cb6]">
-                  <span className="h-px w-6 bg-[#1b6cb6]" />
-                  Proyectos destacados
-                </p>
-                <h2 className="text-4xl font-black leading-tight text-[#1a2b3c]">
-                  Experiencia demostrada en campo
-                </h2>
-                <p className="mt-4 text-lg text-[#566a7a]">
-                  Casos reales de clientes en distintos sectores y regiones del país.
-                </p>
-              </div>
-              <Button href="/proyectos" variant="secondary" className="shrink-0">
-                Ver portafolio
-              </Button>
-            </div>
-          </BlurFade>
-          <div className="grid gap-6 md:grid-cols-3">
-            {projects.map((project, i) => (
-              <BlurFade key={project.slug} inView inViewMargin="-60px" delay={i * 0.12} className="h-full">
-                <ProjectCard project={project} />
-              </BlurFade>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProyectosSection />
 
       {/* 7. Sectores que atendemos */}
       <SectoresSection />

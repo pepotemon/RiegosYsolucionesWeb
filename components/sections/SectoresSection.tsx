@@ -235,7 +235,7 @@ export function SectoresSection() {
   const radius = size * 0.42
   const cardW = Math.max(Math.min(size * 0.22, 148), 62)
   const cardH = Math.max(Math.min(size * 0.30, 185), 82)
-  const logoSize = Math.min(size * 0.28, 192)
+  const logoSize = Math.min(size * 0.33, 218)
 
   const BENEFITS = [
     {
@@ -344,28 +344,59 @@ export function SectoresSection() {
                 />
               ))}
 
-            {/* Central logo with glow */}
+            {/* Central logo with animations */}
             {size > 0 && (
               <div className="absolute inset-0 flex items-center justify-center">
+                {/* Outer rotating dashed ring */}
+                <motion.div
+                  className="pointer-events-none absolute rounded-full"
+                  style={{
+                    width: logoSize + 40,
+                    height: logoSize + 40,
+                    border: "2px dashed rgba(45,186,69,0.38)",
+                  }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Pulsing blue glow */}
+                <motion.div
+                  className="pointer-events-none absolute rounded-full"
+                  style={{
+                    width: logoSize + 10,
+                    height: logoSize + 10,
+                    boxShadow: "0 0 45px 16px rgba(0,119,200,0.22)",
+                  }}
+                  animate={{ opacity: [0.35, 1, 0.35] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                {/* Logo circle */}
                 <div
                   className="relative flex items-center justify-center rounded-full"
                   style={{
                     width: logoSize,
                     height: logoSize,
-                    background:
-                      "linear-gradient(135deg, #EEF7FF 0%, #FFFFFF 100%)",
+                    background: "linear-gradient(135deg, #EEF7FF 0%, #FFFFFF 100%)",
                     boxShadow:
-                      "0 0 0 1px rgba(0,119,200,0.12), 0 0 50px rgba(0,119,200,0.20), 0 0 100px rgba(0,119,200,0.10), 0 16px 48px rgba(0,0,0,0.10)",
+                      "0 0 0 1px rgba(0,119,200,0.12), 0 16px 48px rgba(0,0,0,0.10)",
                   }}
                 >
-                  <Image
-                    src="/logo-icon.png"
-                    alt="Riegos y Soluciones Agrícolas del Norte"
-                    width={512}
-                    height={512}
-                    className="object-contain"
+                  {/* Breathing logo */}
+                  <motion.div
+                    className="flex items-center justify-center"
                     style={{ width: "76%", height: "76%" }}
-                  />
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Image
+                      src="/logo-icon.png"
+                      alt="Riegos y Soluciones Agrícolas del Norte"
+                      width={512}
+                      height={512}
+                      className="h-full w-full object-contain"
+                    />
+                  </motion.div>
                 </div>
               </div>
             )}
