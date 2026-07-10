@@ -145,8 +145,22 @@ export function SectoresSection() {
   const cardH  = Math.min(size * 0.28, 124)
 
   return (
-    <section className="bg-[#f5f9ff] py-24">
+    <section className="bg-[#f5f9ff] py-16">
       <BlurFade inView inViewMargin="-80px">
+
+        {/* Título — encima de la órbita */}
+        <div className="mb-8 px-6 text-center">
+          <p className="mb-3 inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#1b6cb6]">
+            <span className="h-px w-6 bg-[#1b6cb6]" />
+            Cobertura de servicio
+            <span className="h-px w-6 bg-[#1b6cb6]" />
+          </p>
+          <h2 className="text-3xl font-black leading-tight text-[#1a2b3c] sm:text-4xl md:text-5xl">
+            Campo, finca<br className="sm:hidden" /> y agroindustria
+          </h2>
+        </div>
+
+        {/* Órbita */}
         <div
           ref={containerRef}
           className="relative mx-auto w-full max-w-[580px] select-none"
@@ -192,19 +206,11 @@ export function SectoresSection() {
               />
             ))}
 
-          {/* Texto central */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[#1b6cb6] sm:text-xs">
-              <span className="h-px w-4 bg-[#1b6cb6]" />
-              Cobertura de servicio
-              <span className="h-px w-4 bg-[#1b6cb6]" />
-            </p>
-            <h2 className="text-2xl font-black leading-tight text-[#1a2b3c] sm:text-3xl md:text-4xl">
-              Campo, finca<br />y agroindustria
-            </h2>
-            <div className="mt-3 h-0.5 w-10 rounded-full bg-[#3baa6e]" />
-            <p className="mt-3 text-sm leading-snug text-[#566a7a] sm:text-base">
-              Soluciones adaptadas al cultivo,<br />escala y condición del predio.
+          {/* Texto central — solo descripción */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+            <div className="mb-3 h-0.5 w-8 rounded-full bg-[#3baa6e]" />
+            <p className="text-sm font-medium leading-relaxed text-[#566a7a] sm:text-base">
+              Soluciones adaptadas al tipo<br />de cultivo, escala productiva<br />y condición del predio.
             </p>
           </div>
         </div>
