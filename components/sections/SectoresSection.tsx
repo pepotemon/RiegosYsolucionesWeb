@@ -384,49 +384,55 @@ export function SectoresSection() {
                   transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
                 />
 
-                {/* Atmospheric glow — green + blue pulse */}
+                {/* Atmospheric glow — pure green pulse */}
                 <motion.div
                   className="pointer-events-none absolute rounded-full"
                   style={{
                     width: logoSize + 14,
                     height: logoSize + 14,
                     boxShadow:
-                      "0 0 50px 22px rgba(45,186,69,0.20), 0 0 90px 36px rgba(0,119,200,0.12)",
+                      "0 0 55px 24px rgba(45,186,69,0.32), 0 0 100px 40px rgba(45,186,69,0.14)",
                   }}
                   animate={{ opacity: [0.3, 1, 0.3] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
 
-                {/* Planet Earth sphere */}
+                {/* Green Planet sphere */}
                 <div
                   className="relative overflow-hidden rounded-full"
                   style={{
                     width: logoSize,
                     height: logoSize,
+                    background:
+                      "radial-gradient(circle at 35% 30%, #86efac 0%, #22c55e 28%, #16a34a 55%, #14532d 80%, #052e16 100%)",
                     boxShadow:
-                      "0 0 0 2px rgba(45,186,69,0.18), 0 24px 64px rgba(0,0,0,0.40), inset 0 0 50px rgba(0,15,50,0.45)",
+                      "0 0 0 2px rgba(45,186,69,0.22), 0 24px 64px rgba(0,0,0,0.45), inset 0 0 55px rgba(0,20,0,0.50)",
                   }}
                 >
-                  {/* Earth image — slow axial rotation */}
+                  {/* Rotating continent-texture layer */}
                   <motion.div
                     className="absolute inset-0 scale-[1.18]"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-                  >
-                    <Image
-                      src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=600&q=80"
-                      alt="Planeta Tierra"
-                      fill
-                      className="object-cover"
-                    />
-                  </motion.div>
+                    style={{
+                      background: [
+                        "radial-gradient(ellipse 42% 28% at 28% 42%, rgba(5,46,22,0.60) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 28% 22% at 68% 58%, rgba(5,46,22,0.50) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 22% 26% at 52% 22%, rgba(5,46,22,0.45) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 24% 16% at 18% 72%, rgba(5,46,22,0.40) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 16% 20% at 82% 28%, rgba(5,46,22,0.35) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 18% 14% at 62% 80%, rgba(134,239,172,0.18) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 12% 12% at 38% 60%, rgba(187,247,208,0.14) 0%, transparent 70%)",
+                      ].join(", "),
+                    }}
+                  />
 
-                  {/* Specular highlight — top-left light source */}
+                  {/* Specular highlight — top-left sun */}
                   <div
                     className="pointer-events-none absolute inset-0 rounded-full"
                     style={{
                       background:
-                        "radial-gradient(circle at 34% 30%, rgba(255,255,255,0.13) 0%, transparent 52%)",
+                        "radial-gradient(circle at 32% 27%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 38%, transparent 55%)",
                     }}
                   />
 
@@ -434,7 +440,8 @@ export function SectoresSection() {
                   <div
                     className="pointer-events-none absolute inset-0 rounded-full"
                     style={{
-                      boxShadow: "inset 0 0 55px rgba(0,10,40,0.55), inset -12px -12px 35px rgba(0,5,25,0.35)",
+                      boxShadow:
+                        "inset 0 0 60px rgba(0,15,0,0.65), inset -14px -14px 40px rgba(0,8,0,0.45)",
                     }}
                   />
                 </div>
