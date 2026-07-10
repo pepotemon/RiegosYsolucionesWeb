@@ -227,6 +227,9 @@ img {
   to { transform: translateX(-50%); }
 }
 
+@keyframes orbit-forward  { to { transform: rotate( 360deg); } }
+@keyframes orbit-backward { to { transform: rotate(-360deg); } }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

@@ -1,125 +1,173 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { Sprout, Droplets, TreePine, Coffee, Leaf, Wheat, SunMedium, Factory } from "lucide-react"
 import { BlurFade } from "@/components/ui/blur-fade"
-import { Container } from "@/components/ui/Container"
 import type { ElementType } from "react"
 
 const SECTORS: { name: string; icon: ElementType; image: string }[] = [
   {
     name: "Agricultura",
     icon: Sprout,
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=300&q=75",
   },
   {
     name: "Ganadería",
     icon: Droplets,
-    image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=300&q=75",
   },
   {
     name: "Palma",
     icon: TreePine,
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=300&q=75",
   },
   {
     name: "Café",
     icon: Coffee,
-    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=300&q=75",
   },
   {
     name: "Banano",
     icon: Leaf,
-    image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=300&q=75",
   },
   {
     name: "Arroz",
     icon: Wheat,
-    image: "https://images.unsplash.com/photo-1516996087931-5ae405802f9f?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1516996087931-5ae405802f9f?auto=format&fit=crop&w=300&q=75",
   },
   {
     name: "Invernaderos",
     icon: SunMedium,
-    image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=300&q=75",
   },
   {
     name: "Agroindustrial",
     icon: Factory,
-    image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&q=72",
+    image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=300&q=75",
   },
 ]
 
-const DOUBLED = [...SECTORS, ...SECTORS]
-
-function SectorCard({ sector, sizes }: { sector: typeof SECTORS[number]; sizes: string }) {
-  const Icon = sector.icon
-  return (
-    <div className="group relative h-full w-full overflow-hidden rounded-2xl">
-      <Image
-        src={sector.image}
-        alt={sector.name}
-        fill
-        sizes={sizes}
-        className="object-cover transition duration-700 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#06131f]/88 via-[#06131f]/35 to-transparent" />
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-5 text-center">
-        <div className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm ring-1 ring-white/30 transition duration-300 group-hover:bg-white/30">
-          <Icon size={20} />
-        </div>
-        <p className="text-sm font-bold text-white drop-shadow">{sector.name}</p>
-      </div>
-    </div>
-  )
-}
-
 export function SectoresSection() {
+  const [paused, setPaused] = useState(false)
+  const ps = paused ? "paused" : "running"
+
   return (
     <section className="overflow-hidden bg-[#f5f9ff] py-24">
-      <Container>
-        <BlurFade inView inViewMargin="-60px">
-          <div className="mb-12 text-center">
-            <p className="mb-3 inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#1b6cb6]">
-              <span className="h-px w-6 bg-[#1b6cb6]" />
+      <BlurFade inView inViewMargin="-80px">
+        <div
+          className="relative mx-auto select-none"
+          style={
+            {
+              width: "min(90vw, 560px)",
+              height: "min(90vw, 560px)",
+              "--orbit-r": "min(37vw, 226px)",
+            } as React.CSSProperties
+          }
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {/* Fondo radial suave */}
+          <div
+            className="pointer-events-none absolute inset-0 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(27,108,182,0.06) 0%, rgba(27,108,182,0.02) 42%, transparent 68%)",
+            }}
+          />
+
+          {/* Anillo decorativo — ruta de la órbita */}
+          <div
+            className="pointer-events-none absolute rounded-full border border-dashed border-[#1b6cb6]/18"
+            style={{
+              top: "calc(50% - var(--orbit-r))",
+              left: "calc(50% - var(--orbit-r))",
+              width: "calc(var(--orbit-r) * 2)",
+              height: "calc(var(--orbit-r) * 2)",
+            }}
+          />
+
+          {/* Anillo interior decorativo */}
+          <div className="pointer-events-none absolute inset-[22%] rounded-full border border-[#c8ddf0]/40" />
+
+          {/* Pista orbital — rota continuamente */}
+          <div
+            className="absolute inset-0"
+            style={{
+              animation: "orbit-forward 34s linear infinite",
+              animationPlayState: ps,
+            }}
+          >
+            {SECTORS.map((sector, i) => {
+              const Icon = sector.icon
+              const angle = (i / SECTORS.length) * 360
+              return (
+                <div
+                  key={sector.name}
+                  className="absolute top-1/2 left-1/2"
+                  style={{
+                    transform: `rotate(${angle}deg) translateY(calc(-1 * var(--orbit-r))) translateX(-50%)`,
+                    animation: "orbit-backward 34s linear infinite",
+                    animationPlayState: ps,
+                  }}
+                >
+                  {/* Tarjeta foto */}
+                  <div
+                    className="group relative overflow-hidden rounded-2xl shadow-lg ring-2 ring-white/80"
+                    style={{ width: "min(16vw, 88px)", height: "min(20vw, 110px)" }}
+                  >
+                    <Image
+                      src={sector.image}
+                      alt={sector.name}
+                      fill
+                      sizes="88px"
+                      className="object-cover transition duration-600 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#06131f]/90 via-[#06131f]/25 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-2 text-center">
+                      <div className="mb-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-white/22 text-white backdrop-blur-sm">
+                        <Icon size={12} />
+                      </div>
+                      <p
+                        className="font-bold leading-tight text-white"
+                        style={{ fontSize: "clamp(8px, 2.1vw, 10.5px)" }}
+                      >
+                        {sector.name}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Texto central */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
+            <p
+              className="mb-2 inline-flex items-center justify-center gap-1.5 font-bold uppercase tracking-[0.16em] text-[#1b6cb6]"
+              style={{ fontSize: "clamp(8px, 2vw, 10px)" }}
+            >
+              <span className="h-px w-4 bg-[#1b6cb6]" />
               Cobertura de servicio
-              <span className="h-px w-6 bg-[#1b6cb6]" />
+              <span className="h-px w-4 bg-[#1b6cb6]" />
             </p>
-            <h2 className="text-4xl font-black leading-tight text-[#1a2b3c]">
-              Campo, finca y agroindustria
+            <h2
+              className="font-black leading-tight text-[#1a2b3c]"
+              style={{ fontSize: "clamp(18px, 5vw, 28px)" }}
+            >
+              Campo, finca<br />y agroindustria
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-[#566a7a]">
-              Soluciones adaptadas al tipo de cultivo, escala productiva y condición operativa del predio.
+            <div className="mt-2 h-0.5 w-8 rounded-full bg-[#3baa6e]" />
+            <p
+              className="mt-3 leading-snug text-[#566a7a]"
+              style={{ fontSize: "clamp(10px, 2.5vw, 13px)", maxWidth: "min(34vw, 185px)" }}
+            >
+              Soluciones adaptadas al cultivo, escala y condición del predio.
             </p>
           </div>
-        </BlurFade>
-      </Container>
-
-      {/* Móvil — marquee infinito */}
-      <div className="md:hidden mt-2">
-        <div
-          className="flex gap-3"
-          style={{ animation: "marquee-loop 28s linear infinite", width: "max-content" }}
-        >
-          {DOUBLED.map((sector, i) => (
-            <div key={i} className="h-52 w-44 shrink-0">
-              <SectorCard sector={sector} sizes="176px" />
-            </div>
-          ))}
         </div>
-      </div>
-
-      {/* Desktop — grid 4 columnas */}
-      <Container className="hidden md:block">
-        <div className="grid grid-cols-4 gap-4">
-          {SECTORS.map((sector, i) => (
-            <BlurFade key={sector.name} inView inViewMargin="-60px" delay={i * 0.07}>
-              <div className="aspect-square">
-                <SectorCard sector={sector} sizes="25vw" />
-              </div>
-            </BlurFade>
-          ))}
-        </div>
-      </Container>
+      </BlurFade>
     </section>
   )
 }
