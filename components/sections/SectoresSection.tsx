@@ -1,7 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useAnimationFrame,
+  type MotionValue,
+} from "motion/react"
 import { Sprout, Droplets, TreePine, Coffee, Leaf, Wheat, SunMedium, Factory } from "lucide-react"
 import { BlurFade } from "@/components/ui/blur-fade"
 import type { ElementType } from "react"
@@ -49,121 +56,155 @@ const SECTORS: { name: string; icon: ElementType; image: string }[] = [
   },
 ]
 
+const REVOLUTION_MS = 36000 // 36 segundos por vuelta completa
+
+/* Cada tarjeta calcula su posición x,y a partir del ángulo compartido */
+function OrbitCard({
+  sector,
+  index,
+  total,
+  angle,
+  radius,
+  cardW,
+  cardH,
+}: {
+  sector: (typeof SECTORS)[number]
+  index: number
+  total: number
+  angle: MotionValue<number>
+  radius: number
+  cardW: number
+  cardH: number
+}) {
+  const Icon = sector.icon
+  const offsetRad = (index / total) * Math.PI * 2 // ángulo inicial de esta tarjeta
+
+  const x = useTransform(angle, (deg) => {
+    const rad = (deg * Math.PI) / 180 + offsetRad - Math.PI / 2
+    return Math.cos(rad) * radius - cardW / 2
+  })
+
+  const y = useTransform(angle, (deg) => {
+    const rad = (deg * Math.PI) / 180 + offsetRad - Math.PI / 2
+    return Math.sin(rad) * radius - cardH / 2
+  })
+
+  return (
+    <motion.div
+      className="absolute"
+      style={{ left: "50%", top: "50%", x, y, width: cardW, height: cardH }}
+    >
+      <div className="group relative h-full w-full overflow-hidden rounded-2xl shadow-lg ring-2 ring-white">
+        <Image
+          src={sector.image}
+          alt={sector.name}
+          fill
+          sizes={`${Math.round(cardW)}px`}
+          className="object-cover transition duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06131f]/90 via-[#06131f]/25 to-transparent" />
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-2 text-center">
+          <div className="mb-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/20 text-white backdrop-blur-sm ring-1 ring-white/30">
+            <Icon size={14} />
+          </div>
+          <p className="text-[11px] font-bold leading-tight text-white drop-shadow">
+            {sector.name}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 export function SectoresSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [size, setSize] = useState(0)
   const [paused, setPaused] = useState(false)
-  const ps = paused ? "paused" : "running"
+  const angle = useMotionValue(0)
+
+  /* Medir el contenedor y escuchar cambios de tamaño */
+  useEffect(() => {
+    const measure = () => {
+      if (containerRef.current) setSize(containerRef.current.offsetWidth)
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    if (containerRef.current) ro.observe(containerRef.current)
+    return () => ro.disconnect()
+  }, [])
+
+  /* Avanzar el ángulo en cada frame */
+  useAnimationFrame((_, delta) => {
+    if (!paused) {
+      angle.set((angle.get() + (delta * 360) / REVOLUTION_MS) % 360)
+    }
+  })
+
+  const radius = size * 0.38
+  const cardW  = Math.min(size * 0.23, 100)
+  const cardH  = Math.min(size * 0.28, 124)
 
   return (
     <section className="overflow-hidden bg-[#f5f9ff] py-24">
       <BlurFade inView inViewMargin="-80px">
         <div
-          className="relative mx-auto select-none"
-          style={
-            {
-              width: "min(90vw, 560px)",
-              height: "min(90vw, 560px)",
-              "--orbit-r": "min(37vw, 226px)",
-            } as React.CSSProperties
-          }
+          ref={containerRef}
+          className="relative mx-auto w-full max-w-[580px] select-none px-4"
+          style={{ aspectRatio: "1 / 1" }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
           {/* Fondo radial suave */}
           <div
-            className="pointer-events-none absolute inset-0 rounded-full"
+            className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(circle, rgba(27,108,182,0.06) 0%, rgba(27,108,182,0.02) 42%, transparent 68%)",
+                "radial-gradient(circle, rgba(27,108,182,0.06) 0%, transparent 62%)",
             }}
           />
 
-          {/* Anillo decorativo — ruta de la órbita */}
-          <div
-            className="pointer-events-none absolute rounded-full border border-dashed border-[#1b6cb6]/18"
-            style={{
-              top: "calc(50% - var(--orbit-r))",
-              left: "calc(50% - var(--orbit-r))",
-              width: "calc(var(--orbit-r) * 2)",
-              height: "calc(var(--orbit-r) * 2)",
-            }}
-          />
+          {/* Anillo decorativo en la ruta orbital */}
+          {size > 0 && (
+            <div
+              className="pointer-events-none absolute rounded-full border border-dashed border-[#1b6cb6]/20"
+              style={{
+                width: radius * 2,
+                height: radius * 2,
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+          )}
 
-          {/* Anillo interior decorativo */}
-          <div className="pointer-events-none absolute inset-[22%] rounded-full border border-[#c8ddf0]/40" />
-
-          {/* Pista orbital — rota continuamente */}
-          <div
-            className="absolute inset-0"
-            style={{
-              animation: "orbit-forward 34s linear infinite",
-              animationPlayState: ps,
-            }}
-          >
-            {SECTORS.map((sector, i) => {
-              const Icon = sector.icon
-              const angle = (i / SECTORS.length) * 360
-              return (
-                <div
-                  key={sector.name}
-                  className="absolute top-1/2 left-1/2"
-                  style={{
-                    transform: `rotate(${angle}deg) translateY(calc(-1 * var(--orbit-r))) translateX(-50%)`,
-                    animation: "orbit-backward 34s linear infinite",
-                    animationPlayState: ps,
-                  }}
-                >
-                  {/* Tarjeta foto */}
-                  <div
-                    className="group relative overflow-hidden rounded-2xl shadow-lg ring-2 ring-white/80"
-                    style={{ width: "min(16vw, 88px)", height: "min(20vw, 110px)" }}
-                  >
-                    <Image
-                      src={sector.image}
-                      alt={sector.name}
-                      fill
-                      sizes="88px"
-                      className="object-cover transition duration-600 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#06131f]/90 via-[#06131f]/25 to-transparent" />
-                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-2 text-center">
-                      <div className="mb-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-white/22 text-white backdrop-blur-sm">
-                        <Icon size={12} />
-                      </div>
-                      <p
-                        className="font-bold leading-tight text-white"
-                        style={{ fontSize: "clamp(8px, 2.1vw, 10.5px)" }}
-                      >
-                        {sector.name}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          {/* Tarjetas orbitando */}
+          {size > 0 &&
+            SECTORS.map((sector, i) => (
+              <OrbitCard
+                key={`${sector.name}-${size}`}
+                sector={sector}
+                index={i}
+                total={SECTORS.length}
+                angle={angle}
+                radius={radius}
+                cardW={cardW}
+                cardH={cardH}
+              />
+            ))}
 
           {/* Texto central */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
-            <p
-              className="mb-2 inline-flex items-center justify-center gap-1.5 font-bold uppercase tracking-[0.16em] text-[#1b6cb6]"
-              style={{ fontSize: "clamp(8px, 2vw, 10px)" }}
-            >
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
+            <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#1b6cb6] sm:text-xs">
               <span className="h-px w-4 bg-[#1b6cb6]" />
               Cobertura de servicio
               <span className="h-px w-4 bg-[#1b6cb6]" />
             </p>
-            <h2
-              className="font-black leading-tight text-[#1a2b3c]"
-              style={{ fontSize: "clamp(18px, 5vw, 28px)" }}
-            >
+            <h2 className="text-xl font-black leading-tight text-[#1a2b3c] sm:text-2xl md:text-3xl">
               Campo, finca<br />y agroindustria
             </h2>
             <div className="mt-2 h-0.5 w-8 rounded-full bg-[#3baa6e]" />
-            <p
-              className="mt-3 leading-snug text-[#566a7a]"
-              style={{ fontSize: "clamp(10px, 2.5vw, 13px)", maxWidth: "min(34vw, 185px)" }}
-            >
-              Soluciones adaptadas al cultivo, escala y condición del predio.
+            <p className="mt-3 max-w-[160px] text-xs leading-snug text-[#566a7a] sm:max-w-[200px] sm:text-sm">
+              Soluciones adaptadas al tipo de cultivo, escala y condición del predio.
             </p>
           </div>
         </div>
