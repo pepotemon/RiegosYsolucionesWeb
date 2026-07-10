@@ -15,7 +15,7 @@ const STEP_IMAGES = [
 
 export function WorkProcess() {
   return (
-    <section className="bg-white">
+    <section className="overflow-hidden bg-white">
 
       {/* Header */}
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 sm:px-6 lg:px-8">
