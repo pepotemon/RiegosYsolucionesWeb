@@ -445,25 +445,26 @@ export function SectoresSection() {
                     }}
                   />
 
-                  {/* Logo centered on planet */}
-                  <div
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{ zIndex: 10 }}
-                  >
-                    <Image
-                      src="/logo-icon.png"
-                      alt="Riegos y Soluciones Agrícolas del Norte"
-                      width={512}
-                      height={512}
-                      style={{
-                        width: "96%",
-                        height: "96%",
-                        objectFit: "contain",
-                        filter:
-                          "brightness(0) invert(1) drop-shadow(0 0 22px rgba(255,255,255,0.90)) drop-shadow(0 0 8px rgba(255,255,255,0.60))",
-                      }}
-                    />
-                  </div>
+                </div>
+
+                {/* Logo flotando encima del planeta — más grande que el propio círculo */}
+                <div
+                  className="pointer-events-none absolute flex items-center justify-center"
+                  style={{ width: logoSize * 1.45, height: logoSize * 1.45, zIndex: 20 }}
+                >
+                  <Image
+                    src="/logo-icon.png"
+                    alt="Riegos y Soluciones Agrícolas del Norte"
+                    width={512}
+                    height={512}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      filter:
+                        "brightness(0) invert(1) drop-shadow(0 0 28px rgba(255,255,255,0.95)) drop-shadow(0 0 12px rgba(255,255,255,0.70))",
+                    }}
+                  />
                 </div>
               </div>
             )}
