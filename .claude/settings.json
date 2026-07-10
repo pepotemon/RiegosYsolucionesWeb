@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo {\"systemMessage\": \"RECORDATORIO: Actualizar docs-obsidian/06_Changelog.md con los cambios de esta sesion antes de cerrar.\"}"
+          }
+        ]
+      }
+    ]
+  }
+}
