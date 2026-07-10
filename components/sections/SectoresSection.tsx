@@ -77,7 +77,7 @@ function OrbitCard({
   cardH: number
 }) {
   const Icon = sector.icon
-  const offsetRad = (index / total) * Math.PI * 2 // ángulo inicial de esta tarjeta
+  const offsetRad = (index / total) * Math.PI * 2
 
   const x = useTransform(angle, (deg) => {
     const rad = (deg * Math.PI) / 180 + offsetRad - Math.PI / 2
@@ -89,10 +89,16 @@ function OrbitCard({
     return Math.sin(rad) * radius - cardH / 2
   })
 
+  // rawY va de -radius (arriba = "detrás") a +radius (abajo = "delante")
+  const rawY = useTransform(y, (yVal) => yVal + cardH / 2)
+  const scale   = useTransform(rawY, [-radius, radius], [0.68, 1.05])
+  const opacity = useTransform(rawY, [-radius, radius], [0.40, 1.00])
+  const zIndex  = useTransform(rawY, [-radius, radius], [1, 10])
+
   return (
     <motion.div
       className="absolute"
-      style={{ left: "50%", top: "50%", x, y, width: cardW, height: cardH }}
+      style={{ left: "50%", top: "50%", x, y, width: cardW, height: cardH, scale, opacity, zIndex }}
     >
       <div className="group relative h-full w-full overflow-hidden rounded-2xl shadow-lg ring-2 ring-white">
         <Image
