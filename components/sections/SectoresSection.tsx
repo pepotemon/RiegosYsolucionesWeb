@@ -206,12 +206,15 @@ export function SectoresSection() {
               />
             ))}
 
-          {/* Texto central — solo descripción */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <div className="mb-3 h-0.5 w-8 rounded-full bg-[#3baa6e]" />
-            <p className="text-sm font-medium leading-relaxed text-[#566a7a] sm:text-base">
-              Soluciones adaptadas al tipo<br />de cultivo, escala productiva<br />y condición del predio.
-            </p>
+          {/* Logo central */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Image
+              src="/logo-icon.png"
+              alt="Riegos y Soluciones Agrícolas del Norte"
+              width={96}
+              height={96}
+              className="h-20 w-20 object-contain sm:h-24 sm:w-24"
+            />
           </div>
         </div>
       </BlurFade>
