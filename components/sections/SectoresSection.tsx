@@ -140,16 +140,16 @@ export function SectoresSection() {
     }
   })
 
-  const radius = size * 0.38
+  const radius = size * 0.50
   const cardW  = Math.min(size * 0.23, 100)
   const cardH  = Math.min(size * 0.28, 124)
 
   return (
-    <section className="overflow-hidden bg-[#f5f9ff] py-24">
+    <section className="bg-[#f5f9ff] py-24">
       <BlurFade inView inViewMargin="-80px">
         <div
           ref={containerRef}
-          className="relative mx-auto w-full max-w-[580px] select-none px-4"
+          className="relative mx-auto w-full max-w-[580px] select-none"
           style={{ aspectRatio: "1 / 1" }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
@@ -193,18 +193,18 @@ export function SectoresSection() {
             ))}
 
           {/* Texto central */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-            <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#1b6cb6] sm:text-xs">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[#1b6cb6] sm:text-xs">
               <span className="h-px w-4 bg-[#1b6cb6]" />
               Cobertura de servicio
               <span className="h-px w-4 bg-[#1b6cb6]" />
             </p>
-            <h2 className="text-xl font-black leading-tight text-[#1a2b3c] sm:text-2xl md:text-3xl">
+            <h2 className="text-2xl font-black leading-tight text-[#1a2b3c] sm:text-3xl md:text-4xl">
               Campo, finca<br />y agroindustria
             </h2>
-            <div className="mt-2 h-0.5 w-8 rounded-full bg-[#3baa6e]" />
-            <p className="mt-3 max-w-[160px] text-xs leading-snug text-[#566a7a] sm:max-w-[200px] sm:text-sm">
-              Soluciones adaptadas al tipo de cultivo, escala y condición del predio.
+            <div className="mt-3 h-0.5 w-10 rounded-full bg-[#3baa6e]" />
+            <p className="mt-3 text-sm leading-snug text-[#566a7a] sm:text-base">
+              Soluciones adaptadas al cultivo,<br />escala y condición del predio.
             </p>
           </div>
         </div>
