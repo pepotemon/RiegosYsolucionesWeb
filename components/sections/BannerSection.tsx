@@ -3,6 +3,7 @@ import Link from "next/link"
 import { MessageCircle } from "lucide-react"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { Container } from "@/components/ui/Container"
+import { RainEffect } from "@/components/ui/rain-effect"
 import { getWhatsAppUrl } from "@/lib/whatsapp"
 
 export function BannerSection() {
@@ -18,6 +19,11 @@ export function BannerSection() {
       />
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#06131f]/96 via-[#09213d]/88 to-[#09213d]/65" />
+
+      {/* Lluvia */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <RainEffect count={50} />
+      </div>
 
       <Container className="relative">
         <BlurFade inView inViewMargin="-60px">

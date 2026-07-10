@@ -219,6 +219,13 @@ img {
   to {
     transform: translateY(calc(-100% - var(--gap)));
     }
+  }
+  --animate-falling-rain: falling-rain var(--rain-duration, 0.75s) linear infinite;
+  @keyframes falling-rain {
+    0%   { transform: translateY(-20px) translateX(0);     opacity: 0; }
+    6%   { opacity: 0.8; }
+    90%  { opacity: 0.55; }
+    100% { transform: translateY(760px) translateX(140px); opacity: 0; }
   }}
 
 @keyframes marquee-loop {
