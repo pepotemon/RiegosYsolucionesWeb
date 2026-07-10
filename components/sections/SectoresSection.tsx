@@ -149,7 +149,7 @@ export function SectoresSection() {
       <BlurFade inView inViewMargin="-80px">
 
         {/* Título — encima de la órbita */}
-        <div className="mb-8 px-6 text-center">
+        <div className="mb-20 px-6 text-center">
           <p className="mb-3 inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#1b6cb6]">
             <span className="h-px w-6 bg-[#1b6cb6]" />
             Cobertura de servicio
