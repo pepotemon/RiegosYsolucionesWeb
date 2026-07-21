@@ -6,6 +6,20 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.1.0 — 2026-07-21 · Rediseño completo página de Catálogo
+
+### /catalogo — Catálogo técnico oscuro con filtros interactivos
+
+- ✅ **Hero full-screen oscuro** — mismo patrón que proyectos: gradient `#06131f → #0d2340`, dot-grid azul, título "Equipos y materiales para el campo", disclaimer "no es tienda online", stats (productos / categorías / cotización personalizada)
+- ✅ **Filter bar interactivo** — pills por categoría con contador de productos; estado activo `bg-[#082033]` vs. inactivo `bg-[#F3F9FF]`; "Ver todos" para resetear; "X productos" label dinámico
+- ✅ **Tarjetas tipo ficha técnica industrial** — fondo `#082033` oscuro, imagen top 60%, category badge verde + brand badge blanco sobre imagen, **línea de acento verde izquierda con glow**, nombre, descripción muted, bullets de features con dot verde, CTA WhatsApp full-width verde
+- ✅ **AnimatePresence `mode="popLayout"`** — filtrado con animación de escala + opacidad; `layout` prop para reposicionamiento suave del grid
+- ✅ **Bottom CTA** — sección oscura dot-grid verde + "Cotizamos cualquier equipo" + WhatsApp
+- ✅ `CatalogPageContent.tsx` — nuevo client component; `app/catalogo/page.tsx` queda como server component puro
+- ✅ TypeScript 0 errores
+
+---
+
 ## v1.0.0 — 2026-07-21 · Rediseño completo páginas de Proyectos
 
 ### /proyectos — Lista editorial inmersiva
