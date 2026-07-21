@@ -34,7 +34,7 @@ Fase 5 — Optimización             ⏳ Pendiente
 Fase 6 — Publicación              ⏳ Pendiente
 ```
 
-> Versión actual: **v1.1.0** — 2026-07-21
+> Versión actual: **v1.2.0** — 2026-07-21
 
 ---
 

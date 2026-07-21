@@ -6,6 +6,27 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.2.0 — 2026-07-21 · Rediseño completo páginas de Blog
+
+### /blog — Lista editorial con artículo destacado
+
+- ✅ **Hero oscuro** — mismo sistema editorial: "Conocimiento para el campo", stats (5 artículos / 5 temas / Gratis), scroll hint
+- ✅ **Artículo destacado full-width** — tarjeta horizontal `rounded-[32px]` `bg-[#082033]`: imagen 55% izquierda con hover scale, número fantasma `01`, meta fecha/tiempo, título grande, excerpt, botón verde CTA
+- ✅ **Divider "Más artículos"** — separador con label centrado entre featured y grid secundario
+- ✅ **Grid 2×2 de posts secundarios** — tarjetas blancas `rounded-[24px]` con `ring-1 ring-[#E0EEF9]`, hover `shadow-xl`, badge verde de tiempo de lectura, título con hover a azul, `whileInView` escalonado
+- ✅ **Bottom CTA** — "Un técnico puede responder puntualmente para tu cultivo"
+- ✅ `BlogPageContent.tsx` — nuevo client component
+
+### /blog/[slug] — Artículo tipo revista
+
+- ✅ **Hero full-viewport** — imagen de fondo `min-h-[65vh]`, overlay gradient, back link + badge arriba, fecha/tiempo de lectura + título grande abajo
+- ✅ **Tipografía editorial** — excerpt como lead `text-xl font-medium`, divider verde, párrafos `text-[17px] leading-[1.88]`, espaciado generoso
+- ✅ **CTA box oscuro** — `rounded-3xl bg-[#082033]` con eyebrow verde, título blanco, botón WhatsApp con shadow verde
+- ✅ **Sección "Más artículos"** — 3 artículos relacionados (excluye el actual) con mini-cards blancas, link "Ver todos" al blog
+- ✅ TypeScript 0 errores
+
+---
+
 ## v1.1.0 — 2026-07-21 · Rediseño completo página de Catálogo
 
 ### /catalogo — Catálogo técnico oscuro con filtros interactivos
