@@ -6,6 +6,38 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.5.0 — 2026-07-21 · Rediseño completo páginas Nosotros y Servicios
+
+### /nosotros — AboutPageContent (client component)
+
+- ✅ **Hero** — dot-grid + glow, green pill badge, H1 con acento verde, párrafo `text-white/50`
+- ✅ **Stats animadas** — `initial/animate` escalonado, cards `bg-white/4 border-white/8` con números grandes de color
+- ✅ **Historia** — `whileInView` blockquote con borde verde izquierdo, párrafos divididos por `divide-[#E0EEF9]`
+- ✅ **Equipo** — sección dark `bg-[#06131f]`, 2 cards `bg-[#082033]` con ghost number, línea de acento lateral (verde / azul) con glow, icono translúcido
+- ✅ **CTA** — dark con dot-grid + glow verde, icono Globe2, botón verde WhatsApp
+- ✅ Eliminados: imports Container/Button/company icons no usados
+
+### /servicios lista — rediseño de badge, separador y CTA
+
+- ✅ **Badge hero** — cambio a pill verde `rounded-full border text-[#2DBA45]`
+- ✅ **Pills** de servicio — hover cambia a verde en lugar de azul
+- ✅ **Eyebrow** en lista — `text-[10px] tracking-[0.22em] text-[#2DBA45]`
+- ✅ **Separador quote** — de `bg-[#2d8757]` sólido a `bg-[#082033]` con líneas decorativas laterales
+- ✅ **CTA** — de `bg-[#f5f9ff]` light a dark full `bg-[#06131f]` con dot-grid + glow verde + botón `bg-[#2DBA45]` + link secundario fantasma
+
+### /servicios/[slug] — rediseño completo
+
+- ✅ **Hero inmersivo** — `min-h-[65vh]` imagen fill, `bg-gradient-to-t from-[#06131f]`, back link top + badge, icono + H1 + descripción al fondo
+- ✅ **Descripción** — sección blanca con lead text `text-xl font-medium text-[#3a5268]` + divider verde/azul
+- ✅ **Info blocks** — sección dark `bg-[#06131f]`, 3 `DarkInfoBlock` `bg-[#082033]` con ghost number, acento lateral de color diferente por bloque
+- ✅ **Proyectos relacionados** — grid de mini-cards blancas estilo blog, imagen `aspect-[16/10]`, location en verde, título con hover azul
+- ✅ **FAQs** — dark `bg-[#06131f]`, cards `bg-[#082033]` con ghost number, texto `text-white/55`
+- ✅ **CTA** — `bg-[#082033]` editorial, eyebrow verde, H2 blanco, botón WhatsApp verde
+- ✅ Eliminado `ProjectCard` e imports SectionHeader/Container no necesarios
+- ✅ TypeScript 0 errores
+
+---
+
 ## v1.3.0 — 2026-07-21 · Rediseño completo página de Contacto
 
 ### /contacto — Split screen: panel oscuro + formulario
