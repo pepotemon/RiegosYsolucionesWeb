@@ -27,9 +27,9 @@ const WA_URL = getWhatsAppUrl(
 
 export default function ContactPage() {
   return (
-    <main className="flex min-h-screen flex-col lg:flex-row">
+    <main className="grid min-h-screen lg:grid-cols-[44%_56%]">
       {/* ── PANEL IZQUIERDO — Info ── */}
-      <div className="relative overflow-hidden bg-[#06131f] px-8 py-20 lg:sticky lg:top-0 lg:h-screen lg:w-[44%] lg:overflow-y-auto lg:px-14 lg:py-28">
+      <div className="relative overflow-hidden bg-[#06131f] px-8 py-20 lg:px-14 lg:py-28">
         {/* Dot grid */}
         <div
           aria-hidden
@@ -50,7 +50,7 @@ export default function ContactPage() {
           }}
         />
 
-        <div className="relative z-10 flex h-full flex-col">
+        <div className="relative z-10">
           {/* Badge + headline */}
           <div className="mb-12">
             <span
@@ -179,7 +179,7 @@ export default function ContactPage() {
           </div>
 
           {/* ── REDES SOCIALES ── */}
-          <div className="mt-auto flex gap-3">
+          <div className="mt-8 flex gap-3">
             {[
               {
                 href: siteConfig.social.facebook,
