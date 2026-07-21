@@ -6,6 +6,27 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.3.0 — 2026-07-21 · Rediseño completo página de Contacto
+
+### /contacto — Split screen: panel oscuro + formulario
+
+- ✅ **Layout split full-screen** — `flex min-h-screen`: izquierda `44%` oscura pegajosa (`lg:sticky lg:top-0 lg:h-screen`), derecha `flex-1` blanca con formulario. En móvil: apiladas verticalmente
+- ✅ **Panel izquierdo** — dot-grid azul + glow lateral; badge + título "Cuéntenos su proyecto"; 3 bloques de canal:
+  - **WhatsApp** (primario): `rounded-2xl` con borde verde, icono `bg-[#2DBA45]` con shadow, "Enviar mensaje →" en verde
+  - **Teléfonos** + **Correo**: `rounded-2xl` fondo translúcido, icono azul, cada entrada como link
+  - Dirección · Horario · Cobertura como items con iconos sutiles
+  - Iconos de redes sociales como botones cuadrados con hover
+- ✅ **ContactForm — rediseño visual** (lógica intacta):
+  - Sin wrapper de borde/sombra — vive directamente en el panel blanco
+  - 4 secciones con `SectionLabel` (Sobre ti / Tu contacto / Ubicación / Tu proyecto + Cuéntanos más)
+  - Inputs con `rounded-xl border border-[#E0EEF9] bg-[#F8FBFF]`, focus con ring azul
+  - Labels en `text-[10px] font-bold uppercase tracking-wider`
+  - Correo y Servicio en col-span-full; demás en 2 columnas
+  - Botón verde `bg-[#2DBA45]` con shadow verde + icono `MessageCircle`
+- ✅ TypeScript 0 errores
+
+---
+
 ## v1.2.0 — 2026-07-21 · Rediseño completo páginas de Blog
 
 ### /blog — Lista editorial con artículo destacado
