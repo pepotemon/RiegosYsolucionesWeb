@@ -6,6 +6,36 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.0.0 — 2026-07-21 · Rediseño completo páginas de Proyectos
+
+### /proyectos — Lista editorial inmersiva
+
+- ✅ **Hero full-screen oscuro** — gradient `#06131f → #0d2340`, dot-grid azul, título "Proyectos que hablan por sí solos", stats (3+ proyectos / 3 departamentos / 100+ hectáreas), scroll hint animado
+- ✅ **Secciones alternadas por proyecto** — cada proyecto ocupa `min-h-screen` en desktop; imagen 55% / contenido 45%; alternancia blanco/oscuro por índice par/impar; imagen con edge-gradient de transición
+- ✅ **Número fantasma** — `01/02/03` en tipografía masiva (210px), opacity 4%, posicionado como watermark en el fondo del contenido
+- ✅ **Narrativa inline** — Problema / Solución / Resultado con bullets numerados `#2DBA45`, label coloreado, texto legible
+- ✅ **Pills de stats** — Área y Cultivo con fondo traslúcido adaptativo (claro/oscuro)
+- ✅ **CTA por proyecto** — botón que lleva al caso completo
+- ✅ **Bottom CTA** — sección oscura con dot-grid verde + WhatsApp CTA
+- ✅ `ProjectsPageContent.tsx` — nuevo componente cliente con Framer Motion (`whileInView`, `initial/animate`)
+
+### /proyectos/[slug] — Caso de estudio
+
+- ✅ **Hero full-viewport** — imagen de fondo `min-h-screen`, gradient overlay `from-[#06131f]`, back link + service badge en top, título gigante + metadata pills en bottom
+- ✅ **Stats bar oscura** — 4 columnas (Área / Cultivo / Departamento / Servicio) con dividers
+- ✅ **Caso de estudio 3 columnas** — tarjetas con `border-radius 24px`, ghost number de color por tipo (rojo/azul/verde), accent line, texto legible
+- ✅ **Galería editorial** — imagen principal `aspect-[16/7]` full-width rounded, imágenes secundarias en grid 2 columnas
+- ✅ **CTA final oscuro** — mismo patrón que lista, con texto personalizado al proyecto
+
+### Arquitectura
+
+- `app/proyectos/page.tsx` → server component, delega a `ProjectsPageContent`
+- `components/projects/ProjectsPageContent.tsx` → client component (Framer Motion)
+- `app/proyectos/[slug]/page.tsx` → server component, rediseño completo
+- TypeScript: 0 errores
+
+---
+
 ## v0.9.0 — 2026-07-10 · Planeta verde + automatización Obsidian
 
 ### SectoresSection — Planeta verde en el centro de la órbita
