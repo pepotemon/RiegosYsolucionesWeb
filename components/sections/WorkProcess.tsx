@@ -22,10 +22,10 @@ export function WorkProcess() {
         <BlurFade inView inViewMargin="-80px">
           <p className="mb-3 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#1b6cb6]">
             <span className="h-px w-6 bg-[#1b6cb6]" />
-            Cómo trabajamos
+            Nuestra metodología
           </p>
           <h2 className="max-w-2xl text-4xl font-black leading-tight text-[#1a2b3c] lg:text-5xl">
-            Cinco pasos. Sin atajos.
+            Cinco pasos. Un resultado.
           </h2>
         </BlurFade>
       </div>

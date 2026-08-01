@@ -30,7 +30,7 @@ export function BannerSection() {
           <div className="max-w-3xl">
             <p className="mb-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#3baa6e]">
               <span className="h-px w-6 bg-[#3baa6e]" />
-              Ingeniería agrícola
+              Ingeniería hidráulica especializada
             </p>
             <h2 className="text-4xl font-black leading-tight lg:text-5xl">
               Riega mejor,{" "}
@@ -38,8 +38,9 @@ export function BannerSection() {
               <br />y reduce costos
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#a8c8e0]">
-              Con el sistema correcto, el agua deja de ser un problema y se convierte en su ventaja
-              competitiva. Visita técnica sin costo. Propuesta en 5 días.
+              Con la solución correcta, el agua deja de ser un problema y se convierte en su ventaja
+              competitiva. Cada proyecto que asumimos es una responsabilidad frente a su inversión
+              y sus objetivos. Visita técnica. Propuesta a la medida.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a

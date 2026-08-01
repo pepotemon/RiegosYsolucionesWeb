@@ -10,25 +10,25 @@ const features = [
     icon: Droplets,
     color: "text-[#1b6cb6]",
     bg: "bg-[#e8f2fc]",
-    title: "Ahorro de agua",
+    title: "Soluciones a la medida",
     description:
-      "Tecnología de precisión para aplicar exactamente el agua que su cultivo necesita, sin desperdicios.",
+      "Cada proyecto es único. Diseñamos soluciones adaptadas a las condiciones reales del proyecto, el presupuesto y los objetivos del cliente.",
   },
   {
     icon: Leaf,
     color: "text-[#3baa6e]",
     bg: "bg-[#e6f7ed]",
-    title: "Mayor productividad",
+    title: "Ingeniería y calidad",
     description:
-      "Cultivos mejor hidratados y más uniformes con mayor rendimiento por hectárea en cada ciclo.",
+      "Materiales de alta calidad, cálculos técnicos precisos y optimización del recurso hídrico en cada diseño e instalación.",
   },
   {
     icon: Users,
     color: "text-[#1b6cb6]",
     bg: "bg-[#e8f2fc]",
-    title: "Asesoría técnica",
+    title: "Acompañamiento permanente",
     description:
-      "Acompañamiento especializado desde el diagnóstico inicial hasta la puesta en marcha del sistema.",
+      "Estamos presentes antes, durante y después de la instalación, con soporte técnico y cumplimiento en cada etapa del proyecto.",
   },
 ]
 
@@ -47,11 +47,12 @@ export function ConfianzaSection() {
                 Por qué elegirnos
               </p>
               <h2 className="text-4xl font-black leading-tight text-[#1a2b3c] lg:text-[2.6rem]">
-                Tecnología, experiencia y compromiso con el agricultor
+                Ingeniería, experiencia y compromiso con cada proyecto
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#566a7a]">
-                Combinamos ingeniería de precisión con conocimiento del campo colombiano para entregar
-                soluciones que funcionan en la realidad del predio, no solo en papel.
+                Somos un aliado estratégico que diseña, desarrolla e implementa soluciones integrales
+                para optimizar el uso del agua, mejorar la eficiencia de los procesos y ejecutar
+                proyectos confiables, eficientes y sostenibles.
               </p>
               <Link
                 href="/nosotros"

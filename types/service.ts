@@ -6,6 +6,7 @@ export type Service = {
   shortDescription: string;
   description: string;
   image: string;
+  videos?: { src: string; label: string; type?: "video" | "image" }[];
   icon: LucideIcon;
   audience: string[];
   benefits: string[];

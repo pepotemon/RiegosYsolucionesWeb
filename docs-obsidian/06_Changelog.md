@@ -6,6 +6,31 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.7.0 — 2026-08-01 · Carrusel de videos + base de datos geográfica Colombia
+
+- ✅ **VideoCarousel** — nuevo componente cliente `components/ui/VideoCarousel.tsx`; flechas prev/next visibles al hover (`group-hover:opacity-100`); `key={current}` fuerza remount del `<video>` para resetear estado; tabs inferiores con indicador verde y label del clip activo
+- ✅ **tipos/service.ts** — campo `video?: string` reemplazado por `videos?: { src: string; label: string }[]`
+- ✅ **sistemas-de-riego** — 3 videos reales añadidos: invernadero pimentón, goteo pimentón, goteo papaya; foto real `/images/servicios/riego-goteo-pimenton.jpg` como imagen principal del servicio
+- ✅ **app/servicios/[slug]/page.tsx** — sección "En acción" actualizada para usar `VideoCarousel`; soporte para múltiples videos por servicio
+- ✅ **data/colombia.ts** — base de datos estática con 33 entidades territoriales (~1 100 municipios); sin dependencia externa
+- ✅ **QuoteModal + ContactForm** — selects en cascada departamento → municipio; reset de municipio al cambiar departamento; SERVICIOS actualizado a los 7 servicios reales
+- ✅ **Scroll modal** — fix doble capa: `data-lenis-prevent` + `overscroll-contain` en el panel del modal
+- ✅ **Bloques info servicio** — 3 estilos distintos: AudienceBlock (pills verdes), BenefitsBlock (dot azul + divide-y), ProcessBlock (timeline conectado); sin enumeraciones en esquinas ni índices
+
+---
+
+## v1.6.0 — 2026-08-01 · Portada — contenido real de la empresa
+
+- ✅ **Hero** — tagline cambiado a "Convertimos ideas en [rotating]"; rotating services actualizados para reflejar oferta real; subtítulo con descripción oficial de la empresa; badge "Ingeniería hidráulica especializada"; h1 SEO con nombre completo de la empresa
+- ✅ **Stats del hero** — reemplazado "10+ años de experiencia" por "7 Sectores atendidos"; stats ajustados para reflejar cifras reales y verificables
+- ✅ **ConfianzaSection** — "Por qué elegirnos" actualizado con las 6 ventajas reales: soluciones a la medida, ingeniería y calidad, acompañamiento permanente; texto izquierdo con definición oficial de "Quiénes somos"
+- ✅ **WorkProcess (Metodología)** — 5 pasos renombrados: Escuchamos, Analizamos, Diseñamos, Implementamos, Acompañamos; descripciones reescritas con el lenguaje oficial de la empresa; header cambiado a "Nuestra metodología / Cinco pasos. Un resultado."
+- ✅ **BannerSection** — label actualizado a "Ingeniería hidráulica especializada"; subtítulo con referencia a la promesa de la empresa
+- ✅ **CTASection** — label cambiado a "Nuestra promesa"; headline y texto del cierre con el texto oficial de la empresa
+- ✅ **data/services.ts** — 7 servicios actualizados con nombres y descripciones reales: Sistemas de riego, Soluciones hidráulicas, Fertirriego (reemplazó Pozos profundos), Sistemas de bombeo, Automatización, Soluciones energéticas, Instalación y servicio técnico; tildes y ortografía corregidas
+
+---
+
 ## v1.5.0 — 2026-07-21 · Rediseño completo páginas Nosotros y Servicios
 
 ### /nosotros — AboutPageContent (client component)

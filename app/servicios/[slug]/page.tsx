@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { createMetadata } from "@/lib/seo";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { VideoCarousel } from "@/components/ui/VideoCarousel";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -118,16 +119,33 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── Info blocks ── */}
+      {/* ── Galería de videos ── */}
+      {service.videos && service.videos.length > 0 && (
+        <section className="bg-[#030c15] py-16 lg:py-24">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10">
+              <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
+                Galería
+              </p>
+              <h2 className="text-2xl font-black text-white">
+                El servicio en campo
+              </h2>
+            </div>
+            <VideoCarousel videos={service.videos} />
+          </div>
+        </section>
+      )}
+
+      {/* ── Info blocks — tres estilos distintos ── */}
       <section className="bg-[#06131f] py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="mb-10 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
             Detalles del servicio
           </p>
           <div className="grid gap-6 lg:grid-cols-3">
-            <DarkInfoBlock title="Para quién sirve" items={service.audience} accent="#2DBA45" num="01" />
-            <DarkInfoBlock title="Beneficios" items={service.benefits} accent="#0077C8" num="02" />
-            <DarkInfoBlock title="Proceso" items={service.process} accent="#60b5e8" num="03" />
+            <AudienceBlock items={service.audience} />
+            <BenefitsBlock items={service.benefits} />
+            <ProcessBlock items={service.process} />
           </div>
         </div>
       </section>
@@ -194,33 +212,31 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {service.faqs.length > 0 && (
         <section className="bg-[#06131f] py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
+            <p className="mb-10 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
               Preguntas frecuentes
             </p>
-            <h2 className="mb-10 text-2xl font-black text-white">
-              Respuestas útiles antes de cotizar
-            </h2>
             <div className="grid gap-4 md:grid-cols-2">
-              {service.faqs.map((faq, i) => (
+              {service.faqs.map((faq) => (
                 <div
                   key={faq.question}
-                  className="relative overflow-hidden rounded-2xl p-6"
+                  className="rounded-2xl p-6"
                   style={{
                     background: "#082033",
                     border: "1px solid rgba(255,255,255,0.08)",
                   }}
                 >
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute -right-2 -top-6 select-none font-black leading-none text-white"
-                    style={{ fontSize: 80, opacity: 0.04 }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="relative z-10 font-bold text-white">{faq.question}</h3>
-                  <p className="relative z-10 mt-3 text-sm leading-7 text-white/55">
-                    {faq.answer}
-                  </p>
+                  <div className="flex gap-3">
+                    <span className="mt-0.5 shrink-0 text-[10px] font-black uppercase tracking-widest text-[#2DBA45]">
+                      P
+                    </span>
+                    <h3 className="font-bold leading-snug text-white">{faq.question}</h3>
+                  </div>
+                  <div className="mt-4 flex gap-3 border-t border-white/6 pt-4">
+                    <span className="mt-0.5 shrink-0 text-[10px] font-black uppercase tracking-widest text-white/20">
+                      R
+                    </span>
+                    <p className="text-sm leading-7 text-white/55">{faq.answer}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -235,7 +251,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             ¿Listo para empezar?
           </p>
           <h2 className="mb-3 text-2xl font-black leading-tight text-white sm:text-3xl">
-            Hablemos de su cultivo, área y disponibilidad de agua
+            Hablemos de su proyecto
           </h2>
           <p className="mb-7 text-sm leading-relaxed text-white/50">
             El diagnóstico inicial es sin costo. Nuestro equipo técnico le propone la mejor
@@ -257,43 +273,101 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   );
 }
 
-function DarkInfoBlock({
-  title,
-  items,
-  accent,
-  num,
-}: {
-  title: string;
-  items: string[];
-  accent: string;
-  num: string;
-}) {
+/* ── Bloque 1: Para quién sirve — pills/tags ── */
+function AudienceBlock({ items }: { items: string[] }) {
   return (
     <div
       className="relative overflow-hidden rounded-3xl p-8"
       style={{ background: "#082033", border: "1px solid rgba(255,255,255,0.08)" }}
     >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -right-3 -top-6 select-none font-black leading-none text-white"
-        style={{ fontSize: 110, opacity: 0.04 }}
-      >
-        {num}
-      </span>
       <div
         className="absolute inset-y-0 left-0 w-1 rounded-l-3xl"
-        style={{ background: accent, boxShadow: `2px 0 14px ${accent}66` }}
+        style={{ background: "#2DBA45", boxShadow: "2px 0 14px #2DBA4566" }}
       />
       <div className="relative z-10 pl-2">
-        <h2 className="mb-5 text-lg font-black text-white">{title}</h2>
-        <ul className="grid gap-3">
+        <h2 className="mb-6 text-lg font-black text-white">Para quién sirve</h2>
+        <div className="flex flex-wrap gap-2.5">
           {items.map((item) => (
-            <li key={item} className="flex gap-3 text-sm leading-6 text-white/60">
-              <CheckCircle2 size={16} className="mt-0.5 shrink-0" style={{ color: accent }} />
+            <span
+              key={item}
+              className="rounded-full px-4 py-2 text-[13px] leading-snug text-white/65"
+              style={{
+                border: "1px solid rgba(45,186,69,0.22)",
+                background: "rgba(45,186,69,0.08)",
+              }}
+            >
               {item}
-            </li>
+            </span>
           ))}
-        </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Bloque 2: Beneficios — declaraciones con separadores ── */
+function BenefitsBlock({ items }: { items: string[] }) {
+  return (
+    <div
+      className="relative overflow-hidden rounded-3xl p-8"
+      style={{ background: "#082033", border: "1px solid rgba(255,255,255,0.08)" }}
+    >
+      <div
+        className="absolute inset-y-0 left-0 w-1 rounded-l-3xl"
+        style={{ background: "#0077C8", boxShadow: "2px 0 14px #0077C866" }}
+      />
+      <div className="relative z-10 pl-2">
+        <h2 className="mb-6 text-lg font-black text-white">Beneficios</h2>
+        <div className="divide-y divide-white/6">
+          {items.map((item) => (
+            <div key={item} className="flex items-center gap-3 py-3.5 first:pt-0 last:pb-0">
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full"
+                style={{ background: "#0077C8", opacity: 0.7 }}
+              />
+              <p className="text-sm font-medium leading-relaxed text-white/65">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Bloque 3: Proceso — timeline conectado ── */
+function ProcessBlock({ items }: { items: string[] }) {
+  return (
+    <div
+      className="relative overflow-hidden rounded-3xl p-8"
+      style={{ background: "#082033", border: "1px solid rgba(255,255,255,0.08)" }}
+    >
+      <div
+        className="absolute inset-y-0 left-0 w-1 rounded-l-3xl"
+        style={{ background: "#60b5e8", boxShadow: "2px 0 14px #60b5e866" }}
+      />
+      <div className="relative z-10 pl-2">
+        <h2 className="mb-6 text-lg font-black text-white">Proceso</h2>
+        <div className="flex flex-col">
+          {items.map((item, i) => (
+            <div key={item} className="flex gap-3.5">
+              <div className="flex flex-col items-center">
+                <div
+                  className="h-2.5 w-2.5 shrink-0 rounded-full"
+                  style={{ background: "#60b5e8", opacity: 0.6 }}
+                />
+                {i < items.length - 1 && (
+                  <div className="my-1 w-px flex-1 bg-white/8" />
+                )}
+              </div>
+              <p
+                className="text-sm leading-6 text-white/60"
+                style={{ paddingBottom: i < items.length - 1 ? "1rem" : 0 }}
+              >
+                {item}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

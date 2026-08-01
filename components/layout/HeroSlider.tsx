@@ -25,17 +25,17 @@ const slides = [
 
 const ROTATING_SERVICES = [
   "riego tecnificado.",
-  "bombeo solar.",
-  "pozos profundos.",
+  "soluciones hidráulicas.",
+  "sistemas solares.",
   "automatización.",
-  "gestión hídrica.",
+  "proyectos exitosos.",
 ]
 
 const stats = [
-  { value: 150, suffix: "+", label: "Proyectos realizados" },
   { value: 7,   suffix: "",  label: "Servicios especializados" },
   { value: 100, suffix: "%", label: "Soluciones personalizadas" },
-  { value: 10,  suffix: "+", label: "Años de experiencia" },
+  { value: 7,   suffix: "",  label: "Sectores atendidos" },
+  { value: 5,   suffix: "",  label: "Pasos de nuestra metodología" },
 ]
 
 export function HeroSlider() {
@@ -98,7 +98,7 @@ export function HeroSlider() {
 
           {/* h1 semántico para SEO */}
           <h1 className="sr-only">
-            Sistemas de riego tecnificado y recursos hídricos en Colombia
+            Riegos y Soluciones Agrícolas del Norte — Ingeniería especializada en sistemas de riego y soluciones hidráulicas integrales en Colombia
           </h1>
 
           {/* Badge */}
@@ -106,7 +106,7 @@ export function HeroSlider() {
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#1b6cb6]/40 bg-[#1b6cb6]/12 px-4 py-2 backdrop-blur-sm">
               <Droplets size={14} className="text-[#60b5e8]" />
               <span className="text-sm font-semibold tracking-wide text-[#93c5fd]">
-                Ingeniería hídrica y agrícola · Colombia
+                Ingeniería hidráulica especializada · Colombia
               </span>
             </div>
           </BlurFade>
@@ -117,7 +117,7 @@ export function HeroSlider() {
             className="text-[2.6rem] font-black leading-[1.08] sm:text-5xl lg:text-[3.8rem]"
           >
             <BlurFade delay={0.12} duration={0.65}>
-              <p className="text-white">Su cultivo merece</p>
+              <p className="text-white">Convertimos ideas en</p>
             </BlurFade>
 
             {/* Altura fija = 1 línea en cada breakpoint → nunca empuja el layout */}
@@ -135,8 +135,8 @@ export function HeroSlider() {
           {/* Subtítulo */}
           <BlurFade delay={0.38} duration={0.6}>
             <p className="mt-6 max-w-[520px] text-lg leading-relaxed text-[#8db8d8]">
-              Diseñamos, instalamos y respaldamos sistemas hídricos a la medida de su
-              predio. Del diagnóstico técnico a la puesta en marcha, con equipo propio.
+              Ingeniería especializada en sistemas de riego y soluciones hidráulicas integrales.
+              Diseñamos, desarrollamos e implementamos soluciones a la medida de cada proyecto.
             </p>
           </BlurFade>
 

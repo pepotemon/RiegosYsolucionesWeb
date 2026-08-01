@@ -4,15 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { X, Send } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { buildQuoteMessage, getWhatsAppUrl, QuoteData } from "@/lib/whatsapp";
+import { colombia } from "@/data/colombia";
 
 const SERVICIOS = [
   "Sistemas de riego",
-  "Recursos hídricos",
-  "Pozos profundos",
-  "Sistemas de bombeo",
-  "Automatización agrícola",
-  "Energía solar",
-  "Mantenimiento",
+  "Soluciones hidráulicas",
+  "Fertirriego",
+  "Ingeniería y consultoría",
+  "Automatización",
+  "Soluciones energéticas",
+  "Instalación y servicio técnico",
 ];
 
 const INITIAL: QuoteData = {
@@ -30,6 +31,9 @@ export function QuoteModal({ open, onClose }: Props) {
   const [data, setData] = useState<QuoteData>(INITIAL);
   const overlayRef = useRef<HTMLDivElement>(null);
 
+  const municipios =
+    colombia.find((d) => d.nombre === data.departamento)?.municipios ?? [];
+
   useEffect(() => {
     if (!open) return;
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -45,6 +49,10 @@ export function QuoteModal({ open, onClose }: Props) {
   const set = (field: keyof QuoteData) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setData((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const handleDepartamento = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setData((prev) => ({ ...prev, departamento: e.target.value, municipio: "" }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,24 +74,28 @@ export function QuoteModal({ open, onClose }: Props) {
           onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}
           className="fixed inset-0 z-[200] flex items-end justify-center bg-black/60 backdrop-blur-sm sm:items-center sm:p-4"
         >
+          {/*
+            data-lenis-prevent: tells Lenis not to handle wheel events
+            that originate inside this panel, so the page no longer
+            scrolls when the user scrolls within the modal.
+          */}
           <motion.div
             key="quote-panel"
+            data-lenis-prevent
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-t-2xl bg-white shadow-2xl sm:rounded-2xl"
+            className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto overscroll-contain rounded-t-2xl bg-white shadow-2xl sm:rounded-2xl"
           >
-            {/* Cabecera del modal */}
+            {/* Cabecera */}
             <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[#c8ddf0] bg-white px-6 py-4">
               <div>
                 <h2 className="text-lg font-black text-[#1a2b3c]">Solicitar cotización</h2>
                 <p className="text-sm text-[#566a7a]">Le responderemos por WhatsApp</p>
               </div>
               <button
-                type="button"
-                onClick={onClose}
-                aria-label="Cerrar"
+                type="button" onClick={onClose} aria-label="Cerrar"
                 className="focus-ring flex h-9 w-9 items-center justify-center rounded-full text-[#566a7a] transition hover:bg-[#ebf4ff] hover:text-[#1b6cb6]"
               >
                 <X size={20} />
@@ -109,14 +121,33 @@ export function QuoteModal({ open, onClose }: Props) {
                   {SERVICIOS.map((s) => <option key={s}>{s}</option>)}
                 </select>
               </Field>
+
+              {/* Ubicación en cascada */}
               <Field label="Departamento *">
-                <input required type="text" value={data.departamento} onChange={set("departamento")}
-                  placeholder="Ej: Córdoba" className={cls} />
+                <select
+                  required value={data.departamento} onChange={handleDepartamento}
+                  className={cls}
+                >
+                  <option value="">Seleccione un departamento</option>
+                  {colombia.map((d) => (
+                    <option key={d.nombre} value={d.nombre}>{d.nombre}</option>
+                  ))}
+                </select>
               </Field>
               <Field label="Municipio *">
-                <input required type="text" value={data.municipio} onChange={set("municipio")}
-                  placeholder="Ej: Montería" className={cls} />
+                <select
+                  required value={data.municipio} onChange={set("municipio")}
+                  disabled={!data.departamento} className={cls}
+                >
+                  <option value="">
+                    {data.departamento ? "Seleccione un municipio" : "Primero seleccione un departamento"}
+                  </option>
+                  {municipios.map((m) => (
+                    <option key={m} value={m}>{m}</option>
+                  ))}
+                </select>
               </Field>
+
               <Field label="WhatsApp (si es diferente al teléfono)">
                 <input type="tel" value={data.whatsapp} onChange={set("whatsapp")}
                   placeholder="300 765 4321" className={cls} />

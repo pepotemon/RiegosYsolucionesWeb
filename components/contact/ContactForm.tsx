@@ -3,15 +3,16 @@
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { buildQuoteMessage, getWhatsAppUrl, QuoteData } from "@/lib/whatsapp";
+import { colombia } from "@/data/colombia";
 
 const SERVICIOS = [
   "Sistemas de riego",
-  "Recursos hídricos",
-  "Pozos profundos",
-  "Sistemas de bombeo",
-  "Automatización agrícola",
-  "Energía solar",
-  "Mantenimiento",
+  "Soluciones hidráulicas",
+  "Fertirriego",
+  "Ingeniería y consultoría",
+  "Automatización",
+  "Soluciones energéticas",
+  "Instalación y servicio técnico",
 ];
 
 const INITIAL: QuoteData = {
@@ -48,9 +49,7 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <label
-      className={`grid gap-1.5 ${full ? "col-span-full" : ""}`}
-    >
+    <label className={`grid gap-1.5 ${full ? "col-span-full" : ""}`}>
       <span className="text-xs font-bold uppercase tracking-wider text-[#566a7a]">
         {label}
       </span>
@@ -62,14 +61,17 @@ function Field({
 export function ContactForm() {
   const [data, setData] = useState<QuoteData>(INITIAL);
 
+  const municipios =
+    colombia.find((d) => d.nombre === data.departamento)?.municipios ?? [];
+
   const set =
     (field: keyof QuoteData) =>
-    (
-      e: React.ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >
-    ) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setData((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const handleDepartamento = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setData((prev) => ({ ...prev, departamento: e.target.value, municipio: "" }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,25 +81,19 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-x-4 gap-y-4">
+
       {/* ── SOBRE TI ── */}
       <SectionLabel>Sobre ti</SectionLabel>
       <Field label="Nombre *">
         <input
-          required
-          type="text"
-          value={data.nombre}
-          onChange={set("nombre")}
-          placeholder="Nombre completo"
-          className={inputCls}
+          required type="text" value={data.nombre} onChange={set("nombre")}
+          placeholder="Nombre completo" className={inputCls}
         />
       </Field>
       <Field label="Empresa / Finca">
         <input
-          type="text"
-          value={data.empresa}
-          onChange={set("empresa")}
-          placeholder="Empresa o nombre de la finca"
-          className={inputCls}
+          type="text" value={data.empresa} onChange={set("empresa")}
+          placeholder="Empresa o nombre de la finca" className={inputCls}
         />
       </Field>
 
@@ -105,87 +101,67 @@ export function ContactForm() {
       <SectionLabel>Tu contacto</SectionLabel>
       <Field label="Teléfono *">
         <input
-          required
-          type="tel"
-          value={data.telefono}
-          onChange={set("telefono")}
-          placeholder="300 123 4567"
-          className={inputCls}
+          required type="tel" value={data.telefono} onChange={set("telefono")}
+          placeholder="300 123 4567" className={inputCls}
         />
       </Field>
       <Field label="WhatsApp (si es diferente)">
         <input
-          type="tel"
-          value={data.whatsapp}
-          onChange={set("whatsapp")}
-          placeholder="300 765 4321"
-          className={inputCls}
+          type="tel" value={data.whatsapp} onChange={set("whatsapp")}
+          placeholder="300 765 4321" className={inputCls}
         />
       </Field>
       <Field label="Correo electrónico" full>
         <input
-          type="email"
-          value={data.correo}
-          onChange={set("correo")}
-          placeholder="correo@ejemplo.com"
-          className={inputCls}
+          type="email" value={data.correo} onChange={set("correo")}
+          placeholder="correo@ejemplo.com" className={inputCls}
         />
       </Field>
 
       {/* ── UBICACIÓN ── */}
       <SectionLabel>Ubicación del proyecto</SectionLabel>
       <Field label="Departamento *">
-        <input
-          required
-          type="text"
-          value={data.departamento}
-          onChange={set("departamento")}
-          placeholder="Ej: Córdoba"
+        <select
+          required value={data.departamento} onChange={handleDepartamento}
           className={inputCls}
-        />
+        >
+          <option value="">Seleccione un departamento</option>
+          {colombia.map((d) => (
+            <option key={d.nombre} value={d.nombre}>{d.nombre}</option>
+          ))}
+        </select>
       </Field>
       <Field label="Municipio *">
-        <input
-          required
-          type="text"
-          value={data.municipio}
-          onChange={set("municipio")}
-          placeholder="Ej: Montería"
-          className={inputCls}
-        />
+        <select
+          required value={data.municipio} onChange={set("municipio")}
+          disabled={!data.departamento} className={inputCls}
+        >
+          <option value="">
+            {data.departamento ? "Seleccione un municipio" : "Primero seleccione un departamento"}
+          </option>
+          {municipios.map((m) => (
+            <option key={m} value={m}>{m}</option>
+          ))}
+        </select>
       </Field>
 
       {/* ── TU PROYECTO ── */}
       <SectionLabel>Tu proyecto</SectionLabel>
       <Field label="Tipo de cultivo">
         <input
-          type="text"
-          value={data.cultivo}
-          onChange={set("cultivo")}
-          placeholder="Ej: Aguacate, palma, arroz..."
-          className={inputCls}
+          type="text" value={data.cultivo} onChange={set("cultivo")}
+          placeholder="Ej: Aguacate, palma, arroz..." className={inputCls}
         />
       </Field>
       <Field label="Número de hectáreas">
         <input
-          type="number"
-          min="0"
-          value={data.hectareas}
-          onChange={set("hectareas")}
-          placeholder="Ej: 50"
-          className={inputCls}
+          type="number" min="0" value={data.hectareas} onChange={set("hectareas")}
+          placeholder="Ej: 50" className={inputCls}
         />
       </Field>
       <Field label="Servicio requerido *" full>
-        <select
-          required
-          value={data.servicio}
-          onChange={set("servicio")}
-          className={inputCls}
-        >
-          {SERVICIOS.map((s) => (
-            <option key={s}>{s}</option>
-          ))}
+        <select required value={data.servicio} onChange={set("servicio")} className={inputCls}>
+          {SERVICIOS.map((s) => <option key={s}>{s}</option>)}
         </select>
       </Field>
 
@@ -193,9 +169,7 @@ export function ContactForm() {
       <SectionLabel>Cuéntanos más</SectionLabel>
       <Field label="Mensaje" full>
         <textarea
-          value={data.mensaje}
-          onChange={set("mensaje")}
-          rows={4}
+          value={data.mensaje} onChange={set("mensaje")} rows={4}
           placeholder="Describe tu necesidad, el área aproximada y los tiempos del proyecto."
           className={`${inputCls} min-h-[110px] resize-none`}
         />

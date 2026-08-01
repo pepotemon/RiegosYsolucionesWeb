@@ -13,7 +13,7 @@ const FEATURED_SLUGS = [
   "sistemas-de-riego",
   "energia-solar",
   "automatizacion-agricola",
-  "sistemas-de-bombeo",
+  "ingenieria-consultoria",
   "pozos-profundos",
 ]
 

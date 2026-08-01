@@ -32,14 +32,16 @@ export function CTASection() {
         <BlurFade inView inViewMargin="-60px">
           <div className="text-center text-white">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#60b5e8]">
-              Visita técnica gratuita
+              Nuestra promesa
             </p>
             <h2 className="text-4xl font-black leading-tight lg:text-5xl">
-              ¿Necesita una solución<br />para su cultivo?
+              Listos para acompañarlo<br />en cada etapa
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#a8c8e0]">
-              Solicite una visita técnica y reciba asesoría especializada para su proyecto.
-              Presupuesto sin compromiso en 5 días hábiles.
+              Cada proyecto que asumimos representa una responsabilidad frente a la inversión,
+              la confianza y los objetivos de nuestros clientes. Estamos preparados para
+              construir junto a usted soluciones que impulsen la productividad, la eficiencia
+              y el éxito de su proyecto.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
