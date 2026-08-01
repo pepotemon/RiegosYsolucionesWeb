@@ -60,20 +60,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#06131f] via-[#06131f]/68 to-[#06131f]/25" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#06131f] to-transparent" />
 
-        {/* Top bar */}
-        <div className="absolute left-0 right-0 top-0 flex justify-center px-6 pt-24 md:px-12 md:pt-28">
-          <Link
-            href="/servicios"
-            className="rounded-full px-5 py-2.5 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/15"
-            style={{
-              background: "rgba(255,255,255,0.10)",
-              border: "1px solid rgba(255,255,255,0.14)",
-            }}
-          >
-            Todos los servicios
-          </Link>
-        </div>
-
         {/* Bottom */}
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-16 md:px-12 lg:pb-20">
           <div className="mx-auto max-w-4xl text-center">
