@@ -1,11 +1,9 @@
 import Image from "next/image";
 import {
   BarChart3,
-  CalendarCheck2,
   Droplets,
   LandPlot,
   Leaf,
-  MessageCircle,
   PanelsTopLeft,
   Settings2,
   Sprout,
@@ -15,7 +13,6 @@ import type { Service } from "@/types/service";
 
 type ServiceDetailsSectionProps = {
   service: Service;
-  waUrl: string;
 };
 
 type BenefitDisplay = {
@@ -27,7 +24,7 @@ type BenefitDisplay = {
 const audienceIcons: LucideIcon[] = [Sprout, LandPlot, Droplets, Leaf];
 const benefitIcons: LucideIcon[] = [Droplets, Sprout, BarChart3, Settings2];
 
-export function ServiceDetailsSection({ service, waUrl }: ServiceDetailsSectionProps) {
+export function ServiceDetailsSection({ service }: ServiceDetailsSectionProps) {
   const headline = getServiceHeadline(service.title);
 
   return (
@@ -88,29 +85,6 @@ export function ServiceDetailsSection({ service, waUrl }: ServiceDetailsSectionP
         </div>
 
         <ProcessTimeline items={service.process} />
-
-        <div className="mt-12 rounded-3xl border border-[var(--service-green)]/50 bg-[var(--service-dark-card)] p-5 backdrop-blur-md sm:p-7">
-          <div className="grid gap-6 md:grid-cols-[auto_1fr_auto] md:items-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--service-green-soft)] text-[var(--service-green)]">
-              <CalendarCheck2 size={30} />
-            </div>
-            <div>
-              <h3 className="text-2xl font-black">¿Listo para optimizar su proyecto?</h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--service-text-muted)]">
-                Un técnico puede revisar su caso y orientar la solución más conveniente para su cultivo o sistema.
-              </p>
-            </div>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--service-green)] px-6 py-3 text-sm font-black text-white shadow-lg shadow-[var(--service-green)]/20 transition duration-200 hover:translate-y-[-1px] hover:bg-[var(--green-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--service-green)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--service-dark)]"
-            >
-              <MessageCircle size={18} />
-              Consultar por WhatsApp
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

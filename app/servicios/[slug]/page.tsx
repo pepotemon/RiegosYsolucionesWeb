@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, MessageCircle } from "lucide-react";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { createMetadata } from "@/lib/seo";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { VideoCarousel } from "@/components/ui/VideoCarousel";
 import { ServiceDetailsSection } from "@/components/services/ServiceDetailsSection";
+import type { Service } from "@/types/service";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -120,7 +121,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <ServiceDetailsSection service={service} waUrl={waUrl} />
+      <ServiceDetailsSection service={service} />
 
       {/* ── Proyectos relacionados ── */}
       {relatedProjects.length > 0 && (
@@ -180,42 +181,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* ── FAQs ── */}
-      {service.faqs.length > 0 && (
-        <section className="bg-[#06131f] py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="mb-10 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
-              Preguntas frecuentes
-            </p>
-            <div className="grid gap-4 md:grid-cols-2">
-              {service.faqs.map((faq) => (
-                <div
-                  key={faq.question}
-                  className="rounded-2xl p-6"
-                  style={{
-                    background: "#082033",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  <div className="flex gap-3">
-                    <span className="mt-0.5 shrink-0 text-[10px] font-black uppercase tracking-widest text-[#2DBA45]">
-                      P
-                    </span>
-                    <h3 className="font-bold leading-snug text-white">{faq.question}</h3>
-                  </div>
-                  <div className="mt-4 flex gap-3 border-t border-white/6 pt-4">
-                    <span className="mt-0.5 shrink-0 text-[10px] font-black uppercase tracking-widest text-white/20">
-                      R
-                    </span>
-                    <p className="text-sm leading-7 text-white/55">{faq.answer}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── Galería de videos ── */}
       {service.videos && service.videos.length > 0 && (
         <section className="bg-[#030c15] py-16 lg:py-24">
@@ -235,6 +200,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      <ServiceFaqs faqs={service.faqs} />
 
       {/* ── CTA ── */}
       <section className="overflow-hidden bg-[#082033] py-20">
@@ -262,5 +229,43 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
     </main>
+  );
+}
+
+function ServiceFaqs({ faqs }: { faqs: Service["faqs"] }) {
+  if (faqs.length === 0) return null;
+
+  return (
+    <section className="bg-[#030c15] py-16 lg:py-20">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center">
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
+            Preguntas frecuentes
+          </p>
+          <h2 className="text-2xl font-black text-white sm:text-3xl">
+            Resuelva dudas antes de cotizar
+          </h2>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map((faq) => (
+            <details
+              key={faq.question}
+              className="group rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 backdrop-blur-sm transition duration-200 open:border-[#2DBA45]/45 open:bg-[#082033]"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-left text-base font-black leading-6 text-white marker:hidden">
+                <span>{faq.question}</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2DBA45]/12 text-[#2DBA45] transition duration-200 group-open:rotate-180">
+                  <ChevronDown size={18} />
+                </span>
+              </summary>
+              <p className="mt-4 border-t border-white/10 pt-4 text-sm leading-7 text-white/62">
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
