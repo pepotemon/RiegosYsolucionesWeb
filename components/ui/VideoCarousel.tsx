@@ -81,18 +81,18 @@ export function VideoCarousel({ videos }: { videos: MediaItem[] }) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-2">
         <button
           onClick={prev}
           aria-label="Anterior"
-          className="flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-white/60 transition-all duration-200 hover:text-white"
+          className="flex shrink-0 items-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-bold text-white/60 transition-all duration-200 hover:text-white sm:px-5"
           style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)" }}
         >
           <ChevronLeft size={15} />
-          Anterior
+          <span className="hidden sm:inline">Anterior</span>
         </button>
 
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex min-w-0 flex-1 flex-col items-center gap-2">
           <div className="flex gap-2">
             {videos.map((_, i) => (
               <button
@@ -108,7 +108,7 @@ export function VideoCarousel({ videos }: { videos: MediaItem[] }) {
               />
             ))}
           </div>
-          <p className="max-w-[18rem] truncate text-center text-xs text-white/40">
+          <p className="w-full truncate text-center text-xs text-white/40">
             {item.label}
           </p>
         </div>
@@ -116,10 +116,10 @@ export function VideoCarousel({ videos }: { videos: MediaItem[] }) {
         <button
           onClick={next}
           aria-label="Siguiente"
-          className="flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-white/60 transition-all duration-200 hover:text-white"
+          className="flex shrink-0 items-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-bold text-white/60 transition-all duration-200 hover:text-white sm:px-5"
           style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)" }}
         >
-          Siguiente
+          <span className="hidden sm:inline">Siguiente</span>
           <ChevronRight size={15} />
         </button>
       </div>
