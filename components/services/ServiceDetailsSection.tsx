@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { Service } from "@/types/service";
+import { ServiceDarkBackdrop } from "@/components/services/ServiceDarkBackdrop";
 
 type ServiceDetailsSectionProps = {
   service: Service;
@@ -29,11 +30,7 @@ export function ServiceDetailsSection({ service }: ServiceDetailsSectionProps) {
 
   return (
     <section className="relative overflow-hidden bg-[var(--service-dark)] py-16 text-white lg:py-24">
-      <div className="pointer-events-none absolute inset-0 opacity-80">
-        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[var(--service-green-soft)] blur-[150px]" />
-        <div className="absolute bottom-20 right-0 h-[420px] w-[420px] rounded-full bg-[var(--service-blue-soft)] blur-[140px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--service-grid-line)_1px,transparent_1px),linear-gradient(180deg,var(--service-grid-line)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30" />
-      </div>
+      <ServiceDarkBackdrop />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <header className="mx-auto max-w-4xl text-center">
@@ -170,11 +167,11 @@ function BenefitCard({ benefit, icon: Icon }: { benefit: string; icon: LucideIco
 function PlantPhotoVisual() {
   return (
     <figure className="relative mx-auto -my-6 w-full max-w-2xl overflow-hidden lg:-ml-4 lg:-mr-8">
-      <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,transparent_36%,var(--service-dark)_78%)]" />
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-1/3 bg-gradient-to-r from-[var(--service-dark)] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-1/5 bg-gradient-to-l from-[var(--service-dark)] to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-[var(--service-dark)] to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-[var(--service-dark)] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(6,19,31,0.28)_58%,var(--service-dark)_84%)]" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[38%] bg-gradient-to-r from-[var(--service-dark)] via-[var(--service-dark)]/72 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-1/4 bg-gradient-to-l from-[var(--service-dark)] via-[var(--service-dark)]/62 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-[var(--service-dark)] via-[var(--service-dark)]/72 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-[var(--service-dark)] via-[var(--service-dark)]/82 to-transparent" />
       <Image
         src="/images/servicios/planta-riego-inteligente.png"
         alt="Planta joven con gota de agua, símbolo de riego eficiente"

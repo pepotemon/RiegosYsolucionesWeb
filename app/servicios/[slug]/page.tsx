@@ -7,6 +7,7 @@ import { services } from "@/data/services";
 import { createMetadata } from "@/lib/seo";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { VideoCarousel } from "@/components/ui/VideoCarousel";
+import { ServiceDarkBackdrop } from "@/components/services/ServiceDarkBackdrop";
 import { ServiceDetailsSection } from "@/components/services/ServiceDetailsSection";
 import type { Service } from "@/types/service";
 
@@ -170,8 +171,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* ── Galería de videos ── */}
       {service.videos && service.videos.length > 0 && (
-        <section className="bg-[#030c15] py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-[var(--service-dark)] py-16 lg:py-24">
+          <ServiceDarkBackdrop />
+          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 text-center">
               <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
                 Galería
@@ -191,8 +193,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <ServiceFaqs faqs={service.faqs} />
 
       {/* ── CTA ── */}
-      <section className="overflow-hidden bg-[#082033] py-20">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <section className="relative overflow-hidden bg-[var(--service-dark)] py-20">
+        <ServiceDarkBackdrop />
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
           <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
             ¿Listo para empezar?
           </p>
@@ -223,8 +226,9 @@ function ServiceFaqs({ faqs }: { faqs: Service["faqs"] }) {
   if (faqs.length === 0) return null;
 
   return (
-    <section className="bg-[#030c15] py-16 lg:py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[var(--service-dark)] py-16 lg:py-20">
+      <ServiceDarkBackdrop />
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
             Preguntas frecuentes
@@ -234,13 +238,13 @@ function ServiceFaqs({ faqs }: { faqs: Service["faqs"] }) {
           </h2>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4 sm:space-y-5">
           {faqs.map((faq) => (
             <details
               key={faq.question}
-              className="group rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 backdrop-blur-sm transition duration-200 open:border-[#2DBA45]/45 open:bg-[#082033]"
+              className="group rounded-2xl border border-white/10 bg-[#082033] px-5 py-5 shadow-[0_18px_48px_rgba(0,0,0,0.18)] transition duration-200 open:border-[#2DBA45]/45 open:bg-[#0a2940] sm:px-6 sm:py-5"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-left text-base font-black leading-6 text-white marker:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-left text-base font-black leading-7 text-white marker:hidden sm:text-lg sm:leading-8">
                 <span>{faq.question}</span>
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2DBA45]/12 text-[#2DBA45] transition duration-200 group-open:rotate-180">
                   <ChevronDown size={18} />
