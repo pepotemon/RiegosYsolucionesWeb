@@ -29,6 +29,19 @@
   --green: #3baa6e;
   --green-dark: #2d8757;
 
+  --service-dark: #06131f;
+  --service-dark-soft: #082033;
+  --service-dark-card: rgba(8, 32, 51, 0.78);
+  --service-dark-border: rgba(255, 255, 255, 0.1);
+  --service-text-muted: rgba(255, 255, 255, 0.68);
+  --service-text-soft: rgba(255, 255, 255, 0.52);
+  --service-green: #2dba45;
+  --service-green-soft: rgba(45, 186, 69, 0.16);
+  --service-green-glow: rgba(45, 186, 69, 0.45);
+  --service-blue: #0077c8;
+  --service-blue-soft: rgba(0, 119, 200, 0.18);
+  --service-grid-line: rgba(255, 255, 255, 0.035);
+
   --destructive: oklch(0.577 0.245 27.325);
   --border: #c8ddf0;
   --input: #c8ddf0;
