@@ -35,7 +35,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
 
-  const Icon = service.icon;
   const relatedProjects = projects.filter((p) =>
     service.relatedProjectSlugs.includes(p.slug)
   );
@@ -60,7 +59,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#06131f] via-[#06131f]/55 to-[#06131f]/20" />
 
         {/* Top bar */}
-        <div className="absolute left-0 right-0 top-0 flex items-start justify-between px-6 pt-24 md:px-12 md:pt-28">
+        <div className="absolute left-0 right-0 top-0 flex items-start px-6 pt-24 md:px-12 md:pt-28">
           <Link
             href="/servicios"
             className="flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/15"
@@ -72,30 +71,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <ArrowLeft size={15} />
             Todos los servicios
           </Link>
-          <span
-            className="rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-widest backdrop-blur-sm"
-            style={{
-              background: "rgba(45,186,69,0.18)",
-              color: "#2DBA45",
-              border: "1px solid rgba(45,186,69,0.28)",
-            }}
-          >
-            Servicio
-          </span>
         </div>
 
         {/* Bottom */}
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-14 md:px-12">
           <div className="mx-auto max-w-4xl">
-            <div
-              className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl"
-              style={{
-                background: "rgba(255,255,255,0.12)",
-                border: "1px solid rgba(255,255,255,0.18)",
-              }}
-            >
-              <Icon size={22} className="text-white" />
-            </div>
             <h1 className="text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-6xl">
               {service.title}
             </h1>
