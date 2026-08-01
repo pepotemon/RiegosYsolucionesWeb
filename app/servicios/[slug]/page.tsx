@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ChevronDown, MessageCircle } from "lucide-react";
+import { ArrowRight, ChevronDown, MessageCircle } from "lucide-react";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { createMetadata } from "@/lib/seo";
@@ -47,7 +47,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     <main>
 
       {/* ── Hero ── */}
-      <section className="relative min-h-[65vh]">
+      <section className="relative min-h-[70vh] overflow-hidden">
         <Image
           src={service.image}
           alt={service.title}
@@ -56,30 +56,31 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06131f] via-[#06131f]/55 to-[#06131f]/20" />
+        <div className="absolute inset-0 bg-[#06131f]/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06131f] via-[#06131f]/68 to-[#06131f]/25" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#06131f] to-transparent" />
 
         {/* Top bar */}
-        <div className="absolute left-0 right-0 top-0 flex items-start px-6 pt-24 md:px-12 md:pt-28">
+        <div className="absolute left-0 right-0 top-0 flex justify-center px-6 pt-24 md:px-12 md:pt-28">
           <Link
             href="/servicios"
-            className="flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/15"
+            className="rounded-full px-5 py-2.5 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/15"
             style={{
               background: "rgba(255,255,255,0.10)",
               border: "1px solid rgba(255,255,255,0.14)",
             }}
           >
-            <ArrowLeft size={15} />
             Todos los servicios
           </Link>
         </div>
 
         {/* Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-14 md:px-12">
-          <div className="mx-auto max-w-4xl">
-            <h1 className="text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-16 md:px-12 lg:pb-20">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-7xl">
               {service.title}
             </h1>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/72 sm:text-xl">
               {service.shortDescription}
             </p>
           </div>
@@ -87,15 +88,35 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── Descripción completa ── */}
-      <section className="bg-white py-16 lg:py-20">
+      <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f3f9ff_100%)] py-14 lg:py-18">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <p className="mb-8 text-xl font-medium leading-relaxed text-[#3a5268]">
-              {service.description}
-            </p>
-            <div className="mb-10 flex items-center gap-4">
-              <div className="h-0.5 w-12 rounded-full bg-[#2DBA45]" />
-              <div className="h-px flex-1 bg-[#E0EEF9]" />
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+            <div className="text-center lg:text-left">
+              <p className="mb-3 text-[10px] font-black uppercase tracking-[0.22em] text-[#2DBA45]">
+                Enfoque técnico
+              </p>
+              <h2 className="text-3xl font-black leading-tight text-[#082033] sm:text-4xl">
+                Diseñado para operar bien desde el primer día
+              </h2>
+              <div className="mx-auto mt-5 h-0.5 w-16 rounded-full bg-[#2DBA45] lg:mx-0" />
+            </div>
+
+            <div className="relative overflow-hidden rounded-[28px] border border-[#d7e9f7] bg-white p-6 shadow-[0_24px_80px_rgba(8,32,51,0.10)] sm:p-8">
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-1.5 bg-[#2DBA45]" />
+              <p className="text-lg font-medium leading-8 text-[#3a5268] sm:text-xl">
+                {service.description}
+              </p>
+              <div className="mt-6 grid gap-3 border-t border-[#E0EEF9] pt-5 sm:grid-cols-3">
+                <span className="rounded-full bg-[#F3F9FF] px-4 py-2 text-center text-xs font-black text-[#082033]">
+                  Cálculo hidráulico
+                </span>
+                <span className="rounded-full bg-[#F3F9FF] px-4 py-2 text-center text-xs font-black text-[#082033]">
+                  Materiales certificados
+                </span>
+                <span className="rounded-full bg-[#F3F9FF] px-4 py-2 text-center text-xs font-black text-[#082033]">
+                  Puesta en marcha
+                </span>
+              </div>
             </div>
           </div>
         </div>
