@@ -219,3 +219,13 @@ Las tarjetas se posicionan con coordenadas `x,y` absolutas (sin rotación aplica
 - Specular: `radial-gradient` blanco en `34% 27%` — simula sol top-left
 - Limb darkening: `box-shadow inset` verde muy oscuro en todos los bordes
 - Logo: fuera del `overflow-hidden`, `width: logoSize * 1.45`, `filter: brightness(0) invert(1)` + drop-shadow suave
+
+---
+
+## DEC-017 — `ServiceDetailsSection` como bloque comercial reutilizable
+
+**Decisión:** Extraer la sección "Detalles del servicio" de `app/servicios/[slug]/page.tsx` hacia `components/services/ServiceDetailsSection.tsx`.
+
+**Por qué:** La ruta dinámica estaba acumulando UI específica y tres bloques inline poco escalables. La nueva sección convierte mejor porque presenta la información como narrativa comercial: promesa, imagen, audiencia, beneficios, proceso y CTA WhatsApp contextual.
+
+**Impacto:** `/servicios/[slug]` queda más limpio y todos los servicios heredan el mismo patrón visual premium. Los colores específicos de la sección se agregaron como variables en `app/globals.css` para evitar hex hardcodeado en componentes.

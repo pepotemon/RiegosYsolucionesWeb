@@ -64,8 +64,25 @@ Y en cada `/servicios/[slug]`: schema `Service`.
 | BUG-005 | Scroll horizontal en móvil al cargar landing | 2026-07-09 | Ver [[04_Errors#BUG-005]] |
 | BUG-006 | Clases Tailwind `text-*` ignoradas en todos los `<a>` del sitio | 2026-07-09 | Ver [[04_Errors#BUG-006]] |
 | BUG-007 | Botón "Ver servicios" demasiado ancho en móvil | 2026-07-09 | Ver [[04_Errors#BUG-007]] |
+| BUG-008 | Navegación a detalle de servicio abría a mitad de página | 2026-08-01 | Ver [[04_Errors#BUG-008]] |
 | TD-001 | Colores hex hardcodeados en 15+ archivos | 2026-06 | Paleta de marca aplicada como variables CSS en todos los archivos |
 | TD-001b | Variables CSS incorrectas tras shadcn init | 2026-07-09 | globals.css restaurado con colores de marca en hex, manteniendo estructura shadcn |
+
+---
+
+## BUG-008 — Navegación a detalle de servicio abría a mitad de página
+
+**Síntoma:** Al entrar desde `/servicios` a un servicio individual, la página podía quedar enfocada en el bloque "Enfoque técnico" en lugar de iniciar arriba, en el hero con el título del servicio.
+
+**Impacto:** 🟡 MODERADO — el visitante se saltaba el primer mensaje comercial del servicio y aterrizaba en un párrafo largo, reduciendo claridad y percepción de orden.
+
+**Causa:** El smooth scroll global con Lenis no reiniciaba explícitamente la posición al cambiar de ruta, permitiendo que la navegación conservara una posición previa.
+
+**Fix:** `components/layout/SmoothScroll.tsx` ahora escucha cambios de `pathname` y fuerza scroll inmediato a `0` usando Lenis y `window.scrollTo`.
+
+**Lección:** Con smooth scroll global, la restauración de posición debe manejarse como parte del layout, no en cada link individual.
+
+**Estado:** ✅ Resuelto 2026-08-01
 
 ---
 

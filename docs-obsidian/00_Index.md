@@ -34,7 +34,7 @@ Fase 5 — Optimización             ⏳ Pendiente
 Fase 6 — Publicación              ⏳ Pendiente
 ```
 
-> Versión actual: **v1.5.0** — 2026-07-21
+> Versión actual: **v1.8.20** — 2026-08-01
 
 ---
 
@@ -92,6 +92,7 @@ Fase 6 — Publicación              ⏳ Pendiente
 - [ ] Dominio real (actualmente riegosdelnorte.com placeholder)
 
 ### Completadas ✅
+- [x] Rediseño `Detalles del servicio` estilo premium oscuro con audiencia, beneficios, proceso y CTA WhatsApp
 - [x] Rediseño completo Home — Design System 2026
 - [x] SectoresSection — órbita orbital con Framer Motion + efecto 3D
 - [x] BannerSection — RainEffect ambiental

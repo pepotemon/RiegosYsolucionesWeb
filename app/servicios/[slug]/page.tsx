@@ -76,35 +76,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* ── Descripción completa ── */}
       <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f3f9ff_100%)] py-14 lg:py-18">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-            <div className="text-center lg:text-left">
-              <p className="mb-3 text-[10px] font-black uppercase tracking-[0.22em] text-[#2DBA45]">
-                Enfoque técnico
-              </p>
-              <h2 className="text-3xl font-black leading-tight text-[#082033] sm:text-4xl">
-                Diseñado para operar bien desde el primer día
-              </h2>
-              <div className="mx-auto mt-5 h-0.5 w-16 rounded-full bg-[#2DBA45] lg:mx-0" />
-            </div>
-
-            <div className="relative overflow-hidden rounded-[28px] border border-[#d7e9f7] bg-white p-6 shadow-[0_24px_80px_rgba(8,32,51,0.10)] sm:p-8">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-1.5 bg-[#2DBA45]" />
-              <p className="text-lg font-medium leading-8 text-[#3a5268] sm:text-xl">
-                {service.description}
-              </p>
-              <div className="mt-6 grid gap-3 border-t border-[#E0EEF9] pt-5 sm:grid-cols-3">
-                <span className="rounded-full bg-[#F3F9FF] px-4 py-2 text-center text-xs font-black text-[#082033]">
-                  Cálculo hidráulico
-                </span>
-                <span className="rounded-full bg-[#F3F9FF] px-4 py-2 text-center text-xs font-black text-[#082033]">
-                  Materiales certificados
-                </span>
-                <span className="rounded-full bg-[#F3F9FF] px-4 py-2 text-center text-xs font-black text-[#082033]">
-                  Puesta en marcha
-                </span>
-              </div>
-            </div>
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[28px] border border-[#d7e9f7] bg-white p-6 shadow-[0_24px_80px_rgba(8,32,51,0.10)] sm:p-8 lg:p-10">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1.5 bg-[#2DBA45]" />
+            <p className="text-lg font-medium leading-8 text-[#3a5268] sm:text-xl">
+              {service.description}
+            </p>
           </div>
         </div>
       </section>
@@ -173,19 +150,33 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {service.videos && service.videos.length > 0 && (
         <section className="relative overflow-hidden bg-[var(--service-dark)] py-16 lg:py-24">
           <ServiceDarkBackdrop />
-          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-10 text-center">
-              <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
-                Galería
-              </p>
-              <h2 className="text-2xl font-black text-white">
-                El servicio en campo
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-white/50">
-                Vea aplicaciones reales antes de solicitar una solución para su proyecto.
-              </p>
+          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1fr_1.7fr] lg:items-center lg:gap-14">
+
+              <div>
+                <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2DBA45]">
+                  Galería
+                </p>
+                <h2 className="text-2xl font-black text-white">
+                  El servicio en campo
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-white/50">
+                  Vea aplicaciones reales antes de solicitar una solución para su proyecto.
+                </p>
+                <ul className="mt-7 space-y-4">
+                  {service.benefits.slice(0, 3).map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-3 text-sm leading-6 text-white/70">
+                      <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#2DBA45]/20">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#2DBA45]" />
+                      </span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <VideoCarousel videos={service.videos} />
             </div>
-            <VideoCarousel videos={service.videos} />
           </div>
         </section>
       )}

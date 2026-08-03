@@ -6,6 +6,195 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.8.21 — 2026-08-03 · Descripción simplificada y galería con beneficios
+
+- ✅ **/servicios/[slug]** — eliminado el bloque "Enfoque técnico / Diseñado para operar bien desde el primer día" (heading genérico e idéntico en todos los servicios); la descripción queda como card full-width centrado.
+- ✅ **Descripción** — eliminadas las tres píldoras hardcodeadas (Cálculo hidráulico, Materiales certificados, Puesta en marcha).
+- ✅ **Galería** — reestructurada en layout de dos columnas: izquierda muestra encabezado + tres primeros beneficios del servicio; derecha mantiene el carrusel de fotos/videos.
+
+---
+
+## v1.8.20 — 2026-08-01 · Fondo estable y planta integrada
+
+- ✅ **ServiceDarkBackdrop** — reducido a una sola capa sólida para eliminar parpadeos de fondo durante el scroll.
+- ✅ **PlantPhotoVisual** — reforzados los fades laterales, superior/inferior y radial para restaurar la fusión de la imagen de planta con el fondo oscuro.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.19 — 2026-08-01 · Backdrop oscuro sin blobs
+
+- ✅ **ServiceDarkBackdrop** — eliminados blobs/radiales y retícula del fondo compartido para evitar parpadeo visual durante scroll.
+- ✅ **Diseño** — el fondo queda como degradado lineal estable con acentos verticales suaves y línea superior de marca.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.18 — 2026-08-01 · Backdrop oscuro refinado y reutilizable
+
+- ✅ **ServiceDarkBackdrop** — nuevo componente compartido para el fondo oscuro de secciones de servicio.
+- ✅ **Diseño** — reemplazada la mancha verde con blur pesado por gradientes estáticos más finos, retícula más discreta y transiciones de borde.
+- ✅ **Arquitectura** — `ServiceDetailsSection`, Galería, FAQs y CTA final usan el mismo backdrop, evitando duplicación y manteniendo consistencia.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.17 — 2026-08-01 · Fondos oscuros unificados en servicios
+
+- ✅ **/servicios/[slug]** — Galería, Preguntas frecuentes y CTA final ahora usan el mismo fondo visual de `ServiceDetailsSection`.
+- ✅ **Arquitectura** — agregado helper local `ServiceDarkBackdrop()` para reutilizar las capas del fondo oscuro sin duplicar markup en cada sección.
+- ✅ **UX** — las secciones finales mantienen continuidad visual con "Detalles del servicio" y reducen saltos de estilo entre bloques.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.16 — 2026-08-01 · Smooth scroll sin parpadeo
+
+- ✅ **SmoothScroll** — corregido el loop global de `requestAnimationFrame`: ahora guarda y cancela el frame activo al desmontar.
+- ✅ **Scroll restoration** — `window.history.scrollRestoration` se establece en `manual` mientras Lenis está activo para evitar restauraciones conflictivas.
+- 🐛 **Estabilidad visual** — reduce parpadeos/jank durante scroll suave, especialmente en desarrollo con React Strict Mode.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.15 — 2026-08-01 · Fondo de FAQs estabilizado
+
+- ✅ **/servicios/[slug]** — eliminados `blur-3xl` y `backdrop-blur` del bloque de FAQs para evitar parpadeo de color durante el scroll.
+- ✅ **UX/performance** — el fondo conserva profundidad con gradientes estáticos y tarjetas sólidas, reduciendo repintados costosos.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.14 — 2026-08-01 · Fondo de FAQs con más profundidad
+
+- ✅ **/servicios/[slug]** — enriquecido el fondo de "Preguntas frecuentes" con degradados suaves e iluminación azul/verde controlada.
+- 🔧 **Ajuste visual** — descartada la retícula de fondo porque se percibía cuadriculada y podía producir parpadeo visual.
+- ✅ **UX** — las tarjetas del acordeón ganan separación y profundidad sin competir con la lectura de las preguntas.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.13 — 2026-08-01 · FAQs con mejor separación visual
+
+- ✅ **/servicios/[slug]** — aumentada la separación vertical, padding y line-height de las preguntas frecuentes en acordeón.
+- ✅ **UX** — las preguntas se leen como bloques independientes y dejan de percibirse como renglones pegados.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.12 — 2026-08-01 · Scroll correcto al abrir servicios
+
+- ✅ **SmoothScroll** — agregado reset de scroll al cambiar de ruta con `usePathname()`, Lenis y `window.scrollTo`.
+- 🐛 **BUG-008** — al navegar desde `/servicios` a `/servicios/[slug]`, el detalle podía abrir en el bloque "Enfoque técnico" en vez del inicio.
+- ✅ **Conversión** — el visitante vuelve a aterrizar primero en el hero del servicio, con título y resumen visibles.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.11 — 2026-08-01 · Hero de servicios sin enlace superior
+
+- ✅ **/servicios/[slug]** — eliminado el enlace "Todos los servicios" del hero en todas las páginas de servicio.
+- ✅ **UX** — el primer viewport queda más enfocado en el título y resumen del servicio, sin controles redundantes sobre la imagen.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.10 — 2026-08-01 · Hero de servicios centrado y más editorial
+
+- ✅ **/servicios/[slug]** — eliminado el icono de flecha junto a "Todos los servicios" y mantenido el botón como navegación limpia.
+- ✅ **Hero** — título y resumen centrados en todas las páginas de servicio; removida cualquier señal redundante de categoría.
+- ✅ **Descripción** — reemplazado el párrafo largo plano por un bloque visual con encabezado técnico, acento lateral y señales de confianza.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.9 — 2026-08-01 · Header de servicios simplificado
+
+- ✅ **/servicios/[slug]** — eliminada la píldora verde "Servicio" y el icono del hero en todas las páginas de servicio.
+- ✅ **UX** — el encabezado queda más limpio y centra la atención en el título, descripción y navegación de retorno.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.8 — 2026-08-01 · FAQs compactas en acordeón
+
+- ✅ **/servicios/[slug]** — reintroducida la sección de preguntas frecuentes como acordeón nativo `<details>/<summary>`.
+- ✅ **UX** — las respuestas quedan ocultas hasta que el visitante abre una pregunta, reduciendo ruido visual sin perder contenido de confianza.
+- ✅ **Conversión** — las FAQs se ubican antes del CTA final para resolver objeciones justo antes de solicitar cotización.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.7 — 2026-08-01 · Página de servicio más limpia
+
+- ✅ **ServiceDetailsSection** — eliminado CTA interno "¿Listo para optimizar su proyecto?" para evitar duplicidad con el CTA final.
+- ✅ **/servicios/[slug]** — retirada la sección visible de preguntas frecuentes para reducir ruido visual y mantener el flujo: detalles → casos reales → galería → cotización.
+- ✅ **Conversión** — se conserva un único CTA fuerte al cierre de la página, después de evidencia y contexto comercial.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.6 — 2026-08-01 · Beneficios con mayor claridad comercial
+
+- ✅ **ServiceDetailsSection** — tarjetas de beneficios rediseñadas con métrica destacada, acento superior e interacción hover controlada, sin numeración visible.
+- ✅ **Copy de conversión** — reemplazado el parseo automático que cortaba frases como "30% y 50%" por mensajes específicos orientados a ahorro, uniformidad, operación y escalabilidad.
+- ✅ **Arquitectura** — agregado `getBenefitDisplay()` para mantener la presentación comercial de esta sección sin alterar los datos base del servicio.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.5 — 2026-08-01 · Galería movida antes del CTA final
+
+- ✅ **/servicios/[slug]** — sección "Galería / El servicio en campo" movida desde la parte superior hacia el cierre de la página, después de FAQs y antes del CTA final.
+- ✅ **Conversión** — la galería ahora funciona como prueba visual antes de solicitar cotización, en lugar de interrumpir el flujo inicial de explicación del servicio.
+- ✅ **Copy** — añadido texto breve de apoyo: "Vea aplicaciones reales antes de solicitar una solución para su proyecto."
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.8.4 — 2026-08-01 · Integración visual de foto con fondo oscuro
+
+- ✅ **ServiceDetailsSection** — eliminado aspecto de tarjeta en `PlantPhotoVisual`; ahora la foto se integra con el fondo mediante fades laterales/superior/inferior y gradiente radial.
+- ✅ **Composición** — imagen ligeramente ampliada (`scale-[1.03]`) y márgenes visuales negativos controlados en desktop para que se funda con la sección.
+- ✅ **Verificación** — build limpio; browser check desktop/móvil confirmó PNG original `1536x1024` y sin scroll horizontal.
+
+---
+
+## v1.8.3 — 2026-08-01 · Imagen de beneficios en calidad original
+
+- ✅ **ServiceDetailsSection** — la imagen `planta-riego-inteligente.png` ahora usa dimensiones reales `1536x1024`, `unoptimized` y `object-contain`, evitando crop y recompresión por `_next/image`.
+- ✅ **Layout beneficios** — columna visual ampliada (`lg:grid-cols-[0.9fr_1.1fr]`) para que la foto tenga presencia similar a la referencia.
+- ✅ **Verificación** — browser check confirmó `currentSrc` directo al PNG original, `naturalWidth=1536`, `naturalHeight=1024`, sin scroll horizontal en desktop ni móvil.
+
+---
+
+## v1.8.2 — 2026-08-01 · Foto real en bloque de beneficios
+
+- ✅ **Asset nuevo** — agregada la imagen real de referencia en `public/images/servicios/planta-riego-inteligente.png`.
+- ✅ **ServiceDetailsSection** — reemplazado el panel de logo corporativo por la foto full-bleed de planta + gota, alineada con la referencia visual original.
+- ✅ **Verificación** — `npm.cmd run build` limpio; browser check desktop/móvil; imagen carga correctamente y no genera scroll horizontal.
+
+---
+
+## v1.8.1 — 2026-08-01 · Logo corporativo en detalles del servicio
+
+- ✅ **ServiceDetailsSection** — reemplazada la ilustración de planta + gota por un panel de marca con `public/logo.png`, usando `next/image`, dimensiones reservadas y `alt` descriptivo.
+- ✅ **Verificación visual** — browser check desktop/móvil en `/servicios/sistemas-de-riego`; logo carga correctamente y no genera scroll horizontal.
+
+---
+
+## v1.8.0 — 2026-08-01 · Rediseño Detalles del servicio
+
+- ✅ **ServiceDetailsSection** — nuevo componente `components/services/ServiceDetailsSection.tsx` inspirado en la referencia visual: fondo oscuro premium, headline con acento verde, imagen del servicio con tarjeta superpuesta, audiencia con iconos, beneficios en cards, proceso técnico y CTA WhatsApp.
+- ✅ **app/servicios/[slug]/page.tsx** — reemplazados `AudienceBlock`, `BenefitsBlock` y `ProcessBlock` inline por el nuevo componente de dominio.
+- ✅ **app/globals.css** — agregados tokens `--service-*` para mantener colores de la sección centralizados y evitar hex hardcodeado.
+- ✅ **Verificación** — `npm.cmd run build` limpio; browser check desktop/móvil; móvil sin scroll horizontal (`scrollWidth` = `clientWidth`).
+
+### Decisiones tomadas
+- [[03_Decisions#DEC-017]] — `ServiceDetailsSection` como bloque comercial reutilizable.
+
+---
+
 ## v1.7.0 — 2026-08-01 · Carrusel de videos + base de datos geográfica Colombia
 
 - ✅ **VideoCarousel** — nuevo componente cliente `components/ui/VideoCarousel.tsx`; flechas prev/next visibles al hover (`group-hover:opacity-100`); `key={current}` fuerza remount del `<video>` para resetear estado; tabs inferiores con indicador verde y label del clip activo

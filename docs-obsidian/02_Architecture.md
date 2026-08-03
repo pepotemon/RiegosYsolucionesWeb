@@ -93,7 +93,11 @@
 │   │   ├── CTASection.tsx             # Gradient oscuro + FallingLeaves + CTA WhatsApp
 │   │   ├── TestimonialsCarousel.tsx   # Horizontal scroll con mouse-edge scroll + mask-image fade
 │   │   └── WorkProcess.tsx            # 5 paneles alternados imagen/texto con slide-x Framer Motion
-│   └── services/ServiceCard.tsx
+│   └── services/
+│       ├── ServiceCard.tsx
+│       ├── ServiceDarkBackdrop.tsx # Fondo dark premium reutilizable para secciones de servicio
+│       ├── ServiceDetailsSection.tsx # Sección comercial premium para /servicios/[slug]
+│       └── ProcessSteps.tsx
 │
 ├── data/                         # Fuente de verdad de contenido
 │   ├── blog.ts
@@ -152,6 +156,13 @@
 | `Footer` | 4 columnas: Marca / Servicios / Empresa / Contacto |
 | `HeroSlider` | 4 slides, crossfade cada 3.8s, pause on hover |
 | `WhatsAppButton` | `position: fixed`, bottom-right, z-50 |
+
+### Servicios
+| Componente | Comportamiento |
+|-----------|---------------|
+| `ServiceCard` | Card reutilizable para listados de servicios |
+| `ServiceDarkBackdrop` | Fondo dark premium compartido para `ServiceDetailsSection`, galería, FAQs y CTA final |
+| `ServiceDetailsSection` | Sección dark premium para servicio individual: headline comercial, imagen, audiencia, beneficios y proceso |
 
 ---
 
