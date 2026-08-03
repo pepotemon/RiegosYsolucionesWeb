@@ -6,6 +6,14 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.8.22 — 2026-08-03 · Hero eliminado, ícono WhatsApp real y sectores en grid
+
+- ✅ **/servicios/[slug]** — eliminados hero con imagen y sección de descripción; `ServiceDetailsSection` es ahora el primer elemento de la página.
+- ✅ **WhatsAppButton** — reemplazado `MessageCircle` de Lucide por el SVG oficial de WhatsApp.
+- ✅ **SectoresSection** — rediseño completo: eliminada la mecánica orbital (useMotionValue, useAnimationFrame, planeta, ResizeObserver); reemplazada por grid 4×2 de cards con imagen de fondo, gradiente oscuro, ícono verde y nombre. ~350 líneas eliminadas.
+
+---
+
 ## v1.8.21 — 2026-08-03 · Descripción simplificada y galería con beneficios
 
 - ✅ **/servicios/[slug]** — eliminado el bloque "Enfoque técnico / Diseñado para operar bien desde el primer día" (heading genérico e idéntico en todos los servicios); la descripción queda como card full-width centrado.

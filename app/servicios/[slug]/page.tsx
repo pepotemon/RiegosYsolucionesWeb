@@ -47,45 +47,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   return (
     <main>
 
-      {/* ── Hero ── */}
-      <section className="relative min-h-[70vh] overflow-hidden">
-        <Image
-          src={service.image}
-          alt={service.title}
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-[#06131f]/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06131f] via-[#06131f]/68 to-[#06131f]/25" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#06131f] to-transparent" />
-
-        {/* Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-16 md:px-12 lg:pb-20">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-7xl">
-              {service.title}
-            </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/72 sm:text-xl">
-              {service.shortDescription}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Descripción completa ── */}
-      <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f3f9ff_100%)] py-14 lg:py-18">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-[28px] border border-[#d7e9f7] bg-white p-6 shadow-[0_24px_80px_rgba(8,32,51,0.10)] sm:p-8 lg:p-10">
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1.5 bg-[#2DBA45]" />
-            <p className="text-lg font-medium leading-8 text-[#3a5268] sm:text-xl">
-              {service.description}
-            </p>
-          </div>
-        </div>
-      </section>
-
       <ServiceDetailsSection service={service} />
 
       {/* ── Proyectos relacionados ── */}
