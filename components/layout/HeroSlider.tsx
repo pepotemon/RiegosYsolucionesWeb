@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { AnimatePresence, motion } from "motion/react"
+import { motion } from "motion/react"
 import { ArrowRight, Droplets } from "lucide-react"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { WordRotate } from "@/components/ui/word-rotate"
@@ -48,41 +48,52 @@ export function HeroSlider() {
 
   useEffect(() => {
     if (paused) return
-    const timer = setInterval(() => {
+    const timer = window.setTimeout(() => {
       setCurrent((prev) => (prev + 1) % slides.length)
     }, SLIDE_DURATION)
-    return () => clearInterval(timer)
+
+    return () => window.clearTimeout(timer)
   }, [paused, current])
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setPaused(document.hidden)
+    }
+
+    handleVisibilityChange()
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
+    }
+  }, [])
+
   return (
-    <section
-      className="-mt-[81px] relative flex flex-col overflow-hidden bg-[#06131f]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <section className="-mt-[81px] relative flex flex-col overflow-hidden bg-[#06131f]">
 
       {/* ── Imágenes en crossfade ── */}
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={current}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.9, ease: "easeInOut" }}
-        >
-          <Image
-            src={slides[current]}
-            alt=""
-            fill
-            priority={current === 0}
-            sizes="100vw"
-            className="object-cover object-center"
-            aria-hidden="true"
-          />
-        </motion.div>
-      </AnimatePresence>
-
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
+          <motion.div
+            key={slide}
+            className="absolute inset-0"
+            initial={false}
+            animate={{ opacity: index === current ? 1 : 0 }}
+            transition={{ duration: 1.05, ease: "easeInOut" }}
+          >
+            <Image
+              src={slide}
+              alt=""
+              fill
+              priority={index === 0}
+              loading={index === 0 ? undefined : "eager"}
+              sizes="100vw"
+              className="object-cover object-center"
+              aria-hidden="true"
+            />
+          </motion.div>
+        ))}
+      </div>
       {/* ── Gradientes sobre la imagen ── */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#06131f]/96 via-[#06131f]/78 to-[#06131f]/25" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06131f] via-transparent to-transparent" />

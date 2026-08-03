@@ -1,38 +1,48 @@
 export const testimonials = [
   {
     quote:
-      "Nos ayudaron a ordenar el sistema de riego y a entender que necesitabamos realmente. La visita tecnica fue muy clara y sin rodeos.",
+      "Nos ayudaron a ordenar el sistema de riego y a entender qué necesitábamos realmente. La visita técnica fue muy clara y sin rodeos.",
     name: "Carlos Ramirez",
-    role: "Productor agricola",
+    role: "Productor agrícola",
     location: "Cesar",
+    image: "/images/testimonials/carlos-ramirez.webp",
+    result: "Sistema de riego optimizado",
   },
   {
     quote:
-      "El proyecto quedo preparado para crecer. Valoramos mucho la explicacion tecnica y el acompanamiento despues de la instalacion.",
+      "El proyecto quedó preparado para crecer. Valoramos mucho la explicación técnica y el acompañamiento después de la instalación.",
     name: "Andrea Molina",
     role: "Administradora de finca",
     location: "Antioquia",
+    image: "/images/testimonials/andrea-molina.webp",
+    result: "Expansión planificada por etapas",
   },
   {
     quote:
-      "Pasamos de operar manualmente a tener un sistema controlado y confiable. La diferencia en la cosecha fue notable desde el primer ciclo.",
+      "Pasamos de operar manualmente a tener un sistema controlado y confiable. La diferencia en la operación fue notable desde el primer ciclo.",
     name: "Jorge Medina",
     role: "Gerente agroindustrial",
     location: "Valle del Cauca",
+    image: "/images/testimonials/jorge-medina.webp",
+    result: "Operación más confiable",
   },
   {
     quote:
-      "El bombeo solar fue la mejor decision que tomamos. Dejamos de depender del combustible y los costos bajaron desde el primer mes de operacion.",
+      "El bombeo solar fue la mejor decisión que tomamos. Dejamos de depender del combustible y los costos bajaron desde el primer mes de operación.",
     name: "Luis Herrera",
     role: "Ganadero",
     location: "La Guajira",
+    image: "/images/testimonials/luis-herrera.webp",
+    result: "Menor costo operativo",
   },
   {
     quote:
-      "Teniamos problemas de presion desde hace anos. El diagnostico fue preciso y la solucion funciono desde el primer dia. Ojalá los hubiera contactado antes.",
+      "Teníamos problemas de presión desde hace años. El diagnóstico fue preciso y la solución funcionó desde el primer día.",
     name: "Maria Ospina",
     role: "Propietaria de finca cafetera",
     location: "Huila",
+    image: "/images/testimonials/maria-ospina.webp",
+    result: "Presión estabilizada",
   },
   {
     quote:
@@ -40,6 +50,8 @@ export const testimonials = [
     name: "Ricardo Perez",
     role: "Empresario agricola",
     location: "Meta",
+    image: "/images/testimonials/ricardo-perez.webp",
+    result: "Equipo capacitado en campo",
   },
   {
     quote:
@@ -47,6 +59,8 @@ export const testimonials = [
     name: "Claudia Torres",
     role: "Productora de hortalizas",
     location: "Cundinamarca",
+    image: "/images/testimonials/claudia-torres.webp",
+    result: "Riego automatizado",
   },
   {
     quote:
@@ -54,6 +68,8 @@ export const testimonials = [
     name: "Andres Vargas",
     role: "Productor arrocero",
     location: "Tolima",
+    image: "/images/testimonials/andres-vargas.webp",
+    result: "Decisión técnica clara",
   },
   {
     quote:
@@ -61,5 +77,7 @@ export const testimonials = [
     name: "Patricia Gutierrez",
     role: "Directora de operaciones",
     location: "Cordoba",
+    image: "/images/testimonials/patricia-gutierrez.webp",
+    result: "Diseño documentado",
   },
 ];
