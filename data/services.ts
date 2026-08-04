@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type { Service } from "@/types/service";
 
-const serviceImage = "/images/servicios/riego-goteo-pimenton-2.png";
+const serviceImage = "/images/servicios/sistemas-de-riego/riego-goteo-pimenton-2.png";
 
 export const services: Service[] = [
   {
@@ -20,10 +20,10 @@ export const services: Service[] = [
       "Diseñamos e implementamos sistemas de riego tecnificado adaptados a las condiciones reales de cada predio: tipo de cultivo, fuente hídrica, topografía, suelo y metas productivas. Trabajamos con riego por goteo, aspersión, microaspersión, pivotes centrales y soluciones especiales para cultivos con requerimientos específicos. Cada sistema es calculado hidráulicamente, instalado con materiales certificados y entregado con las presiones y caudales verificados. El resultado es un sistema que ahorra agua, mejora la uniformidad de aplicación y opera con eficiencia desde el primer día.",
     image: serviceImage,
     videos: [
-      { src: "/images/servicios/riego-goteo-pimenton-2.png",   label: "Riego por goteo en pimentón", type: "image" as const },
-      { src: "/videos/servicios/riego-goteo-invernadero.mp4", label: "Cinta de goteo en invernadero de pimentón" },
-      { src: "/videos/servicios/riego-goteo-pimenton.mp4",    label: "Goteo en campo abierto · pimentón" },
-      { src: "/videos/servicios/riego-goteo-papaya.mp4",      label: "Goteo en cultivo de papaya" },
+      { src: "/images/servicios/sistemas-de-riego/riego-goteo-pimenton-2.png",   label: "Riego por goteo en pimentón", type: "image" as const },
+      { src: "/videos/servicios/sistemas-de-riego/riego-goteo-invernadero.mp4", label: "Cinta de goteo en invernadero de pimentón" },
+      { src: "/videos/servicios/sistemas-de-riego/riego-goteo-pimenton.mp4",    label: "Goteo en campo abierto · pimentón" },
+      { src: "/videos/servicios/sistemas-de-riego/riego-goteo-papaya.mp4",      label: "Goteo en cultivo de papaya" },
     ],
     icon: Droplets,
     audience: [
@@ -76,7 +76,16 @@ export const services: Service[] = [
     shortDescription: "Diseño hidráulico, redes, bombeo, filtración, conducción y distribución de agua para proyectos de cualquier escala.",
     description:
       "Desarrollamos soluciones hidráulicas integrales que cubren todo el ciclo del agua dentro de un proyecto: captación, conducción, almacenamiento, filtración, bombeo y distribución. Cada red es diseñada con cálculo hidráulico riguroso para garantizar la presión y el caudal correctos en cada punto de consumo, sin sobredimensionamiento ni pérdidas innecesarias. Trabajamos con proyectos agrícolas, pecuarios, industriales y comerciales, adaptando la solución a la escala y las exigencias de cada cliente. La ingeniería detrás de cada instalación es lo que garantiza que el sistema funcione como fue proyectado, año tras año.",
-    image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/servicios/soluciones-hidraulicas/hidraulica-red-principal.jpeg",
+    videos: [
+      { src: "/images/servicios/soluciones-hidraulicas/hidraulica-red-principal.jpeg",    label: "Red hidráulica principal – instalación en campo",   type: "image" as const },
+      { src: "/images/servicios/soluciones-hidraulicas/hidraulica-tendido-lineas.jpeg",   label: "Tendido de líneas de conducción",                   type: "image" as const },
+      { src: "/images/servicios/soluciones-hidraulicas/hidraulica-instalacion-campo.jpeg",label: "Instalación hidráulica en terreno",                  type: "image" as const },
+      { src: "/images/servicios/soluciones-hidraulicas/hidraulica-conexiones-detalle.jpeg",label: "Detalle de conexiones y accesorios hidráulicos",    type: "image" as const },
+      { src: "/images/servicios/soluciones-hidraulicas/hidraulica-sistema-completo.jpeg", label: "Sistema hidráulico completo – vista general",         type: "image" as const },
+      { src: "/images/servicios/soluciones-hidraulicas/hidraulica-manguera-termofusion.jpeg", label: "Manguera de 3\" con acople en termofusión – instalación segura y duradera", type: "image" as const },
+      { src: "/videos/servicios/soluciones-hidraulicas/hidraulica-instalacion.mp4",       label: "Instalación hidráulica – proceso en campo" },
+    ],
     icon: Waves,
     audience: [
       "Agroindustrias con redes de distribución de agua",

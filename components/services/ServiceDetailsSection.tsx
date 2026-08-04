@@ -25,6 +25,37 @@ type BenefitDisplay = {
 const audienceIcons: LucideIcon[] = [Sprout, LandPlot, Droplets, Leaf];
 const benefitIcons: LucideIcon[] = [Droplets, Sprout, BarChart3, Settings2];
 
+const serviceVisuals: Record<string, { src: string; alt: string }> = {
+  "sistemas-de-riego": {
+    src: "/images/servicios/sistemas-de-riego/planta-riego-inteligente.png",
+    alt: "Planta joven con gota de agua, símbolo de riego eficiente",
+  },
+  "recursos-hidricos": {
+    src: "/images/servicios/soluciones-hidraulicas/soluciones-hidraulicas-visual.webp",
+    alt: "Sistema hidráulico con tuberías, válvulas y manómetro en campo",
+  },
+  "pozos-profundos": {
+    src: "/images/servicios/fertirriego/fertirriego-visual.webp",
+    alt: "Sistema de fertirriego con dosificador, goteo y cultivo en campo",
+  },
+  "ingenieria-consultoria": {
+    src: "/images/servicios/ingenieria-consultoria/ingenieria-consultoria-visual.webp",
+    alt: "Herramientas de consultoría técnica con planos hidráulicos y medición en campo",
+  },
+  "automatizacion-agricola": {
+    src: "/images/servicios/automatizacion-agricola/automatizacion-agricola-visual.webp",
+    alt: "Sistema de automatización agrícola con controlador, sensores y válvulas en campo",
+  },
+  "energia-solar": {
+    src: "/images/servicios/energia-solar/energia-solar-visual.webp",
+    alt: "Sistema de bombeo solar con panel fotovoltaico, control hidráulico y tuberías en campo",
+  },
+  mantenimiento: {
+    src: "/images/servicios/mantenimiento/mantenimiento-visual.webp",
+    alt: "Instalación técnica con tuberías, filtros, manómetros y herramientas de servicio en campo",
+  },
+};
+
 export function ServiceDetailsSection({ service }: ServiceDetailsSectionProps) {
   const headline = getServiceHeadline(service.title);
 
@@ -78,7 +109,7 @@ export function ServiceDetailsSection({ service }: ServiceDetailsSectionProps) {
             </div>
           </div>
 
-          <PlantPhotoVisual />
+          <ServiceThemeVisual service={service} />
         </div>
 
         <ProcessTimeline items={service.process} />
@@ -164,7 +195,9 @@ function BenefitCard({ benefit, icon: Icon }: { benefit: string; icon: LucideIco
   );
 }
 
-function PlantPhotoVisual() {
+function ServiceThemeVisual({ service }: { service: Service }) {
+  const visual = serviceVisuals[service.slug] ?? serviceVisuals["sistemas-de-riego"];
+
   return (
     <figure className="relative mx-auto -my-6 w-full max-w-2xl overflow-hidden lg:-ml-4 lg:-mr-8">
       <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(6,19,31,0.28)_58%,var(--service-dark)_84%)]" />
@@ -173,8 +206,8 @@ function PlantPhotoVisual() {
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-[var(--service-dark)] via-[var(--service-dark)]/72 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-[var(--service-dark)] via-[var(--service-dark)]/82 to-transparent" />
       <Image
-        src="/images/servicios/planta-riego-inteligente.png"
-        alt="Planta joven con gota de agua, símbolo de riego eficiente"
+        src={visual.src}
+        alt={visual.alt}
         width={1536}
         height={1024}
         sizes="(max-width: 1024px) 100vw, 52vw"
