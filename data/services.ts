@@ -137,7 +137,12 @@ export const services: Service[] = [
     shortDescription: "Aplicación eficiente de nutrientes mediante sistemas automatizados integrados directamente al riego.",
     description:
       "El fertirriego permite aplicar fertilizantes y nutrientes disueltos directamente a través de la red de riego, llevando los insumos exactamente a la zona radical del cultivo en el momento preciso. Diseñamos e integramos sistemas de fertirriego adaptados al tipo de cultivo, el plan nutricional y el sistema de riego existente, utilizando equipos de dosificación — inyectores Venturi, bombas dosificadoras o sistemas multi-tanque — calibrados para una distribución uniforme y precisa. El resultado es una menor pérdida de nutrientes por lixiviación, una reducción en el consumo de insumos y un cultivo con mayor eficiencia en la absorción. El fertirriego no reemplaza la agronomía, pero potencia cada decisión nutricional que toma el productor.",
-    image: "https://images.unsplash.com/photo-1596120236172-231999844ade?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/servicios/fertirriego/fertirriego-sistema-instalado.webp",
+    videos: [
+      { src: "/images/servicios/fertirriego/fertirriego-sistema-instalado.webp", label: "Sistema de fertirriego instalado en cultivo", type: "image" as const },
+      { src: "/images/servicios/fertirriego/fertirriego-dosificacion-nutrientes.webp", label: "Dosificación de nutrientes con control de presión", type: "image" as const },
+      { src: "/images/servicios/fertirriego/fertirriego-tanques-filtracion.webp", label: "Tanques de mezcla y filtración del sistema", type: "image" as const },
+    ],
     icon: Gauge,
     audience: [
       "Cultivos de alto valor comercial (flores, hortalizas, frutales)",
@@ -189,7 +194,14 @@ export const services: Service[] = [
     shortDescription: "Analizamos cada proyecto para desarrollar soluciones técnicas adaptadas a las necesidades reales del cliente.",
     description:
       "La consultoría técnica es el primer paso para que cualquier proyecto hídrico se ejecute con éxito. Acompañamos a nuestros clientes desde la etapa de planificación: evaluamos las condiciones del predio, analizamos alternativas técnicas y desarrollamos propuestas sustentadas en datos reales, no en suposiciones. Trabajamos con proyectos nuevos, ampliaciones de sistemas existentes y diagnósticos de instalaciones con bajo rendimiento o fallas recurrentes. Toda consultoría queda documentada en una memoria técnica que sirve de base para la ejecución del proyecto o para la toma de decisiones de inversión. Invertir en consultoría antes de construir siempre es más económico que corregir después de haber instalado.",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/servicios/ingenieria-consultoria/consultoria-visita-tecnica.webp",
+    videos: [
+      { src: "/images/servicios/ingenieria-consultoria/consultoria-visita-tecnica.webp", label: "Visita técnica y levantamiento en campo", type: "image" as const },
+      { src: "/images/servicios/ingenieria-consultoria/consultoria-diagnostico-sistema.webp", label: "Diagnóstico de presión y caudal del sistema", type: "image" as const },
+      { src: "/images/servicios/ingenieria-consultoria/consultoria-analisis-alternativas.webp", label: "Análisis técnico de alternativas del proyecto", type: "image" as const },
+      { src: "/images/servicios/ingenieria-consultoria/consultoria-fuente-hidrica.webp", label: "Revisión de fuente hídrica y capacidad de bombeo", type: "image" as const },
+      { src: "/images/servicios/ingenieria-consultoria/consultoria-entrega-propuesta.webp", label: "Documentación técnica y recomendaciones finales", type: "image" as const },
+    ],
     icon: Settings2,
     audience: [
       "Empresas y productores con proyectos en planificación",
@@ -241,7 +253,14 @@ export const services: Service[] = [
     shortDescription: "Control inteligente mediante programadores, sensores, válvulas automáticas y tecnologías de monitoreo.",
     description:
       "La automatización transforma un sistema de riego o hidráulico en una operación inteligente: los tiempos, los volúmenes y las zonas de riego se controlan con precisión sin depender de la intervención manual constante. Implementamos automatización por etapas, desde programadores básicos con válvulas eléctricas hasta sistemas con sensores de humedad, presión y caudal integrados a tableros de control y plataformas de monitoreo remoto. Cada proyecto de automatización parte de un diagnóstico del sistema existente para definir el nivel de control más adecuado, el hardware necesario y el protocolo de operación. El resultado es un sistema que opera con mayor precisión, consume menos agua y reduce los errores propios del manejo manual.",
-    image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/servicios/automatizacion-agricola/automatizacion-tablero-control.webp",
+    videos: [
+      { src: "/images/servicios/automatizacion-agricola/automatizacion-tablero-control.webp", label: "Tablero de control para riego automatizado", type: "image" as const },
+      { src: "/images/servicios/automatizacion-agricola/automatizacion-valvulas-zonas.webp", label: "Válvulas automáticas para control por zonas", type: "image" as const },
+      { src: "/images/servicios/automatizacion-agricola/automatizacion-sensores-cultivo.webp", label: "Sensores de humedad y presión en cultivo", type: "image" as const },
+      { src: "/images/servicios/automatizacion-agricola/automatizacion-monitoreo-remoto.webp", label: "Monitoreo remoto de zonas y variables críticas", type: "image" as const },
+      { src: "/images/servicios/automatizacion-agricola/automatizacion-pruebas-operacion.webp", label: "Pruebas de operación y riego sectorizado", type: "image" as const },
+    ],
     icon: BadgeCheck,
     audience: [
       "Invernaderos con alta demanda operativa de riego",
@@ -293,7 +312,14 @@ export const services: Service[] = [
     shortDescription: "Bombeo solar, integración fotovoltaica y soluciones energéticas para sistemas hidráulicos y proyectos especiales.",
     description:
       "Integramos energía solar fotovoltaica en sistemas hidráulicos para reducir la dependencia de combustibles fósiles y redes eléctricas convencionales, mejorando la continuidad operativa y reduciendo los costos de energía a largo plazo. Diseñamos sistemas de bombeo solar directamente acoplados o con inversores, sistemas con almacenamiento en baterías para operación nocturna o en días de baja radiación, y soluciones fotovoltaicas para alimentar tableros de control, automatización o cualquier componente eléctrico del sistema. Cada proyecto parte del cálculo real de la demanda energética y del recurso solar disponible en el sitio, para entregar un sistema dimensionado correctamente y que opere con confiabilidad desde el primer día.",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/servicios/energia-solar/energia-bombeo-solar-campo.webp",
+    videos: [
+      { src: "/images/servicios/energia-solar/energia-bombeo-solar-campo.webp", label: "Bombeo solar integrado a sistema hidráulico", type: "image" as const },
+      { src: "/images/servicios/energia-solar/energia-inversor-controlador.webp", label: "Inversor, protecciones y control de bombeo", type: "image" as const },
+      { src: "/images/servicios/energia-solar/energia-arreglo-fotovoltaico.webp", label: "Arreglo fotovoltaico dimensionado para el predio", type: "image" as const },
+      { src: "/images/servicios/energia-solar/energia-respaldo-baterias.webp", label: "Respaldo energético y operación híbrida", type: "image" as const },
+      { src: "/images/servicios/energia-solar/energia-prueba-bombeo.webp", label: "Prueba de bombeo solar en operación", type: "image" as const },
+    ],
     icon: SunMedium,
     audience: [
       "Predios en zonas rurales sin acceso a red eléctrica",
@@ -345,7 +371,14 @@ export const services: Service[] = [
     shortDescription: "Montaje, puesta en marcha, mantenimiento preventivo y soporte técnico especializado.",
     description:
       "Un sistema bien instalado y bien mantenido es un sistema que dura. Realizamos la instalación técnica de sistemas hidráulicos, de riego, bombeo y automatización con nuestro propio equipo, siguiendo protocolos precisos de montaje, prueba y puesta en marcha. También atendemos sistemas ya instalados — por nosotros o por terceros — con servicios de mantenimiento preventivo, diagnóstico de fallas y correctivos en campo. Cada intervención queda registrada en un reporte técnico que documenta el estado del sistema, las acciones realizadas y las recomendaciones de seguimiento. Nuestro objetivo no es solo reparar lo que falla, sino mantener los sistemas operando al máximo de su capacidad.",
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/servicios/mantenimiento/mantenimiento-instalacion-hidraulica.webp",
+    videos: [
+      { src: "/images/servicios/mantenimiento/mantenimiento-instalacion-hidraulica.webp", label: "Instalación hidráulica técnica en campo", type: "image" as const },
+      { src: "/images/servicios/mantenimiento/mantenimiento-prueba-presion.webp", label: "Prueba de presión y puesta en marcha", type: "image" as const },
+      { src: "/images/servicios/mantenimiento/mantenimiento-filtros-preventivo.webp", label: "Mantenimiento preventivo de filtros", type: "image" as const },
+      { src: "/images/servicios/mantenimiento/mantenimiento-diagnostico-tecnico.webp", label: "Diagnóstico técnico de bomba y tablero", type: "image" as const },
+      { src: "/images/servicios/mantenimiento/mantenimiento-reporte-tecnico.webp", label: "Reporte técnico y recomendaciones", type: "image" as const },
+    ],
     icon: Hammer,
     audience: [
       "Propietarios de sistemas instalados por terceros",
