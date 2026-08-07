@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Riegos y Soluciones Agrícolas del Norte S.A.S",
   shortName: "Riegos del Norte",
-  url: "https://riegosdelnorte.com",
+  url: "https://riegosysolucionesagricolas.com",
   description:
     "Ingeniería en recursos hídricos, riego agrícola, pozos profundos, bombeo, automatización y energía solar para el campo colombiano.",
   phone: "+57 318 823 8314",
