@@ -65,8 +65,25 @@ Y en cada `/servicios/[slug]`: schema `Service`.
 | BUG-006 | Clases Tailwind `text-*` ignoradas en todos los `<a>` del sitio | 2026-07-09 | Ver [[04_Errors#BUG-006]] |
 | BUG-007 | Botón "Ver servicios" demasiado ancho en móvil | 2026-07-09 | Ver [[04_Errors#BUG-007]] |
 | BUG-008 | Navegación a detalle de servicio abría a mitad de página | 2026-08-01 | Ver [[04_Errors#BUG-008]] |
+| BUG-009 | HeroSlider se pausaba o cambiaba de forma poco natural | 2026-08-03 | Ver [[04_Errors#BUG-009]] |
 | TD-001 | Colores hex hardcodeados en 15+ archivos | 2026-06 | Paleta de marca aplicada como variables CSS en todos los archivos |
 | TD-001b | Variables CSS incorrectas tras shadcn init | 2026-07-09 | globals.css restaurado con colores de marca en hex, manteniendo estructura shadcn |
+
+---
+
+## BUG-009 — HeroSlider se pausaba o cambiaba de forma poco natural
+
+**Síntoma:** En la pantalla de inicio, el carrusel de imágenes del hero a veces parecía quedarse pegado o no avanzar de manera natural.
+
+**Impacto:** 🟡 MODERADO — afecta la primera impresión del sitio y puede hacer que el home se perciba menos fluido o menos profesional.
+
+**Causa:** El autoplay se pausaba con `onMouseEnter` sobre toda la sección hero; en desktop el cursor suele quedar encima de esa zona, por lo que el slider podía detenerse sin que el usuario entendiera por qué. Además, cada cambio montaba/desmontaba una imagen remota mediante `AnimatePresence`, lo que podía hacer menos suave la transición si la siguiente imagen no estaba lista.
+
+**Fix:** `HeroSlider` ahora solo pausa cuando la pestaña está oculta, usa un `setTimeout` controlado por slide actual y mantiene las 4 imágenes montadas con transición de opacidad.
+
+**Lección:** En heroes comerciales, el autoplay no debe depender del hover de toda la pantalla inicial. Si se pausa, debe ser por intención clara del usuario o por ahorro de recursos al ocultar la pestaña.
+
+**Estado:** ✅ Resuelto 2026-08-03
 
 ---
 

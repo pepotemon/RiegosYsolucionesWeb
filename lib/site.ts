@@ -27,7 +27,6 @@ export const navItems = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Servicios", href: "/servicios" },
   { label: "Proyectos", href: "/proyectos" },
-  { label: "Catalogo", href: "/catalogo" },
   { label: "Blog", href: "/blog" },
   { label: "Contacto", href: "/contacto" },
 ];

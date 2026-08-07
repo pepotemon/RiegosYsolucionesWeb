@@ -34,7 +34,7 @@ Fase 5 — Optimización             ⏳ Pendiente
 Fase 6 — Publicación              ⏳ Pendiente
 ```
 
-> Versión actual: **v1.8.20** — 2026-08-01
+> Versión actual: **v1.9.13** — 2026-08-05
 
 ---
 
@@ -42,14 +42,14 @@ Fase 6 — Publicación              ⏳ Pendiente
 
 | Sección | Componente | Estado |
 |---------|-----------|--------|
-| Hero | `HeroSlider` | ✅ 4 slides crossfade, WordRotate, FallingLeaves (14), stats strip |
+| Hero | `HeroSlider` | ✅ 4 slides crossfade estable, autoplay sin pausa por hover, WordRotate, FallingLeaves (14), stats strip |
 | Confianza | `ConfianzaSection` | ✅ Split layout + 3 feature cards + NumberTicker |
 | Servicios | `ServicesSection` | ✅ Carousel horizontal, mouse-edge scroll, 5 tarjetas + "ver todos" |
 | Banner | `BannerSection` | ✅ Foto fondo + overlay + RainEffect (50 gotas) |
 | Cómo trabajamos | `WorkProcess` | ✅ 5 paneles alternados imagen/texto, Framer Motion slide-x |
 | Proyectos | ProjectCards | ✅ Grid en bg-[#f5f9ff] con BlurFade |
 | Sectores | `SectoresSection` | ✅ Órbita Framer Motion, 8 tarjetas foto, efecto 3D profundidad, **planeta verde CSS** + logo blanco central |
-| Testimonios | `TestimonialsCarousel` | ✅ Horizontal scroll, mouse-edge scroll, mask-image fade |
+| Testimonios | `TestimonialsCarousel` | ✅ 5 testimonios curados, avatares circulares WebP, mouse-edge scroll, mask-image fade |
 | CTA final | `CTASection` | ✅ Gradient oscuro + FallingLeaves (18) + CTA WhatsApp |
 
 ---
@@ -100,6 +100,10 @@ Fase 6 — Publicación              ⏳ Pendiente
 - [x] Fix scroll horizontal móvil (`html { overflow-x: clip }`)
 - [x] Fix `text-*` Tailwind en links (`a { color: inherit }` en `@layer base`)
 - [x] Mouse-edge scroll en ServicesSection y TestimonialsCarousel
+- [x] Inicio de galería propia para Ingeniería y consultoría con visual de visita técnica en campo
+- [x] Galería propia completa para Automatización con 5 imágenes ultra realistas
+- [x] Galería propia completa para Soluciones energéticas con 5 imágenes ultra realistas
+- [x] Galería propia completa para Instalación y servicio técnico con 5 imágenes ultra realistas
 
 ---
 

@@ -6,6 +6,16 @@ Registro de decisiones arquitecturales importantes, con contexto y justificació
 
 ---
 
+## DEC-019 — Visual temático por servicio en `ServiceDetailsSection`
+
+**Decisión:** `ServiceDetailsSection` usa un mapa local `serviceVisuals` basado en `service.slug` para seleccionar el visual integrado de cada servicio.
+
+**Por qué:** La imagen de la planta funciona muy bien para "Sistemas de riego", pero al repetirse en "Soluciones hidráulicas" diluye la claridad comercial del servicio. Un visual por servicio permite reforzar el tema técnico sin duplicar layouts ni crear componentes separados por página.
+
+**Impacto:** `components/services/ServiceDetailsSection.tsx` mantiene la misma estructura y efectos de fusión con el fondo, pero cambia el asset según el slug. Se agrega `public/images/servicios/soluciones-hidraulicas/soluciones-hidraulicas-visual.webp` como visual optimizado.
+
+---
+
 ## DEC-001 — Next.js App Router (no Pages Router)
 
 **Decisión:** Usar App Router de Next.js 16.
@@ -219,6 +229,24 @@ Las tarjetas se posicionan con coordenadas `x,y` absolutas (sin rotación aplica
 - Specular: `radial-gradient` blanco en `34% 27%` — simula sol top-left
 - Limb darkening: `box-shadow inset` verde muy oscuro en todos los bordes
 - Logo: fuera del `overflow-hidden`, `width: logoSize * 1.45`, `filter: brightness(0) invert(1)` + drop-shadow suave
+
+---
+
+## DEC-018 — Assets de servicios organizados por subcarpeta
+
+**Decisión:** Cada servicio tiene su propio subdirectorio en `public/images/servicios/<slug>/` y `public/videos/servicios/<slug>/`. No se mezclan archivos de distintos servicios en la raíz.
+
+**Por qué:** Con múltiples servicios (7+) y varios assets por servicio, el directorio raíz se vuelve ilegible rápidamente. La subcarpeta por slug permite saber de un vistazo qué pertenece a cada servicio, facilita borrar o reemplazar assets de un servicio sin afectar otros, y establece una convención clara para cuando lleguen más assets del cliente.
+
+**Regla para nuevos assets:**
+1. Crear subcarpeta con el mismo `slug` del servicio: `public/images/servicios/<slug>/` y `public/videos/servicios/<slug>/`
+2. Nombrar los archivos de forma descriptiva en kebab-case (ej. `hidraulica-red-principal.jpeg`, no `1.jpeg`)
+3. Actualizar las rutas en `data/services.ts` (campo `image` e items del array `videos`)
+4. Verificar que no haya referencias rotas con `npx tsc --noEmit`
+
+**Servicios con assets reales a 2026-08-04:**
+- `sistemas-de-riego` → 2 imágenes + 3 videos
+- `soluciones-hidraulicas` → 6 imágenes + 1 video
 
 ---
 

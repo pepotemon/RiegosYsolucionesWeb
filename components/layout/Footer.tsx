@@ -7,7 +7,6 @@ import { services } from "@/data/services";
 const companyLinks = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Proyectos", href: "/proyectos" },
-  { label: "Catalogo", href: "/catalogo" },
   { label: "Blog", href: "/blog" },
   { label: "Contacto", href: "/contacto" },
 ];

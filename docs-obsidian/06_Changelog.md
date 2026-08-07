@@ -6,6 +6,172 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.9.14 — 2026-08-07 · Quitar acceso a Catálogo de la navegación
+
+- ✅ **lib/site.ts** — eliminado item "Catálogo" del array `navItems`
+- ✅ **components/layout/Footer.tsx** — eliminado item "Catálogo" de `companyLinks`
+- ✅ **app/sitemap.ts** — eliminada ruta `/catalogo` del sitemap SEO
+
+---
+
+## v1.9.13 — 2026-08-05 · Galería completa para Instalación y servicio técnico
+
+- ✅ **Plan de galería** — definida y completada secuencia comercial para Instalación y servicio técnico: instalación hidráulica, prueba de presión, mantenimiento preventivo de filtros, diagnóstico técnico y reporte final.
+- ✅ **Assets** — generadas 5 imágenes ultra realistas con foco en ejecución, control de calidad, soporte técnico y trazabilidad de la intervención.
+- ✅ **Optimización** — convertidas a WebP en `public/images/servicios/mantenimiento/` (`mantenimiento-instalacion-hidraulica.webp` ~346 KB, `mantenimiento-prueba-presion.webp` ~164 KB, `mantenimiento-filtros-preventivo.webp` ~337 KB, `mantenimiento-diagnostico-tecnico.webp` ~144 KB, `mantenimiento-reporte-tecnico.webp` ~141 KB).
+- ✅ **data/services.ts** — Instalación y servicio técnico reemplaza imagen placeholder de Unsplash por asset local y agrega los 5 items de galería.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.12 — 2026-08-05 · Galería completa para Soluciones energéticas
+
+- ✅ **Plan de galería** — definida y completada secuencia comercial para Soluciones energéticas: bombeo solar, inversor/controlador, arreglo fotovoltaico, respaldo híbrido y prueba de bombeo.
+- ✅ **Assets** — generadas 5 imágenes ultra realistas con foco en operación real de agua y energía aplicada al campo.
+- ✅ **Optimización** — convertidas a WebP en `public/images/servicios/energia-solar/` (`energia-bombeo-solar-campo.webp` ~323 KB, `energia-inversor-controlador.webp` ~95 KB, `energia-arreglo-fotovoltaico.webp` ~375 KB, `energia-respaldo-baterias.webp` ~176 KB, `energia-prueba-bombeo.webp` ~224 KB).
+- ✅ **data/services.ts** — Soluciones energéticas reemplaza imagen placeholder de Unsplash por asset local y agrega los 5 items de galería.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.11 — 2026-08-05 · Galería completa para Automatización
+
+- ✅ **Plan de galería** — definida y completada secuencia comercial para Automatización: tablero de control, válvulas por zonas, sensores en cultivo, monitoreo remoto y pruebas de operación.
+- ✅ **Assets** — generadas 5 imágenes ultra realistas con ángulos y contextos diferenciados para mostrar tecnología aplicada en campo, no solo equipos aislados.
+- ✅ **Optimización** — convertidas a WebP en `public/images/servicios/automatizacion-agricola/` (`automatizacion-tablero-control.webp` ~195 KB, `automatizacion-valvulas-zonas.webp` ~262 KB, `automatizacion-sensores-cultivo.webp` ~161 KB, `automatizacion-monitoreo-remoto.webp` ~151 KB, `automatizacion-pruebas-operacion.webp` ~315 KB).
+- ✅ **data/services.ts** — Automatización reemplaza imagen placeholder de Unsplash por asset local y agrega los 5 items de galería.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.10 — 2026-08-05 · Galería inicial para Ingeniería y consultoría
+
+- ✅ **Plan de galería** — definida y completada secuencia comercial para Consultoría: visita técnica, diagnóstico de sistema existente, análisis de alternativas, revisión de fuente hídrica y entrega de propuesta.
+- ✅ **Assets** — generadas 5 imágenes ultra realistas con ángulos y contextos diferenciados: campo, manifold, mesa técnica, fuente hídrica y documentación final.
+- ✅ **Optimización** — convertidas a WebP en `public/images/servicios/ingenieria-consultoria/` (`consultoria-visita-tecnica.webp` ~337 KB, `consultoria-diagnostico-sistema.webp` ~139 KB, `consultoria-analisis-alternativas.webp` ~223 KB, `consultoria-fuente-hidrica.webp` ~287 KB, `consultoria-entrega-propuesta.webp` ~127 KB).
+- ✅ **data/services.ts** — Ingeniería y consultoría reemplaza imagen placeholder de Unsplash por asset local y agrega los 5 items de galería.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.9 — 2026-08-05 · Tercera imagen de galería para Fertirriego
+
+- ✅ **Assets** — generada imagen ultra realista con mayor variedad visual: toma abierta/lateral de tanques de mezcla, filtración y manifold en campo.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/fertirriego/fertirriego-tanques-filtracion.webp` (~295 KB).
+- ✅ **data/services.ts** — Fertirriego agrega tercer item de galería: "Tanques de mezcla y filtración del sistema".
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.8 — 2026-08-05 · Segunda imagen de galería para Fertirriego
+
+- ✅ **Assets** — generada imagen ultra realista de dosificación de nutrientes con tuberías, tanque, filtro y control de presión.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/fertirriego/fertirriego-dosificacion-nutrientes.webp` (~210 KB).
+- ✅ **data/services.ts** — Fertirriego agrega segundo item de galería: "Dosificación de nutrientes con control de presión".
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.7 — 2026-08-05 · Inicio de galería para Fertirriego
+
+- ✅ **Plan de galería** — definida secuencia comercial de 5 imágenes para Fertirriego: sistema instalado, dosificación, tanques/filtración, aplicación en cultivo y control/calibración.
+- ✅ **Assets** — generada primera imagen ultra realista de sistema de fertirriego instalado en cultivo.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/fertirriego/fertirriego-sistema-instalado.webp` (~273 KB).
+- ✅ **data/services.ts** — Fertirriego reemplaza imagen placeholder de Unsplash por asset local y agrega primer item de galería.
+- ✅ **Verificación** — `npm.cmd run build` limpio después de regenerar `.next`.
+
+---
+
+## v1.9.6 — 2026-08-04 · Visual temático para Instalación y servicio técnico
+
+- ✅ **Assets** — generada imagen temática para "Instalación y servicio técnico" con tuberías, filtros, manómetros, prueba de presión, herramientas y flujo de agua.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/mantenimiento/mantenimiento-visual.webp` (~125 KB).
+- ✅ **ServiceDetailsSection** — agregado slug `mantenimiento` al mapa `serviceVisuals`.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.5 — 2026-08-04 · Visual temático para Soluciones energéticas
+
+- ✅ **Assets** — generada imagen temática para "Soluciones energéticas" con panel fotovoltaico, control, bombeo hidráulico, manómetro, tuberías y flujo de agua.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/energia-solar/energia-solar-visual.webp` (~115 KB).
+- ✅ **ServiceDetailsSection** — agregado slug `energia-solar` al mapa `serviceVisuals`.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.4 — 2026-08-04 · Visual temático para Automatización
+
+- ✅ **Assets** — generada imagen temática para "Automatización" con controlador, sensores, electroválvulas, panel de monitoreo y líneas de riego.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/automatizacion-agricola/automatizacion-agricola-visual.webp` (~107 KB).
+- ✅ **ServiceDetailsSection** — agregado slug `automatizacion-agricola` al mapa `serviceVisuals`.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.3 — 2026-08-04 · Visual temático para Ingeniería y consultoría
+
+- ✅ **Assets** — generada imagen temática para "Ingeniería y consultoría" con tablet rugerizada, planos hidráulicos, manómetro, cinta de medición y elementos de diagnóstico en campo.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/ingenieria-consultoria/ingenieria-consultoria-visual.webp` (~104 KB).
+- ✅ **ServiceDetailsSection** — agregado slug `ingenieria-consultoria` al mapa `serviceVisuals`.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.2 — 2026-08-04 · Visual temático para Fertirriego
+
+- ✅ **Assets** — generada imagen temática para "Fertirriego" con dosificador, manómetro, líneas de goteo, cultivo y líquido nutritivo.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/fertirriego/fertirriego-visual.webp` (~95 KB).
+- ✅ **ServiceDetailsSection** — agregado slug `pozos-profundos` al mapa `serviceVisuals` para mostrar el visual correcto del servicio Fertirriego.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
+## v1.9.1 — 2026-08-04 · Visual temático para Soluciones hidráulicas
+
+- ✅ **Assets** — generada imagen temática para "Soluciones hidráulicas" con manifold hidráulico, tuberías, válvulas, manómetro y acentos de agua/presión.
+- ✅ **Optimización** — convertida a WebP en `public/images/servicios/soluciones-hidraulicas/soluciones-hidraulicas-visual.webp` (~101 KB).
+- ✅ **ServiceDetailsSection** — reemplazado visual fijo de planta por mapa `serviceVisuals` basado en `service.slug`.
+- ✅ **UX comercial** — "Sistemas de riego" conserva la planta integrada; "Soluciones hidráulicas" ahora muestra un visual propio y más técnico.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+### Decisiones tomadas
+- [[03_Decisions#DEC-019]] — Visual temático por servicio en `ServiceDetailsSection`.
+
+---
+
+## v1.9.0 — 2026-08-04 · Galería real en Soluciones Hidráulicas
+
+- ✅ **Assets reales** — 6 imágenes + 1 video de campo copiados a `public/images/servicios/soluciones-hidraulicas/` y `public/videos/servicios/soluciones-hidraulicas/` con nombres descriptivos.
+- ✅ **Organización** — estructura de carpetas por servicio en `public/images/servicios/` y `public/videos/servicios/` para evitar contaminación entre servicios.
+- ✅ **data/services.ts** — servicio `recursos-hidricos` (Soluciones hidráulicas) ahora tiene array `videos` con 7 items: 6 imágenes + 1 video; imagen de portada reemplazada de Unsplash por imagen real.
+- ✅ **Labels descriptivos** — cada item del carrusel tiene un label profesional; la imagen de manguera en termofusión conserva su descripción técnica real.
+- ✅ **VideoCarousel** — usa el mismo componente existente sin cambios; soporta `type: "image"` y video nativamente.
+- ✅ **TypeScript** — `npx tsc --noEmit` limpio.
+
+---
+
+## v1.8.24 — 2026-08-03 · Autoplay del Hero estabilizado
+
+- 🐛 **HeroSlider** — corregido autoplay que podía sentirse pegado al pausar automáticamente con hover sobre el hero.
+- ✅ **Crossfade** — las 4 imágenes del hero permanecen montadas y cambian por opacidad; evita esperas visibles al cargar/desmontar imágenes remotas.
+- ✅ **Timer** — reemplazado intervalo por timeout controlado por slide actual y pausa solo cuando la pestaña está oculta.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+### Bugs resueltos
+- [[04_Errors#BUG-009]] — HeroSlider se pausaba o cambiaba de forma poco natural.
+
+---
+
+## v1.8.23 — 2026-08-03 · Testimonios curados con avatares circulares
+
+- ✅ **Home/Testimonios** — encabezado centrado y simplificado; eliminadas métricas decorativas 9/7/CO para reducir ruido visual.
+- ✅ **TestimonialsCarousel** — limitado a 5 testimonios destacados sin duplicación de perfiles; las fotos ahora funcionan como avatares circulares.
+- ✅ **Copy** — corregidos textos visibles de los primeros testimonios para mejorar credibilidad, acentos y claridad comercial.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
+
+---
+
 ## v1.8.22 — 2026-08-03 · Hero eliminado, ícono WhatsApp real y sectores en grid
 
 - ✅ **/servicios/[slug]** — eliminados hero con imagen y sección de descripción; `ServiceDetailsSection` es ahora el primer elemento de la página.
@@ -19,6 +185,16 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 - ✅ **/servicios/[slug]** — eliminado el bloque "Enfoque técnico / Diseñado para operar bien desde el primer día" (heading genérico e idéntico en todos los servicios); la descripción queda como card full-width centrado.
 - ✅ **Descripción** — eliminadas las tres píldoras hardcodeadas (Cálculo hidráulico, Materiales certificados, Puesta en marcha).
 - ✅ **Galería** — reestructurada en layout de dos columnas: izquierda muestra encabezado + tres primeros beneficios del servicio; derecha mantiene el carrusel de fotos/videos.
+
+---
+
+## v1.8.21 — 2026-08-03 · Testimonios con perfiles reales generados
+
+- ✅ **Home/Testimonios** — sección remodelada con encabezado editorial, métricas de confianza y carrusel con tarjetas más ricas.
+- ✅ **TestimonialsCarousel** — rediseñado con `next/image`, foto de perfil, resultado destacado, cita, cargo y ubicación.
+- ✅ **Assets** — generados 9 retratos ficticios fotorealistas y optimizados a WebP en `public/images/testimonials/`.
+- ✅ **Data** — `data/testimonials.ts` ahora incluye `image` y `result` por testimonio.
+- ✅ **Verificación** — `npm.cmd run build` limpio.
 
 ---
 

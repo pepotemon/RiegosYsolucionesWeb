@@ -91,12 +91,12 @@
 │   │   ├── ServicesSection.tsx        # Carousel horizontal con mouse-edge scroll
 │   │   ├── SectoresSection.tsx        # Órbita Framer Motion — 8 tarjetas foto + logo central + profundidad 3D
 │   │   ├── CTASection.tsx             # Gradient oscuro + FallingLeaves + CTA WhatsApp
-│   │   ├── TestimonialsCarousel.tsx   # Horizontal scroll con mouse-edge scroll + mask-image fade
+│   │   ├── TestimonialsCarousel.tsx   # 5 testimonios curados con mouse-edge scroll + avatar circular WebP + resultado destacado
 │   │   └── WorkProcess.tsx            # 5 paneles alternados imagen/texto con slide-x Framer Motion
 │   └── services/
 │       ├── ServiceCard.tsx
 │       ├── ServiceDarkBackdrop.tsx # Fondo dark premium reutilizable para secciones de servicio
-│       ├── ServiceDetailsSection.tsx # Sección comercial premium para /servicios/[slug]
+│       ├── ServiceDetailsSection.tsx # Sección comercial premium para /servicios/[slug] con visual temático por slug
 │       └── ProcessSteps.tsx
 │
 ├── data/                         # Fuente de verdad de contenido
@@ -106,7 +106,7 @@
 │   ├── projects.ts
 │   ├── sectors.ts
 │   ├── services.ts
-│   └── testimonials.ts
+│   └── testimonials.ts           # Testimonios: quote, name, role, location, image, result
 │
 ├── lib/
 │   ├── site.ts                   # ⭐ Config central (URL, teléfono, WhatsApp, email)
@@ -114,6 +114,29 @@
 │   ├── utils.ts                  # cn() con clsx + tailwind-merge, absoluteUrl()
 │   ├── whatsapp.ts               # getWhatsAppUrl(message)
 │   └── useEdgeScroll.ts          # Hook compartido: mouse-edge scroll con RAF + cursor dinámico
+│
+├── public/
+│   ├── images/
+│   │   ├── servicios/               # ⚠️ REGLA: un subdirectorio por servicio
+│   │   │   ├── sistemas-de-riego/   # slug del servicio = nombre de carpeta
+│   │   │   │   ├── riego-goteo-pimenton-2.png
+│   │   │   │   └── planta-riego-inteligente.png
+│   │   │   └── soluciones-hidraulicas/
+│   │   │       ├── hidraulica-red-principal.jpeg
+│   │   │       ├── hidraulica-tendido-lineas.jpeg
+│   │   │       ├── hidraulica-instalacion-campo.jpeg
+│   │   │       ├── hidraulica-conexiones-detalle.jpeg
+│   │   │       ├── hidraulica-sistema-completo.jpeg
+│   │   │       └── hidraulica-manguera-termofusion.jpeg
+│   │   └── testimonials/            # avatares WebP por nombre de persona
+│   └── videos/
+│       └── servicios/               # misma regla: un subdirectorio por servicio
+│           ├── sistemas-de-riego/
+│           │   ├── riego-goteo-pimenton.mp4
+│           │   ├── riego-goteo-papaya.mp4
+│           │   └── riego-goteo-invernadero.mp4
+│           └── soluciones-hidraulicas/
+│               └── hidraulica-instalacion.mp4
 │
 └── types/
     ├── blog.ts · product.ts · project.ts · service.ts
@@ -162,7 +185,7 @@
 |-----------|---------------|
 | `ServiceCard` | Card reutilizable para listados de servicios |
 | `ServiceDarkBackdrop` | Fondo dark premium compartido para `ServiceDetailsSection`, galería, FAQs y CTA final |
-| `ServiceDetailsSection` | Sección dark premium para servicio individual: headline comercial, imagen, audiencia, beneficios y proceso |
+| `ServiceDetailsSection` | Sección dark premium para servicio individual: headline comercial, imagen, audiencia, beneficios, proceso y visual temático por `slug` |
 
 ---
 
