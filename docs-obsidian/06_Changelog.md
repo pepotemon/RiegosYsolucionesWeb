@@ -6,6 +6,13 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.11.2 — 2026-08-15 · Ajustes de layout en videos (home y proyectos)
+
+- ✅ **TestimoniosSection** — rediseño: quote oscura a la izquierda, video acotado a 300px fijo a la derecha; `max-w-5xl` en el conjunto
+- ✅ **app/proyectos/[slug]/page.tsx** — video centrado a `max-w-[300px]`; se elimina la tarjeta de testimonio de la vista de proyecto (el quote vive solo en el home)
+
+---
+
 ## v1.11.1 — 2026-08-15 · Video técnico del proyecto solar, campo videos[] escalable
 
 - ✅ **public/videos/bombeo-solar-sistema.mp4** — video técnico del sistema fotovoltaico copiado a assets
