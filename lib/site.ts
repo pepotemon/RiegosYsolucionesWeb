@@ -12,7 +12,7 @@ export const siteConfig = {
     "ingenieriarysagricolas@gmail.com",
     "riegosysolucionesagricolasa@gmail.com",
   ],
-  address: "Calle 12 # 11-80, Barrio Belén",
+  address: "CRA 18 CL 15 # 17-77",
   hours: "Lunes a viernes, 8:00 a.m. – 6:00 p.m.",
   coverage: "Nacional e internacional",
   social: {

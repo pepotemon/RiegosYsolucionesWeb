@@ -6,6 +6,12 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.10.1 — 2026-08-15 · Actualización de dirección física
+
+- ✅ **lib/site.ts** — dirección actualizada de "Calle 12 # 11-80, Barrio Belén" a "CRA 18 CL 15 # 17-77"
+
+---
+
 ## v1.10.0 — 2026-08-15 · Portafolio real: un proyecto, sin ficticios, testimonios ocultos
 
 - ✅ **data/projects.ts** — reemplazado portafolio ficticio (3 proyectos) por único caso real: Sistema de bombeo fotovoltaico, Anserma Nuevo, Valle del Cauca. Eliminados "Riego tecnificado Finca La Esperanza" y "Automatización invernadero hortalizas"
