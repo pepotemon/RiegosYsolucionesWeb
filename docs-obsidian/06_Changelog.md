@@ -6,6 +6,24 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.12.0 — 2026-08-15 · Blog técnico completo — contenido rico y renderer por bloques
+
+### Motivación
+Los artículos de blog eran 3 párrafos de texto plano. Se reescribieron como artículos técnicos reales con estructura editorial y estilos distintos por tipo de bloque.
+
+### Cambios
+- ✅ **types/blog.ts** — `content: string[]` reemplazado por `ContentBlock[]` (union discriminada: `paragraph`, `h2`, `h3`, `list`, `callout`, `quote`, `stats`)
+- ✅ **app/blog/[slug]/page.tsx** — `renderBlock()` con renderer por bloque: H2/H3 con bordes, listas con bullet verde o número azul, callouts con 4 variantes (tip/warning/info/success) e iconos Lucide, blockquote con acento verde, stats grid oscuro
+- ✅ **data/blog.ts** — 5 artículos reescritos (~800–1000 palabras c/u):
+  - "Como elegir un sistema de riego" — 4 factores, comparativa de sistemas, errores frecuentes, stats
+  - "Tipos de bombas agrícolas" — centrífuga/sumergible/turbina/solar, curva característica, mantenimiento
+  - "Como ahorrar agua en una finca" — diagnóstico CU, prácticas operativas, instrumentación
+  - "Ventajas del riego por goteo" — eficiencia, fertirriego, foliar seco, goteo vs. no-goteo
+  - "Cuando conviene perforar un pozo profundo" — hidrogeología, prueba de bombeo, marco legal Colombia
+- ✅ `readTime` actualizado a 8–10 min por artículo
+
+---
+
 ## v1.11.4 — 2026-08-15 · Imágenes de Blog verificadas en Unsplash
 
 - ✅ **data/blog.ts** — 5 imágenes reemplazadas con CDN URLs verificadas directamente en Unsplash (confirmado qué muestra cada foto antes de aplicar):

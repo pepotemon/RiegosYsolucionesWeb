@@ -1,10 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, MessageCircle, ArrowRight } from "lucide-react";
+import {
+  ArrowLeft,
+  Clock,
+  Calendar,
+  MessageCircle,
+  ArrowRight,
+  Lightbulb,
+  AlertTriangle,
+  Info,
+  CheckCircle2,
+} from "lucide-react";
 import { blogPosts } from "@/data/blog";
 import { createMetadata } from "@/lib/seo";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import type { ContentBlock } from "@/types/blog";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -24,6 +35,155 @@ export async function generateMetadata({ params }: PageProps) {
     path: `/blog/${post.slug}`,
     image: post.image,
   });
+}
+
+const CALLOUT_STYLES = {
+  tip: {
+    bg: "rgba(45,186,69,0.07)",
+    border: "1px solid rgba(45,186,69,0.22)",
+    iconColor: "#2DBA45",
+    titleColor: "#15692a",
+    Icon: Lightbulb,
+  },
+  warning: {
+    bg: "rgba(234,179,8,0.07)",
+    border: "1px solid rgba(234,179,8,0.25)",
+    iconColor: "#b45309",
+    titleColor: "#92400e",
+    Icon: AlertTriangle,
+  },
+  info: {
+    bg: "rgba(0,119,200,0.06)",
+    border: "1px solid rgba(0,119,200,0.20)",
+    iconColor: "#0077C8",
+    titleColor: "#1b6cb6",
+    Icon: Info,
+  },
+  success: {
+    bg: "rgba(45,186,69,0.07)",
+    border: "1px solid rgba(45,186,69,0.22)",
+    iconColor: "#2DBA45",
+    titleColor: "#15692a",
+    Icon: CheckCircle2,
+  },
+} as const;
+
+function renderBlock(block: ContentBlock, i: number) {
+  switch (block.type) {
+    case "paragraph":
+      return (
+        <p key={i} className="text-[17px] leading-[1.9] text-[#3a5268]">
+          {block.text}
+        </p>
+      );
+
+    case "h2":
+      return (
+        <h2
+          key={i}
+          className="border-b border-[#E0EEF9] pb-3 pt-10 text-[1.6rem] font-black leading-tight text-[#082033]"
+        >
+          {block.text}
+        </h2>
+      );
+
+    case "h3":
+      return (
+        <h3
+          key={i}
+          className="pt-6 text-lg font-black text-[#082033]"
+        >
+          {block.text}
+        </h3>
+      );
+
+    case "list":
+      return block.ordered ? (
+        <ol key={i} className="space-y-3.5">
+          {block.items.map((item, j) => (
+            <li key={j} className="flex gap-4 text-[16px] leading-relaxed text-[#3a5268]">
+              <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[#0077C8] text-[11px] font-black text-white">
+                {j + 1}
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <ul key={i} className="space-y-3">
+          {block.items.map((item, j) => (
+            <li key={j} className="flex gap-3.5 text-[16px] leading-relaxed text-[#3a5268]">
+              <span className="mt-[0.55rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2DBA45]" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      );
+
+    case "callout": {
+      const s = CALLOUT_STYLES[block.variant];
+      const Icon = s.Icon;
+      return (
+        <div
+          key={i}
+          className="rounded-2xl p-5 sm:p-6"
+          style={{ background: s.bg, border: s.border }}
+        >
+          <div className="flex gap-3.5">
+            <Icon size={19} style={{ color: s.iconColor }} className="mt-0.5 flex-shrink-0" />
+            <div>
+              {block.title && (
+                <p
+                  className="mb-1.5 text-[11px] font-black uppercase tracking-[0.14em]"
+                  style={{ color: s.titleColor }}
+                >
+                  {block.title}
+                </p>
+              )}
+              <p className="text-[15px] leading-relaxed text-[#3a5268]">{block.text}</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    case "quote":
+      return (
+        <blockquote
+          key={i}
+          className="border-l-[3px] border-[#2DBA45] pl-6 my-2"
+        >
+          <p className="text-xl font-medium italic leading-relaxed text-[#082033]">
+            &ldquo;{block.text}&rdquo;
+          </p>
+          {block.source && (
+            <cite className="mt-2 block text-sm not-italic text-[#7a94a5]">
+              — {block.source}
+            </cite>
+          )}
+        </blockquote>
+      );
+
+    case "stats":
+      return (
+        <div
+          key={i}
+          className="grid grid-cols-3 gap-3 rounded-2xl bg-[#082033] px-5 py-7 sm:px-8 sm:py-9"
+        >
+          {block.items.map((stat, j) => (
+            <div key={j} className="text-center">
+              <p className="text-xl font-black text-white sm:text-3xl">{stat.value}</p>
+              <p className="mt-1.5 text-[9px] uppercase leading-tight tracking-[0.14em] text-white/40 sm:text-[10px]">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      );
+
+    default:
+      return null;
+  }
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
@@ -109,13 +269,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
             <div className="h-px flex-1 bg-[#E0EEF9]" />
           </div>
 
-          {/* Content */}
+          {/* Rich content */}
           <div className="space-y-6">
-            {post.content.map((paragraph, i) => (
-              <p key={i} className="text-[17px] leading-[1.88] text-[#3a5268]">
-                {paragraph}
-              </p>
-            ))}
+            {post.content.map((block, i) => renderBlock(block, i))}
           </div>
 
           {/* CTA box */}
