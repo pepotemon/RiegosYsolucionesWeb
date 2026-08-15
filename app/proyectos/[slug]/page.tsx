@@ -174,6 +174,43 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         </Container>
       </section>
 
+      {/* ── VIDEO ── */}
+      {project.video && (
+        <section className="bg-[#06131f] py-24">
+          <Container>
+            <h2 className="mb-10 text-2xl font-black text-white sm:text-3xl">
+              Video del proyecto
+            </h2>
+            <div className="overflow-hidden rounded-3xl shadow-2xl shadow-black/40">
+              <video
+                src={project.video}
+                controls
+                preload="metadata"
+                playsInline
+                className="w-full"
+              />
+            </div>
+            {project.testimonial && (
+              <div
+                className="mt-8 rounded-3xl p-8 md:p-10"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <p className="mb-1 text-base font-bold text-white">
+                  {project.testimonial.name}
+                </p>
+                <p className="mb-5 text-xs text-white/40">{project.testimonial.role}</p>
+                <blockquote className="text-base leading-[1.8] text-white/70">
+                  &ldquo;{project.testimonial.quote}&rdquo;
+                </blockquote>
+              </div>
+            )}
+          </Container>
+        </section>
+      )}
+
       {/* ── GALERÍA ── */}
       {project.gallery.length > 0 && (
         <section

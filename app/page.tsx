@@ -5,6 +5,7 @@ import { BannerSection } from "@/components/sections/BannerSection"
 import { WorkProcess } from "@/components/sections/WorkProcess"
 import { ProyectosSection } from "@/components/sections/ProyectosSection"
 import { SectoresSection } from "@/components/sections/SectoresSection"
+import { TestimoniosSection } from "@/components/sections/TestimoniosSection"
 import { CTASection } from "@/components/sections/CTASection"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { Container } from "@/components/ui/Container"
@@ -35,7 +36,8 @@ export default function HomePage() {
       {/* 7. Sectores que atendemos */}
       <SectoresSection />
 
-      {/* 8. Testimonios — oculto hasta tener testimonios reales */}
+      {/* 8. Testimonios — video real de cliente */}
+      <TestimoniosSection />
 
       {/* 9. CTA final */}
       <CTASection />

@@ -6,6 +6,17 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.11.0 — 2026-08-15 · Video testimonial Agropepersas en home y proyecto nuevo
+
+- ✅ **public/videos/agropepersas-testimonio.mp4** — video de cliente copiado a assets públicos
+- ✅ **types/project.ts** — campos opcionales `video` y `testimonial` añadidos al tipo Project
+- ✅ **data/projects.ts** — nuevo proyecto Agropepersas (riego y fertirrigación pimentón exportación USA) con video y testimonio de Fabián Méndez; imagen Unsplash como placeholder
+- ✅ **components/sections/TestimoniosSection.tsx** — sección nueva: player de video con overlay play, quote de cliente y CTA al proyecto
+- ✅ **app/page.tsx** — TestimoniosSection activada (sección 8, entre SectoresSection y CTASection)
+- ✅ **app/proyectos/[slug]/page.tsx** — sección de video añadida antes de galería (muestra player + quote del testimonio si existen)
+
+---
+
 ## v1.10.1 — 2026-08-15 · Actualización de dirección física
 
 - ✅ **lib/site.ts** — dirección actualizada de "Calle 12 # 11-80, Barrio Belén" a "CRA 18 CL 15 # 17-77"
