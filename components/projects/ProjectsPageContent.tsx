@@ -18,16 +18,11 @@ const caseItems = (p: Project) => [
 ]
 
 function ProjectSection({ project, index }: { project: Project; index: number }) {
-  const isLight = index % 2 === 0
   const imageFirst = index % 2 === 1
   const num = String(index + 1).padStart(2, "0")
 
   return (
-    <section
-      className={`relative flex flex-col md:min-h-screen md:flex-row md:items-stretch ${
-        isLight ? "bg-white" : "bg-[#06131f]"
-      }`}
-    >
+    <section className="relative flex flex-col bg-white md:min-h-screen md:flex-row md:items-stretch">
       {/* Image column */}
       <motion.div
         className={`relative h-[62vw] w-full shrink-0 overflow-hidden md:h-auto md:w-[55%] ${
@@ -43,6 +38,7 @@ function ProjectSection({ project, index }: { project: Project; index: number })
           alt={project.name}
           fill
           sizes="(max-width: 768px) 100vw, 55vw"
+          quality={90}
           className="object-cover"
           priority={index === 0}
         />
@@ -50,8 +46,8 @@ function ProjectSection({ project, index }: { project: Project; index: number })
           className="absolute inset-0"
           style={{
             background: imageFirst
-              ? `linear-gradient(to right, rgba(${isLight ? "255,255,255" : "6,19,31"},0) 72%, rgba(${isLight ? "255,255,255" : "6,19,31"},0.45) 100%)`
-              : `linear-gradient(to left, rgba(${isLight ? "255,255,255" : "6,19,31"},0) 72%, rgba(${isLight ? "255,255,255" : "6,19,31"},0.45) 100%)`,
+              ? "linear-gradient(to right, rgba(255,255,255,0) 72%, rgba(255,255,255,0.45) 100%)"
+              : "linear-gradient(to left, rgba(255,255,255,0) 72%, rgba(255,255,255,0.45) 100%)",
           }}
         />
       </motion.div>
@@ -66,7 +62,7 @@ function ProjectSection({ project, index }: { project: Project; index: number })
         <div
           aria-hidden
           className="pointer-events-none absolute -right-2 top-1/2 -translate-y-1/2 select-none text-[160px] font-black leading-none md:text-[210px]"
-          style={{ color: isLight ? "#082033" : "#ffffff", opacity: 0.04 }}
+          style={{ color: "#082033", opacity: 0.04 }}
         >
           {num}
         </div>
@@ -90,29 +86,19 @@ function ProjectSection({ project, index }: { project: Project; index: number })
             >
               {project.service}
             </span>
-            <span
-              className={`font-mono text-xs font-bold ${isLight ? "text-[#082033]/20" : "text-white/18"}`}
-            >
+            <span className="font-mono text-xs font-bold text-[#082033]/20">
               #{num}
             </span>
           </div>
 
           {/* Location */}
-          <div
-            className={`mb-3 flex items-center gap-1.5 text-sm font-semibold ${
-              isLight ? "text-[#1b6cb6]" : "text-[#2DBA45]"
-            }`}
-          >
+          <div className="mb-3 flex items-center gap-1.5 text-sm font-semibold text-[#1b6cb6]">
             <MapPin size={14} strokeWidth={2.5} />
             {project.location}
           </div>
 
           {/* Title */}
-          <h2
-            className={`mb-8 text-3xl font-black leading-[1.07] tracking-tight sm:text-4xl xl:text-[2.6rem] ${
-              isLight ? "text-[#082033]" : "text-white"
-            }`}
-          >
+          <h2 className="mb-8 text-3xl font-black leading-[1.07] tracking-tight text-[#082033] sm:text-4xl xl:text-[2.6rem]">
             {project.name}
           </h2>
 
@@ -131,18 +117,10 @@ function ProjectSection({ project, index }: { project: Project; index: number })
                   {i + 1}
                 </div>
                 <div>
-                  <p
-                    className={`mb-1 text-[10px] font-bold uppercase tracking-[0.16em] ${
-                      isLight ? "text-[#0077C8]" : "text-[#2DBA45]"
-                    }`}
-                  >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#0077C8]">
                     {item.label}
                   </p>
-                  <p
-                    className={`text-sm leading-relaxed ${
-                      isLight ? "text-[#566a7a]" : "text-white/65"
-                    }`}
-                  >
+                  <p className="text-sm leading-relaxed text-[#566a7a]">
                     {item.text}
                   </p>
                 </div>
@@ -160,28 +138,14 @@ function ProjectSection({ project, index }: { project: Project; index: number })
                 key={s.label}
                 className="rounded-xl px-4 py-2.5"
                 style={{
-                  background: isLight
-                    ? "rgba(0,119,200,0.06)"
-                    : "rgba(255,255,255,0.06)",
-                  border: `1px solid ${
-                    isLight ? "rgba(0,119,200,0.14)" : "rgba(255,255,255,0.1)"
-                  }`,
+                  background: "rgba(0,119,200,0.06)",
+                  border: "1px solid rgba(0,119,200,0.14)",
                 }}
               >
-                <p
-                  className={`text-[10px] uppercase tracking-wider ${
-                    isLight ? "text-[#566a7a]" : "text-white/40"
-                  }`}
-                >
+                <p className="text-[10px] uppercase tracking-wider text-[#566a7a]">
                   {s.label}
                 </p>
-                <p
-                  className={`text-sm font-bold ${
-                    isLight ? "text-[#082033]" : "text-white"
-                  }`}
-                >
-                  {s.value}
-                </p>
+                <p className="text-sm font-bold text-[#082033]">{s.value}</p>
               </div>
             ))}
           </div>
@@ -189,11 +153,7 @@ function ProjectSection({ project, index }: { project: Project; index: number })
           {/* CTA */}
           <Link
             href={`/proyectos/${project.slug}`}
-            className={`group inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold transition-all duration-200 ${
-              isLight
-                ? "bg-[#082033] text-white hover:bg-[#0d2d54]"
-                : "bg-[#2DBA45] text-white hover:bg-[#26a33d]"
-            }`}
+            className="group inline-flex items-center gap-2 rounded-xl bg-[#2DBA45] px-6 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:bg-[#26a33d]"
           >
             Ver caso completo
             <ArrowRight

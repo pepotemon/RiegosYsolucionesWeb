@@ -45,6 +45,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           alt={project.name}
           fill
           sizes="100vw"
+          quality={90}
           className="object-cover"
           priority
         />
@@ -191,6 +192,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   alt={`${project.name} — vista general`}
                   fill
                   sizes="(max-width: 768px) 100vw, 90vw"
+                  quality={90}
                   className="object-cover"
                 />
               </div>
@@ -207,6 +209,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         alt={`${project.name} — foto ${i + 2}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 45vw"
+                        quality={90}
                         className="object-cover"
                       />
                     </div>

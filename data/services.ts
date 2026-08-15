@@ -67,7 +67,7 @@ export const services: Service[] = [
           "Depende del área, la complejidad del diseño y las condiciones del terreno. Proyectos pequeños pueden completarse en pocos días; proyectos medianos o grandes pueden requerir semanas. Antes de iniciar la obra entregamos un cronograma claro.",
       },
     ],
-    relatedProjectSlugs: ["riego-tecnificado-finca-la-esperanza"],
+    relatedProjectSlugs: [],
   },
 
   {
@@ -128,7 +128,7 @@ export const services: Service[] = [
           "Sí. La filtración es parte del diseño hidráulico, no un accesorio. Según la calidad del agua y el uso final, dimensionamos filtros de malla, anillas, arena o combinados para proteger los equipos y garantizar la calidad del agua distribuida.",
       },
     ],
-    relatedProjectSlugs: ["riego-tecnificado-finca-la-esperanza"],
+    relatedProjectSlugs: [],
   },
 
   {
@@ -185,7 +185,7 @@ export const services: Service[] = [
           "Nuestro enfoque es la ingeniería del sistema de fertirriego: el diseño, la instalación y la calibración de los equipos. Para el plan nutricional del cultivo recomendamos trabajar con un agrónomo especializado, con quien podemos coordinar para que el sistema funcione en línea con las recomendaciones técnicas.",
       },
     ],
-    relatedProjectSlugs: ["riego-tecnificado-finca-la-esperanza"],
+    relatedProjectSlugs: [],
   },
 
   {
@@ -244,7 +244,7 @@ export const services: Service[] = [
           "Realizamos un diagnóstico técnico del sistema: revisamos presiones, caudales, estado de los componentes, diseño original y operación actual. Con base en ese diagnóstico elaboramos un plan de mejora o corrección, con las alternativas y sus costos estimados.",
       },
     ],
-    relatedProjectSlugs: ["riego-tecnificado-finca-la-esperanza"],
+    relatedProjectSlugs: [],
   },
 
   {
@@ -303,7 +303,7 @@ export const services: Service[] = [
           "Diseñamos los sistemas con protecciones eléctricas y, según el nivel de criticidad del proyecto, con respaldo de energía o válvulas de operación manual que permiten continuar el riego si el sistema automático falla. La resiliencia operativa hace parte del diseño.",
       },
     ],
-    relatedProjectSlugs: ["automatizacion-invernadero-hortalizas"],
+    relatedProjectSlugs: [],
   },
 
   {
@@ -362,7 +362,7 @@ export const services: Service[] = [
           "Los paneles fotovoltaicos tienen una vida útil de 25 a 30 años con muy poco mantenimiento. Los inversores y controladores suelen durar entre 10 y 15 años. Las bombas solares, según el modelo y las condiciones de uso, tienen una vida útil de 8 a 15 años. Con mantenimiento preventivo básico, el sistema es una inversión de muy largo plazo.",
       },
     ],
-    relatedProjectSlugs: ["bombeo-solar-unidad-productiva-norte"],
+    relatedProjectSlugs: ["sistema-bombeo-fotovoltaico-anserma-nuevo"],
   },
 
   {
@@ -421,7 +421,7 @@ export const services: Service[] = [
           "En la mayoría de los casos sí. Nuestro equipo llega a la visita con los componentes más comunes (emisores, conectores, filtros, protecciones eléctricas, entre otros) para resolver en campo sin generar una segunda visita. Para repuestos específicos o poco comunes lo coordinamos con anticipación.",
       },
     ],
-    relatedProjectSlugs: ["riego-tecnificado-finca-la-esperanza"],
+    relatedProjectSlugs: [],
   },
 ];
 

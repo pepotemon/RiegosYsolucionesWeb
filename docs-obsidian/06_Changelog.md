@@ -6,6 +6,17 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.10.0 — 2026-08-15 · Portafolio real: un proyecto, sin ficticios, testimonios ocultos
+
+- ✅ **data/projects.ts** — reemplazado portafolio ficticio (3 proyectos) por único caso real: Sistema de bombeo fotovoltaico, Anserma Nuevo, Valle del Cauca. Eliminados "Riego tecnificado Finca La Esperanza" y "Automatización invernadero hortalizas"
+- ✅ **data/services.ts** — limpiados todos los `relatedProjectSlugs` de proyectos eliminados (6 referencias → `[]`)
+- ✅ **public/images/proyectos/bombeo-solar-fotovoltaico/** — 3 imágenes reales del proyecto (cliente Guillermo Parcero Ramírez)
+- ✅ **app/proyectos/[slug]/page.tsx** — `quality={90}` en hero y galería para mejorar nitidez de fotos locales
+- ✅ **components/projects/ProjectsPageContent.tsx** — eliminada alternancia oscuro/claro; todas las secciones ahora blancas con botón "Ver caso completo" verde
+- ✅ **app/page.tsx** — sección Testimonios oculta hasta contar con testimonios reales
+
+---
+
 ## v1.9.14 — 2026-08-07 · Quitar acceso a Catálogo de la navegación
 
 - ✅ **lib/site.ts** — eliminado item "Catálogo" del array `navItems`
