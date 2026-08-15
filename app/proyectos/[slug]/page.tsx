@@ -174,21 +174,29 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* ── VIDEO ── */}
-      {project.video && (
+      {/* ── VIDEOS ── */}
+      {project.videos && project.videos.length > 0 && (
         <section className="bg-[#06131f] py-24">
           <Container>
             <h2 className="mb-10 text-2xl font-black text-white sm:text-3xl">
-              Video del proyecto
+              {project.videos.length > 1 ? "Videos del proyecto" : "Video del proyecto"}
             </h2>
-            <div className="overflow-hidden rounded-3xl shadow-2xl shadow-black/40">
-              <video
-                src={project.video}
-                controls
-                preload="metadata"
-                playsInline
-                className="w-full"
-              />
+            <div className="flex flex-col gap-6">
+              {project.videos.map((src, i) => (
+                <div
+                  key={src}
+                  className="overflow-hidden rounded-3xl shadow-2xl shadow-black/40"
+                >
+                  <video
+                    src={src}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="w-full"
+                    aria-label={`Video ${i + 1} — ${project.name}`}
+                  />
+                </div>
+              ))}
             </div>
             {project.testimonial && (
               <div

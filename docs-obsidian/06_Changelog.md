@@ -6,6 +6,15 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.11.1 — 2026-08-15 · Video técnico del proyecto solar, campo videos[] escalable
+
+- ✅ **public/videos/bombeo-solar-sistema.mp4** — video técnico del sistema fotovoltaico copiado a assets
+- ✅ **types/project.ts** — `video?: string` reemplazado por `videos?: string[]` para soportar múltiples videos por proyecto
+- ✅ **data/projects.ts** — proyecto bombeo solar: `videos: ["/videos/bombeo-solar-sistema.mp4"]`; Agropepersas: migrado a array `videos`
+- ✅ **app/proyectos/[slug]/page.tsx** — sección de video itera sobre `project.videos[]`; título plural si hay más de uno
+
+---
+
 ## v1.11.0 — 2026-08-15 · Video testimonial Agropepersas en home y proyecto nuevo
 
 - ✅ **public/videos/agropepersas-testimonio.mp4** — video de cliente copiado a assets públicos

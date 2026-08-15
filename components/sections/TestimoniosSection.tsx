@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 
 const FEATURED = {
   slug: "riego-fertirrigacion-pimenton-agropepersas",
-  video: "/videos/agropepersas-testimonio.mp4",
+  video: "/videos/agropepersas-testimonio.mp4", // primer video del array videos
   quote:
     "Vimos una muy buena oferta por parte de Riegos y Soluciones, los cuales nos permitieron tener sistemas de riegos especializados para una fertirrigación, y de tal manera tener un uso eficiente de nuestras aguas y de nuestros riegos para ser amigables con el medio ambiente.",
   name: "Fabián Méndez",

@@ -20,6 +20,7 @@ export const projects: Project[] = [
       "Se diseñó e implementó un sistema de bombeo fotovoltaico compuesto por 72 paneles solares distribuidos en dos bombas de 10 HP, dimensionado específicamente para vencer la carga hidráulica del terreno y garantizar el caudal requerido durante las horas de radiación solar.",
     result:
       "El sistema entrega de forma autónoma los 120 m³ diarios necesarios para el cultivo, eliminando la dependencia de combustible y estabilizando el abastecimiento hídrico sin costos operativos variables.",
+    videos: ["/videos/bombeo-solar-sistema.mp4"],
   },
   {
     slug: "riego-fertirrigacion-pimenton-agropepersas",
@@ -30,7 +31,7 @@ export const projects: Project[] = [
     service: "Riego y fertirrigación",
     image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&q=80",
     gallery: [],
-    video: "/videos/agropepersas-testimonio.mp4",
+    videos: ["/videos/agropepersas-testimonio.mp4"],
     testimonial: {
       name: "Fabián Méndez",
       role: "Director Agronómico — Agropepersas",

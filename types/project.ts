@@ -10,7 +10,7 @@ export type Project = {
   problem: string;
   solution: string;
   result: string;
-  video?: string;
+  videos?: string[];
   testimonial?: {
     name: string;
     role: string;
