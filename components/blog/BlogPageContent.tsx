@@ -202,28 +202,6 @@ export function BlogPageContent({ posts }: { posts: BlogPost[] }) {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.62, delay: 0.33 }}
-            className="mx-auto mt-14 flex flex-wrap justify-center gap-x-14 gap-y-7"
-          >
-            {[
-              { value: `${posts.length}`, label: "Artículos publicados" },
-              { value: "5", label: "Temas técnicos" },
-              { value: "Gratis", label: "Sin suscripción" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="text-4xl font-black text-white sm:text-5xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1.5 text-[10px] uppercase tracking-[0.18em] text-white/38">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.62 }}
