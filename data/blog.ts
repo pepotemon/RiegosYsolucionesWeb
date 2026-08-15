@@ -5,7 +5,7 @@ export const blogPosts: BlogPost[] = [
     slug: "como-elegir-un-sistema-de-riego",
     title: "Como elegir un sistema de riego para su cultivo",
     excerpt: "Factores tecnicos y comerciales para seleccionar una solucion eficiente segun cultivo, agua y terreno.",
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1777063012749-fc1a709aa617?auto=format&fit=crop&w=1200&q=80",
     date: "2026-01-15",
     readTime: "5 min",
     content: [
@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     slug: "tipos-de-bombas-agricolas",
     title: "Tipos de bombas agricolas",
     excerpt: "Una guia sencilla para entender bombas centrifugas, sumergibles y solares en proyectos rurales.",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1764697761858-e126b8c7aaa6?auto=format&fit=crop&w=1200&q=80",
     date: "2026-01-22",
     readTime: "4 min",
     content: [
@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
     slug: "como-ahorrar-agua-en-una-finca",
     title: "Como ahorrar agua en una finca",
     excerpt: "Practicas para reducir desperdicios y mejorar la eficiencia hidrica sin comprometer la produccion.",
-    image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1773247290009-a45ea0232d11?auto=format&fit=crop&w=1200&q=80",
     date: "2026-02-02",
     readTime: "5 min",
     content: [
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ventajas-del-riego-por-goteo",
     title: "Ventajas del riego por goteo",
     excerpt: "Por que el riego por goteo puede mejorar eficiencia, control y uniformidad en cultivos especificos.",
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1752775312083-1cefe2f93358?auto=format&fit=crop&w=1200&q=80",
     date: "2026-02-14",
     readTime: "4 min",
     content: [
@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
     slug: "cuando-conviene-perforar-un-pozo-profundo",
     title: "Cuando conviene perforar un pozo profundo",
     excerpt: "Criterios tecnicos para evaluar una fuente subterranea como parte del abastecimiento agricola.",
-    image: "https://images.unsplash.com/photo-1596120236172-231999844ade?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1776196463688-5f21c9632c75?auto=format&fit=crop&w=1200&q=80",
     date: "2026-03-01",
     readTime: "6 min",
     content: [

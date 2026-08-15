@@ -28,7 +28,7 @@ const SECTORS: { name: string; icon: ElementType; image: string }[] = [
   {
     name: "Palma",
     icon: TreePine,
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?auto=format&fit=crop&w=400&q=80",
   },
   {
     name: "Café",
@@ -43,7 +43,7 @@ const SECTORS: { name: string; icon: ElementType; image: string }[] = [
   {
     name: "Arroz",
     icon: Wheat,
-    image: "https://images.unsplash.com/photo-1516996087931-5ae405802f9f?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=400&q=80",
   },
   {
     name: "Invernaderos",

@@ -6,6 +6,25 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.11.4 — 2026-08-15 · Imágenes de Blog verificadas en Unsplash
+
+- ✅ **data/blog.ts** — 5 imágenes reemplazadas con CDN URLs verificadas directamente en Unsplash (confirmado qué muestra cada foto antes de aplicar):
+  - "Como elegir un sistema de riego" → vista aérea de aspersores irrigando campo verde (`photo-1777063012749`)
+  - "Tipos de bombas agrícolas" → bomba de agua real en campo rural con árboles (`photo-1764697761858`)
+  - "Como ahorrar agua en una finca" → agua fluyendo por acequia de riego agrícola (`photo-1773247290009`)
+  - "Ventajas del riego por goteo" → plántula recibiendo agua por goteo en luz dorada (`photo-1752775312083`)
+  - "Cuando conviene perforar un pozo profundo" → equipo perforadora industrial en operación (`photo-1776196463688`)
+
+---
+
+## v1.11.3 — 2026-08-15 · Imágenes coherentes en Sectores, WorkProcess y Blog
+
+- ✅ **SectoresSection** — Arroz: foto de campo de arroz real; Palma: foto de plantación de palma aceitera
+- ✅ **WorkProcess** — "Escuchamos": foto de consulta profesional cara a cara; "Diseñamos": foto de trabajo técnico/planos; "Acompañamos": foto de apretón de manos/soporte
+- ✅ **data/blog.ts** — 5 imágenes reemplazadas: sistema de riego → plantas/siembra; bombas → equipo mecánico; ahorrar agua → campo irrigado; goteo → vegetación exuberante; pozo profundo → perforación/subterráneo
+
+---
+
 ## v1.11.2 — 2026-08-15 · Ajustes de layout en videos (home y proyectos)
 
 - ✅ **TestimoniosSection** — rediseño: quote oscura a la izquierda, video acotado a 300px fijo a la derecha; `max-w-5xl` en el conjunto
