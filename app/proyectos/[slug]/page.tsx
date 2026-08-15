@@ -181,7 +181,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <h2 className="mb-10 text-2xl font-black text-white sm:text-3xl">
               {project.videos.length > 1 ? "Videos del proyecto" : "Video del proyecto"}
             </h2>
-            <div className="flex flex-col gap-6">
+            <div className="mx-auto flex max-w-3xl flex-col gap-6">
               {project.videos.map((src, i) => (
                 <div
                   key={src}
