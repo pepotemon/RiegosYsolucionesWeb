@@ -181,38 +181,58 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <h2 className="mb-10 text-2xl font-black text-white sm:text-3xl">
               {project.videos.length > 1 ? "Videos del proyecto" : "Video del proyecto"}
             </h2>
-            <div className="mx-auto flex max-w-3xl flex-col gap-6">
-              {project.videos.map((src, i) => (
+
+            {/* Si hay testimonio: quote izquierda + video(s) derecha — igual que en home */}
+            {project.testimonial ? (
+              <div className="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-[1fr_300px]">
+                {/* Quote */}
                 <div
-                  key={src}
-                  className="overflow-hidden rounded-3xl shadow-2xl shadow-black/40"
+                  className="flex h-full flex-col justify-between rounded-3xl p-8 md:p-10"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
                 >
-                  <video
-                    src={src}
-                    controls
-                    preload="metadata"
-                    playsInline
-                    className="w-full"
-                    aria-label={`Video ${i + 1} — ${project.name}`}
-                  />
+                  <blockquote className="mb-8 flex-1 text-lg font-medium leading-[1.8] text-white/80">
+                    &ldquo;{project.testimonial.quote}&rdquo;
+                  </blockquote>
+                  <div>
+                    <p className="font-bold text-white">{project.testimonial.name}</p>
+                    <p className="text-sm text-white/40">{project.testimonial.role}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-            {project.testimonial && (
-              <div
-                className="mt-8 rounded-3xl p-8 md:p-10"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                <p className="mb-1 text-base font-bold text-white">
-                  {project.testimonial.name}
-                </p>
-                <p className="mb-5 text-xs text-white/40">{project.testimonial.role}</p>
-                <blockquote className="text-base leading-[1.8] text-white/70">
-                  &ldquo;{project.testimonial.quote}&rdquo;
-                </blockquote>
+
+                {/* Videos apilados, ancho fijo */}
+                <div className="mx-auto flex w-full max-w-[300px] flex-col gap-4">
+                  {project.videos.map((src, i) => (
+                    <div key={src} className="overflow-hidden rounded-2xl shadow-xl shadow-black/40">
+                      <video
+                        src={src}
+                        controls
+                        preload="metadata"
+                        playsInline
+                        className="w-full"
+                        aria-label={`Video ${i + 1} — ${project.name}`}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              /* Sin testimonio: video(s) centrados, ancho contenido */
+              <div className="mx-auto flex max-w-[300px] flex-col gap-4">
+                {project.videos.map((src, i) => (
+                  <div key={src} className="overflow-hidden rounded-2xl shadow-xl shadow-black/40">
+                    <video
+                      src={src}
+                      controls
+                      preload="metadata"
+                      playsInline
+                      className="w-full"
+                      aria-label={`Video ${i + 1} — ${project.name}`}
+                    />
+                  </div>
+                ))}
               </div>
             )}
           </Container>
