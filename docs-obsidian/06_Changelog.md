@@ -6,6 +6,19 @@ Historial de lo que se ha construido y cuándo. Registrar aquí todo cambio sign
 
 ---
 
+## v1.12.2 — 2026-08-20 · Ajuste de encuadre imagen Analizamos
+
+- ✅ `WorkProcess.tsx` — objectPosition de Analizamos ajustado a `center 90%`
+
+---
+
+## v1.12.1 — 2026-08-20 · Imágenes propias en sección Nuestra metodología
+
+- ✅ Copiadas 3 imágenes reales a `public/images/metodologia/` (escuchamos, analizamos, diseñamos)
+- ✅ `WorkProcess.tsx` — STEP_IMAGES pasos 1–3 reemplazados por rutas locales
+
+---
+
 ## v1.12.0 — 2026-08-15 · Blog técnico completo — contenido rico y renderer por bloques
 
 ### Motivación

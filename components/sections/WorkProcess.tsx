@@ -6,11 +6,19 @@ import { BlurFade } from "@/components/ui/blur-fade"
 import { workProcess } from "@/data/services"
 
 const STEP_IMAGES = [
-  "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1400&q=80",
+  "/images/metodologia/escuchamos.jpeg",
+  "/images/metodologia/analizamos.jpeg",
+  "/images/metodologia/diseñamos.jpeg",
   "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1400&q=80",
   "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80",
+]
+
+const STEP_IMAGE_POSITIONS = [
+  "center center",
+  "center 90%",
+  "center center",
+  "center center",
+  "center center",
 ]
 
 export function WorkProcess() {
@@ -53,6 +61,7 @@ export function WorkProcess() {
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
+                  style={{ objectPosition: STEP_IMAGE_POSITIONS[i] }}
                 />
                 {/* Number watermark — blanco con sombra para legibilidad */}
                 <span
